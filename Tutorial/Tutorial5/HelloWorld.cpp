@@ -26,7 +26,7 @@ bool NFCHelloWorld::AfterInit()
 
 bool NFCHelloWorld::Execute()
 {
-	m_pWSModule->Execute();
+	//m_pWSModule->Execute();
  
     return true;
 }

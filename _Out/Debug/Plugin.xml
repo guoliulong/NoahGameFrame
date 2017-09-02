@@ -65,12 +65,13 @@
 	</AIServer>
 	
 	<TutorialServer>
+		<Plugin Name="NFNetPlugin" />
 		<Plugin Name="NFKernelPlugin" />
 		<Plugin Name="NFConfigPlugin" />
-		
 		<Plugin Name="NFLogPlugin" />
 		<Plugin Name="NFActorPlugin" />
-		<Plugin Name="Tutorial4Plugin" />
+		<Plugin Name="NFNavigationPlugin" />
+		<Plugin Name="Tutorial6" />
     	<ConfigPath Name="../" />		
 	</TutorialServer>
 </XML>

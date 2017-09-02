@@ -488,8 +488,8 @@ public:
 		{
 			return mvList[index];
 		}
-
-		return NF_SHARE_PTR<NFData>();
+		throw "mvList 应该是够的，因为前面有判断，如果不够会调用这个AddStatck(); 自动填充";
+		//return NF_SHARE_PTR<NFData>();
 	}
 
 	virtual bool Concat(const NFDataList& src)

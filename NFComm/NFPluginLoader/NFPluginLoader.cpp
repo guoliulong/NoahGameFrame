@@ -100,9 +100,10 @@ void ThreadFunc()
 
 void CreateBackThread()
 {
-    gThread = std::thread(std::bind(&ThreadFunc));
-    auto f = std::async (std::launch::deferred, std::bind(ThreadFunc));
+    gThread = std::thread(std::bind(ThreadFunc));
+   // auto f = std::async (std::launch::deferred, std::bind(ThreadFunc));
     std::cout << "CreateBackThread, thread ID = " << gThread.get_id() << std::endl;
+	
 }
 
 void InitDaemon()
