@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>NFMessage</RootNamespace>
     <AssemblyName>NFMessage</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <TargetFrameworkProfile />
@@ -51,7 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="protobuf-net">
-      <HintPath>..\..\..\GoogleMap\Server\NFComm\NFMessageDefine\CoreOnly\ios\protobuf-net.dll</HintPath>
+      <HintPath>.\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
@@ -65,6 +65,8 @@
     <Compile Include="NFMsgShare.cs" />
     <Compile Include="NFMsgURl.cs" />
     <Compile Include="NFSLGDefine.cs" />
+    <Compile Include="XNFDefine.cs" />
+    <Compile Include="XNFMsgBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
