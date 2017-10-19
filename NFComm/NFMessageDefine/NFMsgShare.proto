@@ -4,6 +4,17 @@ import "NFDefine.proto";
 import "NFMsgBase.proto";
 
 
+message HeroInfo
+{
+	required int32 hero_id = 1; //hero id @ heroconfig
+}
+
+message PlayerInfo
+{
+    required bytes player_name = 1; //player nick_name
+    repeated HeroInfo hero_list = 2; // player's heros
+}
+
 //除 去基础对象身上的属性外，这里全部游戏中的逻辑协议
 
 message ReqEnterGameServer

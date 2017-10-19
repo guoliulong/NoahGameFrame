@@ -65,8 +65,6 @@
     <Compile Include="NFMsgShare.cs" />
     <Compile Include="NFMsgURl.cs" />
     <Compile Include="NFSLGDefine.cs" />
-    <Compile Include="XNFDefine.cs" />
-    <Compile Include="XNFMsgBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
