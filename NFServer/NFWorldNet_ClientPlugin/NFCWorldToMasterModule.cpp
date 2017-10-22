@@ -205,7 +205,10 @@ void NFCWorldToMasterModule::OnSelectServerProcess(const NFSOCK nSockIndex, cons
 
 		m_pNetClientModule->SendSuitByPB(NF_SERVER_TYPES::NF_ST_MASTER, xMsg.account(), NFMsg::EGMI_ACK_CONNECT_WORLD, xData);
 	}
-
+	else
+	{
+		m_pLogModule->LogNormal(NFILogModule::NLL_ERROR_NORMAL, NFGUID(0, nSockIndex), "OnSelectServerProcess", "no PorxyServer Start", __FUNCTION__, __LINE__);
+	}
 }
 
 void NFCWorldToMasterModule::OnKickClientProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)

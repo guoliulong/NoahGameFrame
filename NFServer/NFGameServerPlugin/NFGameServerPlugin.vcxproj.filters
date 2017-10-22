@@ -13,6 +13,9 @@
     <Filter Include="NFNPCRefreshModule">
       <UniqueIdentifier>{c918611e-a4d0-445a-98cd-c048b4f6d003}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameSyncGameModule">
+      <UniqueIdentifier>{fb0075f4-7f06-4f3b-b6a4-61f4f91645f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NFGameServerPlugin.h" />
@@ -34,6 +37,12 @@
     </ClInclude>
     <ClInclude Include="NFCNPCRefreshModule.h">
       <Filter>NFNPCRefreshModule</Filter>
+    </ClInclude>
+    <ClInclude Include="IFrameSyncGameModlule.h">
+      <Filter>FrameSyncGameModule</Filter>
+    </ClInclude>
+    <ClInclude Include="CFrameSyncGameModlule.h">
+      <Filter>FrameSyncGameModule</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +66,12 @@
     </ClCompile>
     <ClCompile Include="NFCNPCRefreshModule.cpp">
       <Filter>NFNPCRefreshModule</Filter>
+    </ClCompile>
+    <ClCompile Include="IFrameSyncGameModlule.cpp">
+      <Filter>FrameSyncGameModule</Filter>
+    </ClCompile>
+    <ClCompile Include="CFrameSyncGameModlule.cpp">
+      <Filter>FrameSyncGameModule</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
