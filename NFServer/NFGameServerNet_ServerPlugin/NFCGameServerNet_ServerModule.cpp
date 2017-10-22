@@ -212,6 +212,7 @@ void NFCGameServerNet_ServerModule::OnClienEnterGameProcess(const NFSOCK nSockIn
 	NF_SHARE_PTR<NFIGameServerNet_ServerModule::GateServerInfo> pGateServerinfo = GetGateServerInfoBySockIndex(nSockIndex);
 	if (nullptr == pGateServerinfo)
 	{
+		m_pLogModule->LogNormal(NFILogModule::NLL_ERROR_NORMAL, nRoleID, "not find gateserver","", __FUNCTION__, __LINE__);
 		return;
 	}
 
@@ -223,6 +224,7 @@ void NFCGameServerNet_ServerModule::OnClienEnterGameProcess(const NFSOCK nSockIn
 
 	if (nGateID < 0)
 	{
+		m_pLogModule->LogNormal(NFILogModule::NLL_ERROR_NORMAL, nRoleID, "not find gateserver", "", __FUNCTION__, __LINE__);
 		return;
 	}
 
@@ -1792,12 +1794,13 @@ bool NFCGameServerNet_ServerModule::AddPlayerGateInfo(const NFGUID& nRoleID, con
 {
     if (nGateID <= 0)
     {
-        
+		m_pLogModule->LogNormal(NFILogModule::NLL_ERROR_NORMAL, nClientID, "not has a GateID error", "", __FUNCTION__, __LINE__);
         return false;
     }
 
     if (nClientID.IsNull())
     {
+		m_pLogModule->LogNormal(NFILogModule::NLL_ERROR_NORMAL, nClientID, " not has a nClientID", "", __FUNCTION__, __LINE__);
         return false;
     }
 
