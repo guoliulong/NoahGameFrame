@@ -378,7 +378,7 @@ public:
     {
         return mnClientID;
     }
-
+	//网络连接成功时候,创建的一个NetObject的一个ID
     void SetClientID(const NFGUID& xClientID)
     {
         mnClientID = xClientID;
