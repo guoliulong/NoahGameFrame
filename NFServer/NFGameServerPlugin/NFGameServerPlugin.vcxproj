@@ -97,8 +97,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CFrameSyncGameModlule.h" />
-    <ClInclude Include="IFrameSyncGameModlule.h" />
+    <ClInclude Include="CFrameSyncGameModule.h" />
+    <ClInclude Include="IFrameSyncGameModule.h" />
     <ClInclude Include="NFCGameServerModule.h" />
     <ClInclude Include="NFCLevelModule.h" />
     <ClInclude Include="NFCNPCRefreshModule.h" />
@@ -109,7 +109,7 @@
     <ClInclude Include="NFGameServerPlugin.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CFrameSyncGameModlule.cpp" />
+    <ClCompile Include="CFrameSyncGameModule.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -118,7 +118,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="IFrameSyncGameModlule.cpp" />
+    <ClCompile Include="IFrameSyncGameModule.cpp" />
     <ClCompile Include="NFCGameServerModule.cpp" />
     <ClCompile Include="NFCLevelModule.cpp" />
     <ClCompile Include="NFCNPCRefreshModule.cpp" />

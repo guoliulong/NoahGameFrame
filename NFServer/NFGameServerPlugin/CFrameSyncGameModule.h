@@ -1,7 +1,8 @@
-#pragma once
-#include "IFrameSyncGameModlule.h"
+#ifndef CFRAMESYNC_GAME_MODULE_H
+#define CFRAMESYNC_GAME_MODULE_H
 
-
+#include "IFrameSyncGameModule.h"
+#include "NFComm/NFPluginModule/NFINetModule.h"
 
 struct BattleMatchPlayerInfo
 {
@@ -14,12 +15,12 @@ struct BattleInfo
 	BattleMatchPlayerInfo playerB;
 };
 
-class CFrameSyncGameModlule :
-	public IFrameSyncGameModlule
+class CFrameSyncGameModule :
+	public IFrameSyncGameModule
 {
 public:
-	CFrameSyncGameModlule();
-	virtual ~CFrameSyncGameModlule();
+	CFrameSyncGameModule(NFIPluginManager* p);
+	virtual ~CFrameSyncGameModule();
 
 
 	virtual bool Init();
@@ -31,8 +32,9 @@ private:
 	void OnReqBattleMatchProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
 
 private:
-	std::map<NFGUID, BattleInfo> mRuningBattle;
-	std::vector<BattleMatchPlayerInfo> mMatchingPlayers;
-
+	std::map<NFGUID, struct BattleInfo> mRuningBattle;
+	std::vector<struct BattleMatchPlayerInfo> mMatchingPlayers;
 	NFINetModule* m_pNetModule;
 };
+
+#endif 

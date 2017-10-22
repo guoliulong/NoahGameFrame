@@ -1,4 +1,4 @@
-#include "CFrameSyncGameModlule.h"
+#include "CFrameSyncGameModule.h"
 #include "NFComm/NFMessageDefine/NFMsgDefine.h"
 #include "NFComm/NFPluginModule/NFINetModule.h"
 #include "NFComm/NFPluginModule/NFILogModule.h"
@@ -22,26 +22,29 @@
 //EGMI_NTF_GC_BATTLE_FRAMEFINISH = 2000; //??????????????????????????
 
 
-CFrameSyncGameModlule::CFrameSyncGameModlule()
+CFrameSyncGameModule::CFrameSyncGameModule(NFIPluginManager* p)
+{
+	pPluginManager = p;
+}
+
+
+CFrameSyncGameModule::~CFrameSyncGameModule()
 {
 }
 
-CFrameSyncGameModlule::~CFrameSyncGameModlule()
-{
-}
-
-bool CFrameSyncGameModlule::Init()
+bool CFrameSyncGameModule::Init()
 {
 	m_pNetModule = pPluginManager->FindModule<NFINetModule>();
 	return true;
 }
 
-bool CFrameSyncGameModlule::AfterInit()
+bool CFrameSyncGameModule::AfterInit()
 {
-	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_BATTLE_MATCH, this, &CFrameSyncGameModlule::OnReqBattleMatchProcess);
+	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_BATTLE_MATCH, this, &CFrameSyncGameModule::OnReqBattleMatchProcess);
+	return true;
 }
 
-void CFrameSyncGameModlule::OnReqBattleMatchProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
+void CFrameSyncGameModule::OnReqBattleMatchProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
 {
 	NFGUID nClientID;
 	NFMsg::ReqBattleMatch xMsg;
@@ -65,5 +68,5 @@ void CFrameSyncGameModlule::OnReqBattleMatchProcess(const NFSOCK nSockIndex, con
 	pData->set_last_offline_ip(0);
 	pData->set_view_record("");*/
 
-	m_pNetModule->SendMsgPB(NFMsg::EGMI_ACK_ROLE_LIST, xAckRoleLiteInfoList, nSockIndex, nClientID);
+	//m_pNetModule->SendMsgPB(NFMsg::EGMI_ACK_ROLE_LIST, xAckRoleLiteInfoList, nSockIndex, nClientID);
 }

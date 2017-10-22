@@ -38,10 +38,10 @@
     <ClInclude Include="NFCNPCRefreshModule.h">
       <Filter>NFNPCRefreshModule</Filter>
     </ClInclude>
-    <ClInclude Include="IFrameSyncGameModlule.h">
+    <ClInclude Include="CFrameSyncGameModule.h">
       <Filter>FrameSyncGameModule</Filter>
     </ClInclude>
-    <ClInclude Include="CFrameSyncGameModlule.h">
+    <ClInclude Include="IFrameSyncGameModule.h">
       <Filter>FrameSyncGameModule</Filter>
     </ClInclude>
   </ItemGroup>
@@ -67,10 +67,10 @@
     <ClCompile Include="NFCNPCRefreshModule.cpp">
       <Filter>NFNPCRefreshModule</Filter>
     </ClCompile>
-    <ClCompile Include="IFrameSyncGameModlule.cpp">
+    <ClCompile Include="CFrameSyncGameModule.cpp">
       <Filter>FrameSyncGameModule</Filter>
     </ClCompile>
-    <ClCompile Include="CFrameSyncGameModlule.cpp">
+    <ClCompile Include="IFrameSyncGameModule.cpp">
       <Filter>FrameSyncGameModule</Filter>
     </ClCompile>
   </ItemGroup>
