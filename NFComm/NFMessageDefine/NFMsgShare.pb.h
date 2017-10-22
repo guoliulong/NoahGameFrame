@@ -36,6 +36,8 @@ void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
 void protobuf_AssignDesc_NFMsgShare_2eproto();
 void protobuf_ShutdownFile_NFMsgShare_2eproto();
 
+class HeroInfo;
+class PlayerInfo;
 class ReqEnterGameServer;
 class ReqAckEnterGameSuccess;
 class ReqHeartBeat;
@@ -124,6 +126,13 @@ class ReqPVPApplyMatch;
 class AckPVPApplyMatch;
 class ReqCreatePVPEctype;
 class AckCreatePVPEctype;
+class ReqBattleMatch;
+class AckBattleMatch;
+class ReqBattleStart;
+class AckBattleStart;
+class NtfCGBattleFrameCommand;
+class NtfGCBattleFrameCommand;
+class NtfGCBattleFrameFinish;
 
 enum ReqAckSynData_SynType {
   ReqAckSynData_SynType_EST_GROUP = 1,
@@ -330,6 +339,200 @@ inline bool ReqPVPApplyMatch_EApplyType_Parse(
     ReqPVPApplyMatch_EApplyType_descriptor(), name, value);
 }
 // ===================================================================
+
+class LIBPROTOC_EXPORT HeroInfo : public ::google::protobuf::Message {
+ public:
+  HeroInfo();
+  virtual ~HeroInfo();
+
+  HeroInfo(const HeroInfo& from);
+
+  inline HeroInfo& operator=(const HeroInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const HeroInfo& default_instance();
+
+  void Swap(HeroInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  HeroInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const HeroInfo& from);
+  void MergeFrom(const HeroInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 hero_id = 1;
+  inline bool has_hero_id() const;
+  inline void clear_hero_id();
+  static const int kHeroIdFieldNumber = 1;
+  inline ::google::protobuf::int32 hero_id() const;
+  inline void set_hero_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.HeroInfo)
+ private:
+  inline void set_has_hero_id();
+  inline void clear_has_hero_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 hero_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static HeroInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT PlayerInfo : public ::google::protobuf::Message {
+ public:
+  PlayerInfo();
+  virtual ~PlayerInfo();
+
+  PlayerInfo(const PlayerInfo& from);
+
+  inline PlayerInfo& operator=(const PlayerInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PlayerInfo& default_instance();
+
+  void Swap(PlayerInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  PlayerInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PlayerInfo& from);
+  void MergeFrom(const PlayerInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .NFMsg.Ident player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& player_id() const;
+  inline ::NFMsg::Ident* mutable_player_id();
+  inline ::NFMsg::Ident* release_player_id();
+  inline void set_allocated_player_id(::NFMsg::Ident* player_id);
+
+  // required bytes player_name = 2;
+  inline bool has_player_name() const;
+  inline void clear_player_name();
+  static const int kPlayerNameFieldNumber = 2;
+  inline const ::std::string& player_name() const;
+  inline void set_player_name(const ::std::string& value);
+  inline void set_player_name(const char* value);
+  inline void set_player_name(const void* value, size_t size);
+  inline ::std::string* mutable_player_name();
+  inline ::std::string* release_player_name();
+  inline void set_allocated_player_name(::std::string* player_name);
+
+  // repeated .NFMsg.HeroInfo hero_list = 3;
+  inline int hero_list_size() const;
+  inline void clear_hero_list();
+  static const int kHeroListFieldNumber = 3;
+  inline const ::NFMsg::HeroInfo& hero_list(int index) const;
+  inline ::NFMsg::HeroInfo* mutable_hero_list(int index);
+  inline ::NFMsg::HeroInfo* add_hero_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::NFMsg::HeroInfo >&
+      hero_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::NFMsg::HeroInfo >*
+      mutable_hero_list();
+
+  // @@protoc_insertion_point(class_scope:NFMsg.PlayerInfo)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_player_name();
+  inline void clear_has_player_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::NFMsg::Ident* player_id_;
+  ::std::string* player_name_;
+  ::google::protobuf::RepeatedPtrField< ::NFMsg::HeroInfo > hero_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static PlayerInfo* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class LIBPROTOC_EXPORT ReqEnterGameServer : public ::google::protobuf::Message {
  public:
@@ -9680,10 +9883,799 @@ class LIBPROTOC_EXPORT AckCreatePVPEctype : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static AckCreatePVPEctype* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT ReqBattleMatch : public ::google::protobuf::Message {
+ public:
+  ReqBattleMatch();
+  virtual ~ReqBattleMatch();
+
+  ReqBattleMatch(const ReqBattleMatch& from);
+
+  inline ReqBattleMatch& operator=(const ReqBattleMatch& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ReqBattleMatch& default_instance();
+
+  void Swap(ReqBattleMatch* other);
+
+  // implements Message ----------------------------------------------
+
+  ReqBattleMatch* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ReqBattleMatch& from);
+  void MergeFrom(const ReqBattleMatch& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .NFMsg.Ident self_id = 1;
+  inline bool has_self_id() const;
+  inline void clear_self_id();
+  static const int kSelfIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& self_id() const;
+  inline ::NFMsg::Ident* mutable_self_id();
+  inline ::NFMsg::Ident* release_self_id();
+  inline void set_allocated_self_id(::NFMsg::Ident* self_id);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.ReqBattleMatch)
+ private:
+  inline void set_has_self_id();
+  inline void clear_has_self_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::NFMsg::Ident* self_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static ReqBattleMatch* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT AckBattleMatch : public ::google::protobuf::Message {
+ public:
+  AckBattleMatch();
+  virtual ~AckBattleMatch();
+
+  AckBattleMatch(const AckBattleMatch& from);
+
+  inline AckBattleMatch& operator=(const AckBattleMatch& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AckBattleMatch& default_instance();
+
+  void Swap(AckBattleMatch* other);
+
+  // implements Message ----------------------------------------------
+
+  AckBattleMatch* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AckBattleMatch& from);
+  void MergeFrom(const AckBattleMatch& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bool isSuccessed = 1;
+  inline bool has_issuccessed() const;
+  inline void clear_issuccessed();
+  static const int kIsSuccessedFieldNumber = 1;
+  inline bool issuccessed() const;
+  inline void set_issuccessed(bool value);
+
+  // optional .NFMsg.PlayerInfo playerA = 2;
+  inline bool has_playera() const;
+  inline void clear_playera();
+  static const int kPlayerAFieldNumber = 2;
+  inline const ::NFMsg::PlayerInfo& playera() const;
+  inline ::NFMsg::PlayerInfo* mutable_playera();
+  inline ::NFMsg::PlayerInfo* release_playera();
+  inline void set_allocated_playera(::NFMsg::PlayerInfo* playera);
+
+  // optional .NFMsg.PlayerInfo playerB = 3;
+  inline bool has_playerb() const;
+  inline void clear_playerb();
+  static const int kPlayerBFieldNumber = 3;
+  inline const ::NFMsg::PlayerInfo& playerb() const;
+  inline ::NFMsg::PlayerInfo* mutable_playerb();
+  inline ::NFMsg::PlayerInfo* release_playerb();
+  inline void set_allocated_playerb(::NFMsg::PlayerInfo* playerb);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.AckBattleMatch)
+ private:
+  inline void set_has_issuccessed();
+  inline void clear_has_issuccessed();
+  inline void set_has_playera();
+  inline void clear_has_playera();
+  inline void set_has_playerb();
+  inline void clear_has_playerb();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::NFMsg::PlayerInfo* playera_;
+  ::NFMsg::PlayerInfo* playerb_;
+  bool issuccessed_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static AckBattleMatch* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT ReqBattleStart : public ::google::protobuf::Message {
+ public:
+  ReqBattleStart();
+  virtual ~ReqBattleStart();
+
+  ReqBattleStart(const ReqBattleStart& from);
+
+  inline ReqBattleStart& operator=(const ReqBattleStart& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ReqBattleStart& default_instance();
+
+  void Swap(ReqBattleStart* other);
+
+  // implements Message ----------------------------------------------
+
+  ReqBattleStart* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ReqBattleStart& from);
+  void MergeFrom(const ReqBattleStart& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .NFMsg.Ident self_id = 1;
+  inline bool has_self_id() const;
+  inline void clear_self_id();
+  static const int kSelfIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& self_id() const;
+  inline ::NFMsg::Ident* mutable_self_id();
+  inline ::NFMsg::Ident* release_self_id();
+  inline void set_allocated_self_id(::NFMsg::Ident* self_id);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.ReqBattleStart)
+ private:
+  inline void set_has_self_id();
+  inline void clear_has_self_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::NFMsg::Ident* self_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static ReqBattleStart* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT AckBattleStart : public ::google::protobuf::Message {
+ public:
+  AckBattleStart();
+  virtual ~AckBattleStart();
+
+  AckBattleStart(const AckBattleStart& from);
+
+  inline AckBattleStart& operator=(const AckBattleStart& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AckBattleStart& default_instance();
+
+  void Swap(AckBattleStart* other);
+
+  // implements Message ----------------------------------------------
+
+  AckBattleStart* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AckBattleStart& from);
+  void MergeFrom(const AckBattleStart& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .NFMsg.EGameEventCode event_code = 1;
+  inline bool has_event_code() const;
+  inline void clear_event_code();
+  static const int kEventCodeFieldNumber = 1;
+  inline ::NFMsg::EGameEventCode event_code() const;
+  inline void set_event_code(::NFMsg::EGameEventCode value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.AckBattleStart)
+ private:
+  inline void set_has_event_code();
+  inline void clear_has_event_code();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  int event_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static AckBattleStart* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT NtfCGBattleFrameCommand : public ::google::protobuf::Message {
+ public:
+  NtfCGBattleFrameCommand();
+  virtual ~NtfCGBattleFrameCommand();
+
+  NtfCGBattleFrameCommand(const NtfCGBattleFrameCommand& from);
+
+  inline NtfCGBattleFrameCommand& operator=(const NtfCGBattleFrameCommand& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NtfCGBattleFrameCommand& default_instance();
+
+  void Swap(NtfCGBattleFrameCommand* other);
+
+  // implements Message ----------------------------------------------
+
+  NtfCGBattleFrameCommand* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NtfCGBattleFrameCommand& from);
+  void MergeFrom(const NtfCGBattleFrameCommand& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .NFMsg.Ident self_id = 1;
+  inline bool has_self_id() const;
+  inline void clear_self_id();
+  static const int kSelfIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& self_id() const;
+  inline ::NFMsg::Ident* mutable_self_id();
+  inline ::NFMsg::Ident* release_self_id();
+  inline void set_allocated_self_id(::NFMsg::Ident* self_id);
+
+  // required int32 skillId = 2;
+  inline bool has_skillid() const;
+  inline void clear_skillid();
+  static const int kSkillIdFieldNumber = 2;
+  inline ::google::protobuf::int32 skillid() const;
+  inline void set_skillid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.NtfCGBattleFrameCommand)
+ private:
+  inline void set_has_self_id();
+  inline void clear_has_self_id();
+  inline void set_has_skillid();
+  inline void clear_has_skillid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::NFMsg::Ident* self_id_;
+  ::google::protobuf::int32 skillid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static NtfCGBattleFrameCommand* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT NtfGCBattleFrameCommand : public ::google::protobuf::Message {
+ public:
+  NtfGCBattleFrameCommand();
+  virtual ~NtfGCBattleFrameCommand();
+
+  NtfGCBattleFrameCommand(const NtfGCBattleFrameCommand& from);
+
+  inline NtfGCBattleFrameCommand& operator=(const NtfGCBattleFrameCommand& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NtfGCBattleFrameCommand& default_instance();
+
+  void Swap(NtfGCBattleFrameCommand* other);
+
+  // implements Message ----------------------------------------------
+
+  NtfGCBattleFrameCommand* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NtfGCBattleFrameCommand& from);
+  void MergeFrom(const NtfGCBattleFrameCommand& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .NFMsg.Ident self_id = 1;
+  inline bool has_self_id() const;
+  inline void clear_self_id();
+  static const int kSelfIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& self_id() const;
+  inline ::NFMsg::Ident* mutable_self_id();
+  inline ::NFMsg::Ident* release_self_id();
+  inline void set_allocated_self_id(::NFMsg::Ident* self_id);
+
+  // required int32 skillId = 2;
+  inline bool has_skillid() const;
+  inline void clear_skillid();
+  static const int kSkillIdFieldNumber = 2;
+  inline ::google::protobuf::int32 skillid() const;
+  inline void set_skillid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.NtfGCBattleFrameCommand)
+ private:
+  inline void set_has_self_id();
+  inline void clear_has_self_id();
+  inline void set_has_skillid();
+  inline void clear_has_skillid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::NFMsg::Ident* self_id_;
+  ::google::protobuf::int32 skillid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static NtfGCBattleFrameCommand* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT NtfGCBattleFrameFinish : public ::google::protobuf::Message {
+ public:
+  NtfGCBattleFrameFinish();
+  virtual ~NtfGCBattleFrameFinish();
+
+  NtfGCBattleFrameFinish(const NtfGCBattleFrameFinish& from);
+
+  inline NtfGCBattleFrameFinish& operator=(const NtfGCBattleFrameFinish& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NtfGCBattleFrameFinish& default_instance();
+
+  void Swap(NtfGCBattleFrameFinish* other);
+
+  // implements Message ----------------------------------------------
+
+  NtfGCBattleFrameFinish* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NtfGCBattleFrameFinish& from);
+  void MergeFrom(const NtfGCBattleFrameFinish& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 timestamp = 1;
+  inline bool has_timestamp() const;
+  inline void clear_timestamp();
+  static const int kTimestampFieldNumber = 1;
+  inline ::google::protobuf::int64 timestamp() const;
+  inline void set_timestamp(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.NtfGCBattleFrameFinish)
+ private:
+  inline void set_has_timestamp();
+  inline void clear_has_timestamp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 timestamp_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static NtfGCBattleFrameFinish* default_instance_;
+};
 // ===================================================================
 
 
 // ===================================================================
+
+// HeroInfo
+
+// required int32 hero_id = 1;
+inline bool HeroInfo::has_hero_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void HeroInfo::set_has_hero_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void HeroInfo::clear_has_hero_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void HeroInfo::clear_hero_id() {
+  hero_id_ = 0;
+  clear_has_hero_id();
+}
+inline ::google::protobuf::int32 HeroInfo::hero_id() const {
+  return hero_id_;
+}
+inline void HeroInfo::set_hero_id(::google::protobuf::int32 value) {
+  set_has_hero_id();
+  hero_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PlayerInfo
+
+// required .NFMsg.Ident player_id = 1;
+inline bool PlayerInfo::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PlayerInfo::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PlayerInfo::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PlayerInfo::clear_player_id() {
+  if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
+  clear_has_player_id();
+}
+inline const ::NFMsg::Ident& PlayerInfo::player_id() const {
+  return player_id_ != NULL ? *player_id_ : *default_instance_->player_id_;
+}
+inline ::NFMsg::Ident* PlayerInfo::mutable_player_id() {
+  set_has_player_id();
+  if (player_id_ == NULL) player_id_ = new ::NFMsg::Ident;
+  return player_id_;
+}
+inline ::NFMsg::Ident* PlayerInfo::release_player_id() {
+  clear_has_player_id();
+  ::NFMsg::Ident* temp = player_id_;
+  player_id_ = NULL;
+  return temp;
+}
+inline void PlayerInfo::set_allocated_player_id(::NFMsg::Ident* player_id) {
+  delete player_id_;
+  player_id_ = player_id;
+  if (player_id) {
+    set_has_player_id();
+  } else {
+    clear_has_player_id();
+  }
+}
+
+// required bytes player_name = 2;
+inline bool PlayerInfo::has_player_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PlayerInfo::set_has_player_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PlayerInfo::clear_has_player_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PlayerInfo::clear_player_name() {
+  if (player_name_ != &::google::protobuf::internal::kEmptyString) {
+    player_name_->clear();
+  }
+  clear_has_player_name();
+}
+inline const ::std::string& PlayerInfo::player_name() const {
+  return *player_name_;
+}
+inline void PlayerInfo::set_player_name(const ::std::string& value) {
+  set_has_player_name();
+  if (player_name_ == &::google::protobuf::internal::kEmptyString) {
+    player_name_ = new ::std::string;
+  }
+  player_name_->assign(value);
+}
+inline void PlayerInfo::set_player_name(const char* value) {
+  set_has_player_name();
+  if (player_name_ == &::google::protobuf::internal::kEmptyString) {
+    player_name_ = new ::std::string;
+  }
+  player_name_->assign(value);
+}
+inline void PlayerInfo::set_player_name(const void* value, size_t size) {
+  set_has_player_name();
+  if (player_name_ == &::google::protobuf::internal::kEmptyString) {
+    player_name_ = new ::std::string;
+  }
+  player_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* PlayerInfo::mutable_player_name() {
+  set_has_player_name();
+  if (player_name_ == &::google::protobuf::internal::kEmptyString) {
+    player_name_ = new ::std::string;
+  }
+  return player_name_;
+}
+inline ::std::string* PlayerInfo::release_player_name() {
+  clear_has_player_name();
+  if (player_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = player_name_;
+    player_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void PlayerInfo::set_allocated_player_name(::std::string* player_name) {
+  if (player_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete player_name_;
+  }
+  if (player_name) {
+    set_has_player_name();
+    player_name_ = player_name;
+  } else {
+    clear_has_player_name();
+    player_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// repeated .NFMsg.HeroInfo hero_list = 3;
+inline int PlayerInfo::hero_list_size() const {
+  return hero_list_.size();
+}
+inline void PlayerInfo::clear_hero_list() {
+  hero_list_.Clear();
+}
+inline const ::NFMsg::HeroInfo& PlayerInfo::hero_list(int index) const {
+  return hero_list_.Get(index);
+}
+inline ::NFMsg::HeroInfo* PlayerInfo::mutable_hero_list(int index) {
+  return hero_list_.Mutable(index);
+}
+inline ::NFMsg::HeroInfo* PlayerInfo::add_hero_list() {
+  return hero_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::NFMsg::HeroInfo >&
+PlayerInfo::hero_list() const {
+  return hero_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::NFMsg::HeroInfo >*
+PlayerInfo::mutable_hero_list() {
+  return &hero_list_;
+}
+
+// -------------------------------------------------------------------
 
 // ReqEnterGameServer
 
@@ -18203,6 +19195,373 @@ inline ::google::protobuf::int32 AckCreatePVPEctype::applytype() const {
 inline void AckCreatePVPEctype::set_applytype(::google::protobuf::int32 value) {
   set_has_applytype();
   applytype_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ReqBattleMatch
+
+// required .NFMsg.Ident self_id = 1;
+inline bool ReqBattleMatch::has_self_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ReqBattleMatch::set_has_self_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ReqBattleMatch::clear_has_self_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ReqBattleMatch::clear_self_id() {
+  if (self_id_ != NULL) self_id_->::NFMsg::Ident::Clear();
+  clear_has_self_id();
+}
+inline const ::NFMsg::Ident& ReqBattleMatch::self_id() const {
+  return self_id_ != NULL ? *self_id_ : *default_instance_->self_id_;
+}
+inline ::NFMsg::Ident* ReqBattleMatch::mutable_self_id() {
+  set_has_self_id();
+  if (self_id_ == NULL) self_id_ = new ::NFMsg::Ident;
+  return self_id_;
+}
+inline ::NFMsg::Ident* ReqBattleMatch::release_self_id() {
+  clear_has_self_id();
+  ::NFMsg::Ident* temp = self_id_;
+  self_id_ = NULL;
+  return temp;
+}
+inline void ReqBattleMatch::set_allocated_self_id(::NFMsg::Ident* self_id) {
+  delete self_id_;
+  self_id_ = self_id;
+  if (self_id) {
+    set_has_self_id();
+  } else {
+    clear_has_self_id();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// AckBattleMatch
+
+// required bool isSuccessed = 1;
+inline bool AckBattleMatch::has_issuccessed() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AckBattleMatch::set_has_issuccessed() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AckBattleMatch::clear_has_issuccessed() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AckBattleMatch::clear_issuccessed() {
+  issuccessed_ = false;
+  clear_has_issuccessed();
+}
+inline bool AckBattleMatch::issuccessed() const {
+  return issuccessed_;
+}
+inline void AckBattleMatch::set_issuccessed(bool value) {
+  set_has_issuccessed();
+  issuccessed_ = value;
+}
+
+// optional .NFMsg.PlayerInfo playerA = 2;
+inline bool AckBattleMatch::has_playera() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void AckBattleMatch::set_has_playera() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void AckBattleMatch::clear_has_playera() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void AckBattleMatch::clear_playera() {
+  if (playera_ != NULL) playera_->::NFMsg::PlayerInfo::Clear();
+  clear_has_playera();
+}
+inline const ::NFMsg::PlayerInfo& AckBattleMatch::playera() const {
+  return playera_ != NULL ? *playera_ : *default_instance_->playera_;
+}
+inline ::NFMsg::PlayerInfo* AckBattleMatch::mutable_playera() {
+  set_has_playera();
+  if (playera_ == NULL) playera_ = new ::NFMsg::PlayerInfo;
+  return playera_;
+}
+inline ::NFMsg::PlayerInfo* AckBattleMatch::release_playera() {
+  clear_has_playera();
+  ::NFMsg::PlayerInfo* temp = playera_;
+  playera_ = NULL;
+  return temp;
+}
+inline void AckBattleMatch::set_allocated_playera(::NFMsg::PlayerInfo* playera) {
+  delete playera_;
+  playera_ = playera;
+  if (playera) {
+    set_has_playera();
+  } else {
+    clear_has_playera();
+  }
+}
+
+// optional .NFMsg.PlayerInfo playerB = 3;
+inline bool AckBattleMatch::has_playerb() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void AckBattleMatch::set_has_playerb() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void AckBattleMatch::clear_has_playerb() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void AckBattleMatch::clear_playerb() {
+  if (playerb_ != NULL) playerb_->::NFMsg::PlayerInfo::Clear();
+  clear_has_playerb();
+}
+inline const ::NFMsg::PlayerInfo& AckBattleMatch::playerb() const {
+  return playerb_ != NULL ? *playerb_ : *default_instance_->playerb_;
+}
+inline ::NFMsg::PlayerInfo* AckBattleMatch::mutable_playerb() {
+  set_has_playerb();
+  if (playerb_ == NULL) playerb_ = new ::NFMsg::PlayerInfo;
+  return playerb_;
+}
+inline ::NFMsg::PlayerInfo* AckBattleMatch::release_playerb() {
+  clear_has_playerb();
+  ::NFMsg::PlayerInfo* temp = playerb_;
+  playerb_ = NULL;
+  return temp;
+}
+inline void AckBattleMatch::set_allocated_playerb(::NFMsg::PlayerInfo* playerb) {
+  delete playerb_;
+  playerb_ = playerb;
+  if (playerb) {
+    set_has_playerb();
+  } else {
+    clear_has_playerb();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// ReqBattleStart
+
+// required .NFMsg.Ident self_id = 1;
+inline bool ReqBattleStart::has_self_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ReqBattleStart::set_has_self_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ReqBattleStart::clear_has_self_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ReqBattleStart::clear_self_id() {
+  if (self_id_ != NULL) self_id_->::NFMsg::Ident::Clear();
+  clear_has_self_id();
+}
+inline const ::NFMsg::Ident& ReqBattleStart::self_id() const {
+  return self_id_ != NULL ? *self_id_ : *default_instance_->self_id_;
+}
+inline ::NFMsg::Ident* ReqBattleStart::mutable_self_id() {
+  set_has_self_id();
+  if (self_id_ == NULL) self_id_ = new ::NFMsg::Ident;
+  return self_id_;
+}
+inline ::NFMsg::Ident* ReqBattleStart::release_self_id() {
+  clear_has_self_id();
+  ::NFMsg::Ident* temp = self_id_;
+  self_id_ = NULL;
+  return temp;
+}
+inline void ReqBattleStart::set_allocated_self_id(::NFMsg::Ident* self_id) {
+  delete self_id_;
+  self_id_ = self_id;
+  if (self_id) {
+    set_has_self_id();
+  } else {
+    clear_has_self_id();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// AckBattleStart
+
+// required .NFMsg.EGameEventCode event_code = 1;
+inline bool AckBattleStart::has_event_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AckBattleStart::set_has_event_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AckBattleStart::clear_has_event_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AckBattleStart::clear_event_code() {
+  event_code_ = 0;
+  clear_has_event_code();
+}
+inline ::NFMsg::EGameEventCode AckBattleStart::event_code() const {
+  return static_cast< ::NFMsg::EGameEventCode >(event_code_);
+}
+inline void AckBattleStart::set_event_code(::NFMsg::EGameEventCode value) {
+  assert(::NFMsg::EGameEventCode_IsValid(value));
+  set_has_event_code();
+  event_code_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NtfCGBattleFrameCommand
+
+// required .NFMsg.Ident self_id = 1;
+inline bool NtfCGBattleFrameCommand::has_self_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NtfCGBattleFrameCommand::set_has_self_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NtfCGBattleFrameCommand::clear_has_self_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfCGBattleFrameCommand::clear_self_id() {
+  if (self_id_ != NULL) self_id_->::NFMsg::Ident::Clear();
+  clear_has_self_id();
+}
+inline const ::NFMsg::Ident& NtfCGBattleFrameCommand::self_id() const {
+  return self_id_ != NULL ? *self_id_ : *default_instance_->self_id_;
+}
+inline ::NFMsg::Ident* NtfCGBattleFrameCommand::mutable_self_id() {
+  set_has_self_id();
+  if (self_id_ == NULL) self_id_ = new ::NFMsg::Ident;
+  return self_id_;
+}
+inline ::NFMsg::Ident* NtfCGBattleFrameCommand::release_self_id() {
+  clear_has_self_id();
+  ::NFMsg::Ident* temp = self_id_;
+  self_id_ = NULL;
+  return temp;
+}
+inline void NtfCGBattleFrameCommand::set_allocated_self_id(::NFMsg::Ident* self_id) {
+  delete self_id_;
+  self_id_ = self_id;
+  if (self_id) {
+    set_has_self_id();
+  } else {
+    clear_has_self_id();
+  }
+}
+
+// required int32 skillId = 2;
+inline bool NtfCGBattleFrameCommand::has_skillid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NtfCGBattleFrameCommand::set_has_skillid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NtfCGBattleFrameCommand::clear_has_skillid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NtfCGBattleFrameCommand::clear_skillid() {
+  skillid_ = 0;
+  clear_has_skillid();
+}
+inline ::google::protobuf::int32 NtfCGBattleFrameCommand::skillid() const {
+  return skillid_;
+}
+inline void NtfCGBattleFrameCommand::set_skillid(::google::protobuf::int32 value) {
+  set_has_skillid();
+  skillid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NtfGCBattleFrameCommand
+
+// required .NFMsg.Ident self_id = 1;
+inline bool NtfGCBattleFrameCommand::has_self_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NtfGCBattleFrameCommand::set_has_self_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NtfGCBattleFrameCommand::clear_has_self_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfGCBattleFrameCommand::clear_self_id() {
+  if (self_id_ != NULL) self_id_->::NFMsg::Ident::Clear();
+  clear_has_self_id();
+}
+inline const ::NFMsg::Ident& NtfGCBattleFrameCommand::self_id() const {
+  return self_id_ != NULL ? *self_id_ : *default_instance_->self_id_;
+}
+inline ::NFMsg::Ident* NtfGCBattleFrameCommand::mutable_self_id() {
+  set_has_self_id();
+  if (self_id_ == NULL) self_id_ = new ::NFMsg::Ident;
+  return self_id_;
+}
+inline ::NFMsg::Ident* NtfGCBattleFrameCommand::release_self_id() {
+  clear_has_self_id();
+  ::NFMsg::Ident* temp = self_id_;
+  self_id_ = NULL;
+  return temp;
+}
+inline void NtfGCBattleFrameCommand::set_allocated_self_id(::NFMsg::Ident* self_id) {
+  delete self_id_;
+  self_id_ = self_id;
+  if (self_id) {
+    set_has_self_id();
+  } else {
+    clear_has_self_id();
+  }
+}
+
+// required int32 skillId = 2;
+inline bool NtfGCBattleFrameCommand::has_skillid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NtfGCBattleFrameCommand::set_has_skillid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NtfGCBattleFrameCommand::clear_has_skillid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NtfGCBattleFrameCommand::clear_skillid() {
+  skillid_ = 0;
+  clear_has_skillid();
+}
+inline ::google::protobuf::int32 NtfGCBattleFrameCommand::skillid() const {
+  return skillid_;
+}
+inline void NtfGCBattleFrameCommand::set_skillid(::google::protobuf::int32 value) {
+  set_has_skillid();
+  skillid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NtfGCBattleFrameFinish
+
+// optional int64 timestamp = 1;
+inline bool NtfGCBattleFrameFinish::has_timestamp() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NtfGCBattleFrameFinish::set_has_timestamp() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NtfGCBattleFrameFinish::clear_has_timestamp() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfGCBattleFrameFinish::clear_timestamp() {
+  timestamp_ = GOOGLE_LONGLONG(0);
+  clear_has_timestamp();
+}
+inline ::google::protobuf::int64 NtfGCBattleFrameFinish::timestamp() const {
+  return timestamp_;
+}
+inline void NtfGCBattleFrameFinish::set_timestamp(::google::protobuf::int64 value) {
+  set_has_timestamp();
+  timestamp_ = value;
 }
 
 

@@ -11,8 +11,9 @@ message HeroInfo
 
 message PlayerInfo
 {
-    required bytes player_name = 1; //player nick_name
-    repeated HeroInfo hero_list = 2; // player's heros
+	required Ident player_id   = 1;
+    required bytes player_name = 2; //player nick_name
+    repeated HeroInfo hero_list = 3; // player's heros
 }
 
 //除 去基础对象身上的属性外，这里全部游戏中的逻辑协议
@@ -758,3 +759,50 @@ message AckCreatePVPEctype
 	required PVPRoomInfo	xRoomInfo 		= 2;
 	required int32	ApplyType 				= 3;	// 匹配方式，队伍申请还是个人申请
 }
+
+//EGMI_REQ_BATTLE_MATCH						= 2000; //?????Game ??????
+message ReqBattleMatch
+{
+	required Ident	self_id 				= 1;//
+}
+
+//EGMI_ACK_BATTLE_MATCH						= 2001; //Game????? ?????????????????????????
+message AckBattleMatch
+{
+	required bool isSuccessed				=1;
+	optional PlayerInfo playerA				=2;
+	optional PlayerInfo playerB      		=3;
+}
+//EGMI_REQ_BATTLE_START						= 2002; //?????Game????
+message ReqBattleStart
+{
+	required Ident	self_id 				= 1;//
+}
+//EGMI_ACK_BATTLE_START						= 2003; //Game????? ?????????????
+message AckBattleStart
+{
+	required EGameEventCode event_code		=1;
+}
+//EGMI_NTF_CG_BATTLE_FRAMECOMMAND				= 2000; //?????????????????
+message NtfCGBattleFrameCommand
+{
+	required Ident  self_id				=1;
+	required int32	skillId					=2;
+}	
+//EGMI_NTF_GC_BATTLE_FRAMECOMMAND				= 2000; //?????????????
+message NtfGCBattleFrameCommand
+{
+	required Ident  self_id				=1;
+	required int32	skillId					=2;
+}
+//EGMI_NTF_GC_BATTLE_FRAMEFINISH				= 2000; //??????????????????????????
+message NtfGCBattleFrameFinish
+{
+	optional int64 timestamp			=1;
+}
+
+
+
+
+
+

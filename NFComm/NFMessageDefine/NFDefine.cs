@@ -723,6 +723,27 @@ namespace NFMsg
       [global::ProtoBuf.ProtoEnum(Name=@"EGMI_ACK_MAP_GRID_KING_WAR", Value=1919)]
       EGMI_ACK_MAP_GRID_KING_WAR = 1919,
             
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_REQ_BATTLE_MATCH", Value=2000)]
+      EGMI_REQ_BATTLE_MATCH = 2000,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_ACK_BATTLE_MATCH", Value=2001)]
+      EGMI_ACK_BATTLE_MATCH = 2001,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_REQ_BATTLE_START", Value=2002)]
+      EGMI_REQ_BATTLE_START = 2002,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_ACK_BATTLE_START", Value=2003)]
+      EGMI_ACK_BATTLE_START = 2003,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_CG_BATTLE_FRAMECOMMAND", Value=2004)]
+      EGMI_NTF_CG_BATTLE_FRAMECOMMAND = 2004,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FRAMECOMMAND", Value=2005)]
+      EGMI_NTF_GC_BATTLE_FRAMECOMMAND = 2005,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FRAMEFINISH", Value=2006)]
+      EGMI_NTF_GC_BATTLE_FRAMEFINISH = 2006,
+            
       [global::ProtoBuf.ProtoEnum(Name=@"EGMI_REQ_CMD_PROPERTY_INT", Value=10000)]
       EGMI_REQ_CMD_PROPERTY_INT = 10000,
             
