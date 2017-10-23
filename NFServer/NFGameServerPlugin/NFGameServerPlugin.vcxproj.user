@@ -4,7 +4,7 @@
     <LocalDebuggerWorkingDirectory>$(SolutionDir)\_Out\$(Configuration)\</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerCommand>$(SolutionDir)\_Out\$(Configuration)\NFPluginLoader_d.exe</LocalDebuggerCommand>
-    <LocalDebuggerCommandArguments>"Server=GameServer" "ID=6" "PluginX.xml"</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>"Server=GameServer" "ID=6" "Plugin.xml"</LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LocalDebuggerWorkingDirectory>$(SolutionDir)\_Out\$(Configuration)</LocalDebuggerWorkingDirectory>

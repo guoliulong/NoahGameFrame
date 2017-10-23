@@ -2815,12 +2815,12 @@ namespace NFMsg
   {
     public ReqBattleStart() {}
     
-    private NFMsg.Ident _self_id;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"self_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public NFMsg.Ident self_id
+    private NFMsg.Ident _player_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"player_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public NFMsg.Ident player_id
     {
-      get { return _self_id; }
-      set { _self_id = value; }
+      get { return _player_id; }
+      set { _player_id = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -2849,12 +2849,12 @@ namespace NFMsg
   {
     public NtfCGBattleFrameCommand() {}
     
-    private NFMsg.Ident _self_id;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"self_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public NFMsg.Ident self_id
+    private NFMsg.Ident _player_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"player_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public NFMsg.Ident player_id
     {
-      get { return _self_id; }
-      set { _self_id = value; }
+      get { return _player_id; }
+      set { _player_id = value; }
     }
     private int _skillId;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"skillId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
@@ -2873,12 +2873,12 @@ namespace NFMsg
   {
     public NtfGCBattleFrameCommand() {}
     
-    private NFMsg.Ident _self_id;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"self_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public NFMsg.Ident self_id
+    private NFMsg.Ident _player_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"player_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public NFMsg.Ident player_id
     {
-      get { return _self_id; }
-      set { _self_id = value; }
+      get { return _player_id; }
+      set { _player_id = value; }
     }
     private int _skillId;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"skillId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]

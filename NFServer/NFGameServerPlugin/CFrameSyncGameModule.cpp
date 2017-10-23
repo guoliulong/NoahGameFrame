@@ -1,4 +1,4 @@
-#include "CFrameSyncGameModule.h"
+﻿#include "CFrameSyncGameModule.h"
 #include "NFComm/NFMessageDefine/NFMsgDefine.h"
 #include "NFComm/NFPluginModule/NFINetModule.h"
 #include "NFComm/NFPluginModule/NFILogModule.h"
@@ -41,6 +41,21 @@ bool CFrameSyncGameModule::Init()
 bool CFrameSyncGameModule::AfterInit()
 {
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_BATTLE_MATCH, this, &CFrameSyncGameModule::OnReqBattleMatchProcess);
+	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_NTF_CG_BATTLE_FRAMECOMMAND, this, &CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess);
+
+	
+	return true;
+}
+bool CFrameSyncGameModule::ReadyExecute()
+{
+	miLastTime = NFGetTime();
+	return true;
+}
+bool CFrameSyncGameModule::Execute()
+{
+	ProcessMatch();
+	ProcessFrameSync();
+
 	return true;
 }
 
@@ -53,20 +68,57 @@ void CFrameSyncGameModule::OnReqBattleMatchProcess(const NFSOCK nSockIndex, cons
 		return;
 	}
 
-	/*NFMsg::AckRoleLiteInfoList xAckRoleLiteInfoList;
-	NFMsg::RoleLiteInfo* pData = xAckRoleLiteInfoList.add_char_data();
-	pData->mutable_id()->CopyFrom(NFINetModule::NFToPB(m_pKernelModule->CreateGUID()));
-	pData->set_career(xMsg.career());
-	pData->set_sex(xMsg.sex());
-	pData->set_race(xMsg.race());
-	pData->set_noob_name(xMsg.noob_name());
-	pData->set_game_id(xMsg.game_id());
-	pData->set_role_level(1);
-	pData->set_delete_time(0);
-	pData->set_reg_time(0);
-	pData->set_last_offline_time(0);
-	pData->set_last_offline_ip(0);
-	pData->set_view_record("");*/
-
-	//m_pNetModule->SendMsgPB(NFMsg::EGMI_ACK_ROLE_LIST, xAckRoleLiteInfoList, nSockIndex, nClientID);
+	BattleMatchPlayerInfo pi;
+	pi.ClientID = nClientID;
+	pi.ProxySocketIndex = nSockIndex;
+	mMatchingPlayers.push_back(pi);
 }
+
+void CFrameSyncGameModule::ProcessMatchSuccess(const BattleInfo & bi)
+{
+	NFMsg::AckBattleMatch ret;
+	NFMsg::PlayerInfo& pi_a = *ret.mutable_playera();
+
+}
+
+void CFrameSyncGameModule::SendFrameFinishCmmand(const BattleInfo& bi)
+{
+}
+//EGMI_NTF_CG_BATTLE_FRAMECOMMAND
+void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
+{
+
+
+
+}
+
+ void CFrameSyncGameModule::ProcessMatch() 
+ {
+	 while (mMatchingPlayers.size() > 1)
+	 {
+		 BattleInfo bi;
+		 bi.playerA = mMatchingPlayers[0];
+		 bi.playerB = mMatchingPlayers[1];
+		 mMatchingPlayers.erase(mMatchingPlayers.begin());
+		 mMatchingPlayers.erase(mMatchingPlayers.begin());
+		 ProcessMatchSuccess(bi);
+	 }
+ }
+
+ void CFrameSyncGameModule::ProcessFrameSync()
+ {
+	 uint64_t timeNow = NFGetTime();
+
+	 if (timeNow - miLastTime < FRAMESYNC_TIMESPAN)
+		 return;
+
+	 //process frame command EGMI_NTF_GC_BATTLE_FRAMEFINISH
+	 RuningBattleIterator begin = mRuningBattle.cbegin();
+	 RuningBattleIterator end = mRuningBattle.cend();
+
+	 for (; begin != end; ++begin)
+	 {
+		 const BattleInfo& bi = begin->second;
+		 SendFrameFinishCmmand(bi);
+	 }
+ }

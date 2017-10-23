@@ -303,10 +303,11 @@ bool NFCMysqlDriver::Query(const std::string& strRecordName, const std::string& 
         return false;
     }
 
-    // xResult应该只有一行的，为了以后可能出现的多条，所以用了循环
-    for (int i = 0; i < xResult.size(); ++i)
+	int i;
+	int j;
+    for ( i = 0; i < xResult.size(); ++i)
     {
-        for (int j = 0; j < fieldVec.size(); ++j)
+        for ( j = 0; j < fieldVec.size(); ++j)
         {
             const std::string& strFieldName = fieldVec[j];
             std::string strValue(xResult[i][strFieldName.data()].data(), xResult[i][strFieldName.data()].length());
@@ -393,7 +394,6 @@ bool NFCMysqlDriver::Keys(const std::string& strRecordName, const std::string& s
         return false;
     }
 
-    // xResult应该只有一行的，为了以后可能出现的多条，所以用了循环
     for (int i = 0; i < xResult.size(); ++i)
     {
         std::string strValue(xResult[i][strDefaultKey.data()].data(), xResult[i][strDefaultKey.data()].length());

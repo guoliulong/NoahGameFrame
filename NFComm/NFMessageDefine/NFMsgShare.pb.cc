@@ -1874,7 +1874,7 @@ void protobuf_AssignDesc_NFMsgShare_2eproto() {
       sizeof(AckBattleMatch));
   ReqBattleStart_descriptor_ = file->message_type(90);
   static const int ReqBattleStart_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqBattleStart, self_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqBattleStart, player_id_),
   };
   ReqBattleStart_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1904,7 +1904,7 @@ void protobuf_AssignDesc_NFMsgShare_2eproto() {
       sizeof(AckBattleStart));
   NtfCGBattleFrameCommand_descriptor_ = file->message_type(92);
   static const int NtfCGBattleFrameCommand_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfCGBattleFrameCommand, self_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfCGBattleFrameCommand, player_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfCGBattleFrameCommand, skillid_),
   };
   NtfCGBattleFrameCommand_reflection_ =
@@ -1920,7 +1920,7 @@ void protobuf_AssignDesc_NFMsgShare_2eproto() {
       sizeof(NtfCGBattleFrameCommand));
   NtfGCBattleFrameCommand_descriptor_ = file->message_type(93);
   static const int NtfGCBattleFrameCommand_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfGCBattleFrameCommand, self_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfGCBattleFrameCommand, player_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfGCBattleFrameCommand, skillid_),
   };
   NtfGCBattleFrameCommand_reflection_ =
@@ -2592,15 +2592,15 @@ void protobuf_AddDesc_NFMsgShare_2eproto() {
     "ttleMatch\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Ident"
     "\"m\n\016AckBattleMatch\022\023\n\013isSuccessed\030\001 \002(\010\022"
     "\"\n\007playerA\030\002 \001(\0132\021.NFMsg.PlayerInfo\022\"\n\007p"
-    "layerB\030\003 \001(\0132\021.NFMsg.PlayerInfo\"/\n\016ReqBa"
-    "ttleStart\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Ident"
-    "\";\n\016AckBattleStart\022)\n\nevent_code\030\001 \002(\0162\025"
-    ".NFMsg.EGameEventCode\"I\n\027NtfCGBattleFram"
-    "eCommand\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Ident\022"
-    "\017\n\007skillId\030\002 \002(\005\"I\n\027NtfGCBattleFrameComm"
-    "and\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Ident\022\017\n\007sk"
-    "illId\030\002 \002(\005\"+\n\026NtfGCBattleFrameFinish\022\021\n"
-    "\ttimestamp\030\001 \001(\003", 9416);
+    "layerB\030\003 \001(\0132\021.NFMsg.PlayerInfo\"1\n\016ReqBa"
+    "ttleStart\022\037\n\tplayer_id\030\001 \002(\0132\014.NFMsg.Ide"
+    "nt\";\n\016AckBattleStart\022)\n\nevent_code\030\001 \002(\016"
+    "2\025.NFMsg.EGameEventCode\"K\n\027NtfCGBattleFr"
+    "ameCommand\022\037\n\tplayer_id\030\001 \002(\0132\014.NFMsg.Id"
+    "ent\022\017\n\007skillId\030\002 \002(\005\"K\n\027NtfGCBattleFrame"
+    "Command\022\037\n\tplayer_id\030\001 \002(\0132\014.NFMsg.Ident"
+    "\022\017\n\007skillId\030\002 \002(\005\"+\n\026NtfGCBattleFrameFin"
+    "ish\022\021\n\ttimestamp\030\001 \001(\003", 9422);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "NFMsgShare.proto", &protobuf_RegisterTypes);
   HeroInfo::default_instance_ = new HeroInfo();
@@ -29320,7 +29320,7 @@ void AckBattleMatch::Swap(AckBattleMatch* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int ReqBattleStart::kSelfIdFieldNumber;
+const int ReqBattleStart::kPlayerIdFieldNumber;
 #endif  // !_MSC_VER
 
 ReqBattleStart::ReqBattleStart()
@@ -29329,7 +29329,7 @@ ReqBattleStart::ReqBattleStart()
 }
 
 void ReqBattleStart::InitAsDefaultInstance() {
-  self_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
+  player_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
 }
 
 ReqBattleStart::ReqBattleStart(const ReqBattleStart& from)
@@ -29340,7 +29340,7 @@ ReqBattleStart::ReqBattleStart(const ReqBattleStart& from)
 
 void ReqBattleStart::SharedCtor() {
   _cached_size_ = 0;
-  self_id_ = NULL;
+  player_id_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -29350,7 +29350,7 @@ ReqBattleStart::~ReqBattleStart() {
 
 void ReqBattleStart::SharedDtor() {
   if (this != default_instance_) {
-    delete self_id_;
+    delete player_id_;
   }
 }
 
@@ -29377,8 +29377,8 @@ ReqBattleStart* ReqBattleStart::New() const {
 
 void ReqBattleStart::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_self_id()) {
-      if (self_id_ != NULL) self_id_->::NFMsg::Ident::Clear();
+    if (has_player_id()) {
+      if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -29391,12 +29391,12 @@ bool ReqBattleStart::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .NFMsg.Ident self_id = 1;
+      // required .NFMsg.Ident player_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_self_id()));
+               input, mutable_player_id()));
         } else {
           goto handle_uninterpreted;
         }
@@ -29422,10 +29422,10 @@ bool ReqBattleStart::MergePartialFromCodedStream(
 
 void ReqBattleStart::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .NFMsg.Ident self_id = 1;
-  if (has_self_id()) {
+  // required .NFMsg.Ident player_id = 1;
+  if (has_player_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->self_id(), output);
+      1, this->player_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -29436,11 +29436,11 @@ void ReqBattleStart::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* ReqBattleStart::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .NFMsg.Ident self_id = 1;
-  if (has_self_id()) {
+  // required .NFMsg.Ident player_id = 1;
+  if (has_player_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->self_id(), target);
+        1, this->player_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -29454,11 +29454,11 @@ int ReqBattleStart::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .NFMsg.Ident self_id = 1;
-    if (has_self_id()) {
+    // required .NFMsg.Ident player_id = 1;
+    if (has_player_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->self_id());
+          this->player_id());
     }
 
   }
@@ -29488,8 +29488,8 @@ void ReqBattleStart::MergeFrom(const ::google::protobuf::Message& from) {
 void ReqBattleStart::MergeFrom(const ReqBattleStart& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_self_id()) {
-      mutable_self_id()->::NFMsg::Ident::MergeFrom(from.self_id());
+    if (from.has_player_id()) {
+      mutable_player_id()->::NFMsg::Ident::MergeFrom(from.player_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -29510,15 +29510,15 @@ void ReqBattleStart::CopyFrom(const ReqBattleStart& from) {
 bool ReqBattleStart::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (has_self_id()) {
-    if (!this->self_id().IsInitialized()) return false;
+  if (has_player_id()) {
+    if (!this->player_id().IsInitialized()) return false;
   }
   return true;
 }
 
 void ReqBattleStart::Swap(ReqBattleStart* other) {
   if (other != this) {
-    std::swap(self_id_, other->self_id_);
+    std::swap(player_id_, other->player_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -29752,7 +29752,7 @@ void AckBattleStart::Swap(AckBattleStart* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int NtfCGBattleFrameCommand::kSelfIdFieldNumber;
+const int NtfCGBattleFrameCommand::kPlayerIdFieldNumber;
 const int NtfCGBattleFrameCommand::kSkillIdFieldNumber;
 #endif  // !_MSC_VER
 
@@ -29762,7 +29762,7 @@ NtfCGBattleFrameCommand::NtfCGBattleFrameCommand()
 }
 
 void NtfCGBattleFrameCommand::InitAsDefaultInstance() {
-  self_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
+  player_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
 }
 
 NtfCGBattleFrameCommand::NtfCGBattleFrameCommand(const NtfCGBattleFrameCommand& from)
@@ -29773,7 +29773,7 @@ NtfCGBattleFrameCommand::NtfCGBattleFrameCommand(const NtfCGBattleFrameCommand& 
 
 void NtfCGBattleFrameCommand::SharedCtor() {
   _cached_size_ = 0;
-  self_id_ = NULL;
+  player_id_ = NULL;
   skillid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -29784,7 +29784,7 @@ NtfCGBattleFrameCommand::~NtfCGBattleFrameCommand() {
 
 void NtfCGBattleFrameCommand::SharedDtor() {
   if (this != default_instance_) {
-    delete self_id_;
+    delete player_id_;
   }
 }
 
@@ -29811,8 +29811,8 @@ NtfCGBattleFrameCommand* NtfCGBattleFrameCommand::New() const {
 
 void NtfCGBattleFrameCommand::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_self_id()) {
-      if (self_id_ != NULL) self_id_->::NFMsg::Ident::Clear();
+    if (has_player_id()) {
+      if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
     }
     skillid_ = 0;
   }
@@ -29826,12 +29826,12 @@ bool NtfCGBattleFrameCommand::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .NFMsg.Ident self_id = 1;
+      // required .NFMsg.Ident player_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_self_id()));
+               input, mutable_player_id()));
         } else {
           goto handle_uninterpreted;
         }
@@ -29873,10 +29873,10 @@ bool NtfCGBattleFrameCommand::MergePartialFromCodedStream(
 
 void NtfCGBattleFrameCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .NFMsg.Ident self_id = 1;
-  if (has_self_id()) {
+  // required .NFMsg.Ident player_id = 1;
+  if (has_player_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->self_id(), output);
+      1, this->player_id(), output);
   }
 
   // required int32 skillId = 2;
@@ -29892,11 +29892,11 @@ void NtfCGBattleFrameCommand::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* NtfCGBattleFrameCommand::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .NFMsg.Ident self_id = 1;
-  if (has_self_id()) {
+  // required .NFMsg.Ident player_id = 1;
+  if (has_player_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->self_id(), target);
+        1, this->player_id(), target);
   }
 
   // required int32 skillId = 2;
@@ -29915,11 +29915,11 @@ int NtfCGBattleFrameCommand::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .NFMsg.Ident self_id = 1;
-    if (has_self_id()) {
+    // required .NFMsg.Ident player_id = 1;
+    if (has_player_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->self_id());
+          this->player_id());
     }
 
     // required int32 skillId = 2;
@@ -29956,8 +29956,8 @@ void NtfCGBattleFrameCommand::MergeFrom(const ::google::protobuf::Message& from)
 void NtfCGBattleFrameCommand::MergeFrom(const NtfCGBattleFrameCommand& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_self_id()) {
-      mutable_self_id()->::NFMsg::Ident::MergeFrom(from.self_id());
+    if (from.has_player_id()) {
+      mutable_player_id()->::NFMsg::Ident::MergeFrom(from.player_id());
     }
     if (from.has_skillid()) {
       set_skillid(from.skillid());
@@ -29981,15 +29981,15 @@ void NtfCGBattleFrameCommand::CopyFrom(const NtfCGBattleFrameCommand& from) {
 bool NtfCGBattleFrameCommand::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
-  if (has_self_id()) {
-    if (!this->self_id().IsInitialized()) return false;
+  if (has_player_id()) {
+    if (!this->player_id().IsInitialized()) return false;
   }
   return true;
 }
 
 void NtfCGBattleFrameCommand::Swap(NtfCGBattleFrameCommand* other) {
   if (other != this) {
-    std::swap(self_id_, other->self_id_);
+    std::swap(player_id_, other->player_id_);
     std::swap(skillid_, other->skillid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -30009,7 +30009,7 @@ void NtfCGBattleFrameCommand::Swap(NtfCGBattleFrameCommand* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int NtfGCBattleFrameCommand::kSelfIdFieldNumber;
+const int NtfGCBattleFrameCommand::kPlayerIdFieldNumber;
 const int NtfGCBattleFrameCommand::kSkillIdFieldNumber;
 #endif  // !_MSC_VER
 
@@ -30019,7 +30019,7 @@ NtfGCBattleFrameCommand::NtfGCBattleFrameCommand()
 }
 
 void NtfGCBattleFrameCommand::InitAsDefaultInstance() {
-  self_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
+  player_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
 }
 
 NtfGCBattleFrameCommand::NtfGCBattleFrameCommand(const NtfGCBattleFrameCommand& from)
@@ -30030,7 +30030,7 @@ NtfGCBattleFrameCommand::NtfGCBattleFrameCommand(const NtfGCBattleFrameCommand& 
 
 void NtfGCBattleFrameCommand::SharedCtor() {
   _cached_size_ = 0;
-  self_id_ = NULL;
+  player_id_ = NULL;
   skillid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -30041,7 +30041,7 @@ NtfGCBattleFrameCommand::~NtfGCBattleFrameCommand() {
 
 void NtfGCBattleFrameCommand::SharedDtor() {
   if (this != default_instance_) {
-    delete self_id_;
+    delete player_id_;
   }
 }
 
@@ -30068,8 +30068,8 @@ NtfGCBattleFrameCommand* NtfGCBattleFrameCommand::New() const {
 
 void NtfGCBattleFrameCommand::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_self_id()) {
-      if (self_id_ != NULL) self_id_->::NFMsg::Ident::Clear();
+    if (has_player_id()) {
+      if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
     }
     skillid_ = 0;
   }
@@ -30083,12 +30083,12 @@ bool NtfGCBattleFrameCommand::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .NFMsg.Ident self_id = 1;
+      // required .NFMsg.Ident player_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_self_id()));
+               input, mutable_player_id()));
         } else {
           goto handle_uninterpreted;
         }
@@ -30130,10 +30130,10 @@ bool NtfGCBattleFrameCommand::MergePartialFromCodedStream(
 
 void NtfGCBattleFrameCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .NFMsg.Ident self_id = 1;
-  if (has_self_id()) {
+  // required .NFMsg.Ident player_id = 1;
+  if (has_player_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->self_id(), output);
+      1, this->player_id(), output);
   }
 
   // required int32 skillId = 2;
@@ -30149,11 +30149,11 @@ void NtfGCBattleFrameCommand::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* NtfGCBattleFrameCommand::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .NFMsg.Ident self_id = 1;
-  if (has_self_id()) {
+  // required .NFMsg.Ident player_id = 1;
+  if (has_player_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->self_id(), target);
+        1, this->player_id(), target);
   }
 
   // required int32 skillId = 2;
@@ -30172,11 +30172,11 @@ int NtfGCBattleFrameCommand::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .NFMsg.Ident self_id = 1;
-    if (has_self_id()) {
+    // required .NFMsg.Ident player_id = 1;
+    if (has_player_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->self_id());
+          this->player_id());
     }
 
     // required int32 skillId = 2;
@@ -30213,8 +30213,8 @@ void NtfGCBattleFrameCommand::MergeFrom(const ::google::protobuf::Message& from)
 void NtfGCBattleFrameCommand::MergeFrom(const NtfGCBattleFrameCommand& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_self_id()) {
-      mutable_self_id()->::NFMsg::Ident::MergeFrom(from.self_id());
+    if (from.has_player_id()) {
+      mutable_player_id()->::NFMsg::Ident::MergeFrom(from.player_id());
     }
     if (from.has_skillid()) {
       set_skillid(from.skillid());
@@ -30238,15 +30238,15 @@ void NtfGCBattleFrameCommand::CopyFrom(const NtfGCBattleFrameCommand& from) {
 bool NtfGCBattleFrameCommand::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
-  if (has_self_id()) {
-    if (!this->self_id().IsInitialized()) return false;
+  if (has_player_id()) {
+    if (!this->player_id().IsInitialized()) return false;
   }
   return true;
 }
 
 void NtfGCBattleFrameCommand::Swap(NtfGCBattleFrameCommand* other) {
   if (other != this) {
-    std::swap(self_id_, other->self_id_);
+    std::swap(player_id_, other->player_id_);
     std::swap(skillid_, other->skillid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
