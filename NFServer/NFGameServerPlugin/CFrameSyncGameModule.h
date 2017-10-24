@@ -3,7 +3,7 @@
 
 #include "IFrameSyncGameModule.h"
 #include "NFComm/NFPluginModule/NFINetModule.h"
-
+#include "NFComm/NFPluginModule/NFIGameServerNet_ServerModule.h"
 
 
 class CFrameSyncGameModule :
@@ -12,7 +12,7 @@ class CFrameSyncGameModule :
 public:
 	struct BattleMatchPlayerInfo
 	{
-		NFGUID ClientID;
+		NFGUID RoleID;
 		NFSOCK ProxySocketIndex;
 	};
 
@@ -46,7 +46,10 @@ private:
 	typedef std::map<NFGUID, struct BattleInfo>::const_iterator RuningBattleIterator;
 	std::vector<struct BattleMatchPlayerInfo> mMatchingPlayers;
 	NFINetModule* m_pNetModule;
+	//NFILogModule* m_pLogModule;
+	NFIGameServerNet_ServerModule* m_pGameServerNet_ServerModule;
 	int64_t miLastTime;
+	int64_t miNowTime;
 
 	const uint64_t FRAMESYNC_TIMESPAN = 1000 / 15;//66.666
 };

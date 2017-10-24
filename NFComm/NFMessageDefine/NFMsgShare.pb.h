@@ -476,14 +476,14 @@ class LIBPROTOC_EXPORT PlayerInfo : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .NFMsg.Ident player_id = 1;
-  inline bool has_player_id() const;
-  inline void clear_player_id();
-  static const int kPlayerIdFieldNumber = 1;
-  inline const ::NFMsg::Ident& player_id() const;
-  inline ::NFMsg::Ident* mutable_player_id();
-  inline ::NFMsg::Ident* release_player_id();
-  inline void set_allocated_player_id(::NFMsg::Ident* player_id);
+  // required .NFMsg.Ident role_id = 1;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& role_id() const;
+  inline ::NFMsg::Ident* mutable_role_id();
+  inline ::NFMsg::Ident* release_role_id();
+  inline void set_allocated_role_id(::NFMsg::Ident* role_id);
 
   // required bytes player_name = 2;
   inline bool has_player_name() const;
@@ -511,14 +511,14 @@ class LIBPROTOC_EXPORT PlayerInfo : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:NFMsg.PlayerInfo)
  private:
-  inline void set_has_player_id();
-  inline void clear_has_player_id();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
   inline void set_has_player_name();
   inline void clear_has_player_name();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::NFMsg::Ident* player_id_;
+  ::NFMsg::Ident* role_id_;
   ::std::string* player_name_;
   ::google::protobuf::RepeatedPtrField< ::NFMsg::HeroInfo > hero_list_;
 
@@ -9939,23 +9939,23 @@ class LIBPROTOC_EXPORT ReqBattleMatch : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .NFMsg.Ident self_id = 1;
-  inline bool has_self_id() const;
-  inline void clear_self_id();
-  static const int kSelfIdFieldNumber = 1;
-  inline const ::NFMsg::Ident& self_id() const;
-  inline ::NFMsg::Ident* mutable_self_id();
-  inline ::NFMsg::Ident* release_self_id();
-  inline void set_allocated_self_id(::NFMsg::Ident* self_id);
+  // required .NFMsg.Ident role_id = 1;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& role_id() const;
+  inline ::NFMsg::Ident* mutable_role_id();
+  inline ::NFMsg::Ident* release_role_id();
+  inline void set_allocated_role_id(::NFMsg::Ident* role_id);
 
   // @@protoc_insertion_point(class_scope:NFMsg.ReqBattleMatch)
  private:
-  inline void set_has_self_id();
-  inline void clear_has_self_id();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::NFMsg::Ident* self_id_;
+  ::NFMsg::Ident* role_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -10129,23 +10129,23 @@ class LIBPROTOC_EXPORT ReqBattleStart : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .NFMsg.Ident player_id = 1;
-  inline bool has_player_id() const;
-  inline void clear_player_id();
-  static const int kPlayerIdFieldNumber = 1;
-  inline const ::NFMsg::Ident& player_id() const;
-  inline ::NFMsg::Ident* mutable_player_id();
-  inline ::NFMsg::Ident* release_player_id();
-  inline void set_allocated_player_id(::NFMsg::Ident* player_id);
+  // required .NFMsg.Ident role_id = 1;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& role_id() const;
+  inline ::NFMsg::Ident* mutable_role_id();
+  inline ::NFMsg::Ident* release_role_id();
+  inline void set_allocated_role_id(::NFMsg::Ident* role_id);
 
   // @@protoc_insertion_point(class_scope:NFMsg.ReqBattleStart)
  private:
-  inline void set_has_player_id();
-  inline void clear_has_player_id();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::NFMsg::Ident* player_id_;
+  ::NFMsg::Ident* role_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -10295,14 +10295,14 @@ class LIBPROTOC_EXPORT NtfCGBattleFrameCommand : public ::google::protobuf::Mess
 
   // accessors -------------------------------------------------------
 
-  // required .NFMsg.Ident player_id = 1;
-  inline bool has_player_id() const;
-  inline void clear_player_id();
-  static const int kPlayerIdFieldNumber = 1;
-  inline const ::NFMsg::Ident& player_id() const;
-  inline ::NFMsg::Ident* mutable_player_id();
-  inline ::NFMsg::Ident* release_player_id();
-  inline void set_allocated_player_id(::NFMsg::Ident* player_id);
+  // required .NFMsg.Ident role_id = 1;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& role_id() const;
+  inline ::NFMsg::Ident* mutable_role_id();
+  inline ::NFMsg::Ident* release_role_id();
+  inline void set_allocated_role_id(::NFMsg::Ident* role_id);
 
   // required int32 skillId = 2;
   inline bool has_skillid() const;
@@ -10313,14 +10313,14 @@ class LIBPROTOC_EXPORT NtfCGBattleFrameCommand : public ::google::protobuf::Mess
 
   // @@protoc_insertion_point(class_scope:NFMsg.NtfCGBattleFrameCommand)
  private:
-  inline void set_has_player_id();
-  inline void clear_has_player_id();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
   inline void set_has_skillid();
   inline void clear_has_skillid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::NFMsg::Ident* player_id_;
+  ::NFMsg::Ident* role_id_;
   ::google::protobuf::int32 skillid_;
 
   mutable int _cached_size_;
@@ -10389,14 +10389,14 @@ class LIBPROTOC_EXPORT NtfGCBattleFrameCommand : public ::google::protobuf::Mess
 
   // accessors -------------------------------------------------------
 
-  // required .NFMsg.Ident player_id = 1;
-  inline bool has_player_id() const;
-  inline void clear_player_id();
-  static const int kPlayerIdFieldNumber = 1;
-  inline const ::NFMsg::Ident& player_id() const;
-  inline ::NFMsg::Ident* mutable_player_id();
-  inline ::NFMsg::Ident* release_player_id();
-  inline void set_allocated_player_id(::NFMsg::Ident* player_id);
+  // required .NFMsg.Ident role_id = 1;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 1;
+  inline const ::NFMsg::Ident& role_id() const;
+  inline ::NFMsg::Ident* mutable_role_id();
+  inline ::NFMsg::Ident* release_role_id();
+  inline void set_allocated_role_id(::NFMsg::Ident* role_id);
 
   // required int32 skillId = 2;
   inline bool has_skillid() const;
@@ -10407,14 +10407,14 @@ class LIBPROTOC_EXPORT NtfGCBattleFrameCommand : public ::google::protobuf::Mess
 
   // @@protoc_insertion_point(class_scope:NFMsg.NtfGCBattleFrameCommand)
  private:
-  inline void set_has_player_id();
-  inline void clear_has_player_id();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
   inline void set_has_skillid();
   inline void clear_has_skillid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::NFMsg::Ident* player_id_;
+  ::NFMsg::Ident* role_id_;
   ::google::protobuf::int32 skillid_;
 
   mutable int _cached_size_;
@@ -10542,41 +10542,41 @@ inline void HeroInfo::set_hero_id(::google::protobuf::int32 value) {
 
 // PlayerInfo
 
-// required .NFMsg.Ident player_id = 1;
-inline bool PlayerInfo::has_player_id() const {
+// required .NFMsg.Ident role_id = 1;
+inline bool PlayerInfo::has_role_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void PlayerInfo::set_has_player_id() {
+inline void PlayerInfo::set_has_role_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void PlayerInfo::clear_has_player_id() {
+inline void PlayerInfo::clear_has_role_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void PlayerInfo::clear_player_id() {
-  if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
-  clear_has_player_id();
+inline void PlayerInfo::clear_role_id() {
+  if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
+  clear_has_role_id();
 }
-inline const ::NFMsg::Ident& PlayerInfo::player_id() const {
-  return player_id_ != NULL ? *player_id_ : *default_instance_->player_id_;
+inline const ::NFMsg::Ident& PlayerInfo::role_id() const {
+  return role_id_ != NULL ? *role_id_ : *default_instance_->role_id_;
 }
-inline ::NFMsg::Ident* PlayerInfo::mutable_player_id() {
-  set_has_player_id();
-  if (player_id_ == NULL) player_id_ = new ::NFMsg::Ident;
-  return player_id_;
+inline ::NFMsg::Ident* PlayerInfo::mutable_role_id() {
+  set_has_role_id();
+  if (role_id_ == NULL) role_id_ = new ::NFMsg::Ident;
+  return role_id_;
 }
-inline ::NFMsg::Ident* PlayerInfo::release_player_id() {
-  clear_has_player_id();
-  ::NFMsg::Ident* temp = player_id_;
-  player_id_ = NULL;
+inline ::NFMsg::Ident* PlayerInfo::release_role_id() {
+  clear_has_role_id();
+  ::NFMsg::Ident* temp = role_id_;
+  role_id_ = NULL;
   return temp;
 }
-inline void PlayerInfo::set_allocated_player_id(::NFMsg::Ident* player_id) {
-  delete player_id_;
-  player_id_ = player_id;
-  if (player_id) {
-    set_has_player_id();
+inline void PlayerInfo::set_allocated_role_id(::NFMsg::Ident* role_id) {
+  delete role_id_;
+  role_id_ = role_id;
+  if (role_id) {
+    set_has_role_id();
   } else {
-    clear_has_player_id();
+    clear_has_role_id();
   }
 }
 
@@ -19201,41 +19201,41 @@ inline void AckCreatePVPEctype::set_applytype(::google::protobuf::int32 value) {
 
 // ReqBattleMatch
 
-// required .NFMsg.Ident self_id = 1;
-inline bool ReqBattleMatch::has_self_id() const {
+// required .NFMsg.Ident role_id = 1;
+inline bool ReqBattleMatch::has_role_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void ReqBattleMatch::set_has_self_id() {
+inline void ReqBattleMatch::set_has_role_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void ReqBattleMatch::clear_has_self_id() {
+inline void ReqBattleMatch::clear_has_role_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void ReqBattleMatch::clear_self_id() {
-  if (self_id_ != NULL) self_id_->::NFMsg::Ident::Clear();
-  clear_has_self_id();
+inline void ReqBattleMatch::clear_role_id() {
+  if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
+  clear_has_role_id();
 }
-inline const ::NFMsg::Ident& ReqBattleMatch::self_id() const {
-  return self_id_ != NULL ? *self_id_ : *default_instance_->self_id_;
+inline const ::NFMsg::Ident& ReqBattleMatch::role_id() const {
+  return role_id_ != NULL ? *role_id_ : *default_instance_->role_id_;
 }
-inline ::NFMsg::Ident* ReqBattleMatch::mutable_self_id() {
-  set_has_self_id();
-  if (self_id_ == NULL) self_id_ = new ::NFMsg::Ident;
-  return self_id_;
+inline ::NFMsg::Ident* ReqBattleMatch::mutable_role_id() {
+  set_has_role_id();
+  if (role_id_ == NULL) role_id_ = new ::NFMsg::Ident;
+  return role_id_;
 }
-inline ::NFMsg::Ident* ReqBattleMatch::release_self_id() {
-  clear_has_self_id();
-  ::NFMsg::Ident* temp = self_id_;
-  self_id_ = NULL;
+inline ::NFMsg::Ident* ReqBattleMatch::release_role_id() {
+  clear_has_role_id();
+  ::NFMsg::Ident* temp = role_id_;
+  role_id_ = NULL;
   return temp;
 }
-inline void ReqBattleMatch::set_allocated_self_id(::NFMsg::Ident* self_id) {
-  delete self_id_;
-  self_id_ = self_id;
-  if (self_id) {
-    set_has_self_id();
+inline void ReqBattleMatch::set_allocated_role_id(::NFMsg::Ident* role_id) {
+  delete role_id_;
+  role_id_ = role_id;
+  if (role_id) {
+    set_has_role_id();
   } else {
-    clear_has_self_id();
+    clear_has_role_id();
   }
 }
 
@@ -19345,41 +19345,41 @@ inline void AckBattleMatch::set_allocated_playerb(::NFMsg::PlayerInfo* playerb) 
 
 // ReqBattleStart
 
-// required .NFMsg.Ident player_id = 1;
-inline bool ReqBattleStart::has_player_id() const {
+// required .NFMsg.Ident role_id = 1;
+inline bool ReqBattleStart::has_role_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void ReqBattleStart::set_has_player_id() {
+inline void ReqBattleStart::set_has_role_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void ReqBattleStart::clear_has_player_id() {
+inline void ReqBattleStart::clear_has_role_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void ReqBattleStart::clear_player_id() {
-  if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
-  clear_has_player_id();
+inline void ReqBattleStart::clear_role_id() {
+  if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
+  clear_has_role_id();
 }
-inline const ::NFMsg::Ident& ReqBattleStart::player_id() const {
-  return player_id_ != NULL ? *player_id_ : *default_instance_->player_id_;
+inline const ::NFMsg::Ident& ReqBattleStart::role_id() const {
+  return role_id_ != NULL ? *role_id_ : *default_instance_->role_id_;
 }
-inline ::NFMsg::Ident* ReqBattleStart::mutable_player_id() {
-  set_has_player_id();
-  if (player_id_ == NULL) player_id_ = new ::NFMsg::Ident;
-  return player_id_;
+inline ::NFMsg::Ident* ReqBattleStart::mutable_role_id() {
+  set_has_role_id();
+  if (role_id_ == NULL) role_id_ = new ::NFMsg::Ident;
+  return role_id_;
 }
-inline ::NFMsg::Ident* ReqBattleStart::release_player_id() {
-  clear_has_player_id();
-  ::NFMsg::Ident* temp = player_id_;
-  player_id_ = NULL;
+inline ::NFMsg::Ident* ReqBattleStart::release_role_id() {
+  clear_has_role_id();
+  ::NFMsg::Ident* temp = role_id_;
+  role_id_ = NULL;
   return temp;
 }
-inline void ReqBattleStart::set_allocated_player_id(::NFMsg::Ident* player_id) {
-  delete player_id_;
-  player_id_ = player_id;
-  if (player_id) {
-    set_has_player_id();
+inline void ReqBattleStart::set_allocated_role_id(::NFMsg::Ident* role_id) {
+  delete role_id_;
+  role_id_ = role_id;
+  if (role_id) {
+    set_has_role_id();
   } else {
-    clear_has_player_id();
+    clear_has_role_id();
   }
 }
 
@@ -19414,41 +19414,41 @@ inline void AckBattleStart::set_event_code(::NFMsg::EGameEventCode value) {
 
 // NtfCGBattleFrameCommand
 
-// required .NFMsg.Ident player_id = 1;
-inline bool NtfCGBattleFrameCommand::has_player_id() const {
+// required .NFMsg.Ident role_id = 1;
+inline bool NtfCGBattleFrameCommand::has_role_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NtfCGBattleFrameCommand::set_has_player_id() {
+inline void NtfCGBattleFrameCommand::set_has_role_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NtfCGBattleFrameCommand::clear_has_player_id() {
+inline void NtfCGBattleFrameCommand::clear_has_role_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void NtfCGBattleFrameCommand::clear_player_id() {
-  if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
-  clear_has_player_id();
+inline void NtfCGBattleFrameCommand::clear_role_id() {
+  if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
+  clear_has_role_id();
 }
-inline const ::NFMsg::Ident& NtfCGBattleFrameCommand::player_id() const {
-  return player_id_ != NULL ? *player_id_ : *default_instance_->player_id_;
+inline const ::NFMsg::Ident& NtfCGBattleFrameCommand::role_id() const {
+  return role_id_ != NULL ? *role_id_ : *default_instance_->role_id_;
 }
-inline ::NFMsg::Ident* NtfCGBattleFrameCommand::mutable_player_id() {
-  set_has_player_id();
-  if (player_id_ == NULL) player_id_ = new ::NFMsg::Ident;
-  return player_id_;
+inline ::NFMsg::Ident* NtfCGBattleFrameCommand::mutable_role_id() {
+  set_has_role_id();
+  if (role_id_ == NULL) role_id_ = new ::NFMsg::Ident;
+  return role_id_;
 }
-inline ::NFMsg::Ident* NtfCGBattleFrameCommand::release_player_id() {
-  clear_has_player_id();
-  ::NFMsg::Ident* temp = player_id_;
-  player_id_ = NULL;
+inline ::NFMsg::Ident* NtfCGBattleFrameCommand::release_role_id() {
+  clear_has_role_id();
+  ::NFMsg::Ident* temp = role_id_;
+  role_id_ = NULL;
   return temp;
 }
-inline void NtfCGBattleFrameCommand::set_allocated_player_id(::NFMsg::Ident* player_id) {
-  delete player_id_;
-  player_id_ = player_id;
-  if (player_id) {
-    set_has_player_id();
+inline void NtfCGBattleFrameCommand::set_allocated_role_id(::NFMsg::Ident* role_id) {
+  delete role_id_;
+  role_id_ = role_id;
+  if (role_id) {
+    set_has_role_id();
   } else {
-    clear_has_player_id();
+    clear_has_role_id();
   }
 }
 
@@ -19478,41 +19478,41 @@ inline void NtfCGBattleFrameCommand::set_skillid(::google::protobuf::int32 value
 
 // NtfGCBattleFrameCommand
 
-// required .NFMsg.Ident player_id = 1;
-inline bool NtfGCBattleFrameCommand::has_player_id() const {
+// required .NFMsg.Ident role_id = 1;
+inline bool NtfGCBattleFrameCommand::has_role_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NtfGCBattleFrameCommand::set_has_player_id() {
+inline void NtfGCBattleFrameCommand::set_has_role_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NtfGCBattleFrameCommand::clear_has_player_id() {
+inline void NtfGCBattleFrameCommand::clear_has_role_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void NtfGCBattleFrameCommand::clear_player_id() {
-  if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
-  clear_has_player_id();
+inline void NtfGCBattleFrameCommand::clear_role_id() {
+  if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
+  clear_has_role_id();
 }
-inline const ::NFMsg::Ident& NtfGCBattleFrameCommand::player_id() const {
-  return player_id_ != NULL ? *player_id_ : *default_instance_->player_id_;
+inline const ::NFMsg::Ident& NtfGCBattleFrameCommand::role_id() const {
+  return role_id_ != NULL ? *role_id_ : *default_instance_->role_id_;
 }
-inline ::NFMsg::Ident* NtfGCBattleFrameCommand::mutable_player_id() {
-  set_has_player_id();
-  if (player_id_ == NULL) player_id_ = new ::NFMsg::Ident;
-  return player_id_;
+inline ::NFMsg::Ident* NtfGCBattleFrameCommand::mutable_role_id() {
+  set_has_role_id();
+  if (role_id_ == NULL) role_id_ = new ::NFMsg::Ident;
+  return role_id_;
 }
-inline ::NFMsg::Ident* NtfGCBattleFrameCommand::release_player_id() {
-  clear_has_player_id();
-  ::NFMsg::Ident* temp = player_id_;
-  player_id_ = NULL;
+inline ::NFMsg::Ident* NtfGCBattleFrameCommand::release_role_id() {
+  clear_has_role_id();
+  ::NFMsg::Ident* temp = role_id_;
+  role_id_ = NULL;
   return temp;
 }
-inline void NtfGCBattleFrameCommand::set_allocated_player_id(::NFMsg::Ident* player_id) {
-  delete player_id_;
-  player_id_ = player_id;
-  if (player_id) {
-    set_has_player_id();
+inline void NtfGCBattleFrameCommand::set_allocated_role_id(::NFMsg::Ident* role_id) {
+  delete role_id_;
+  role_id_ = role_id;
+  if (role_id) {
+    set_has_role_id();
   } else {
-    clear_has_player_id();
+    clear_has_role_id();
   }
 }
 

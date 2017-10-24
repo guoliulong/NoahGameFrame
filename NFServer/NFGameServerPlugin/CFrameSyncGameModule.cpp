@@ -35,6 +35,8 @@ CFrameSyncGameModule::~CFrameSyncGameModule()
 bool CFrameSyncGameModule::Init()
 {
 	m_pNetModule = pPluginManager->FindModule<NFINetModule>();
+	m_pGameServerNet_ServerModule = pPluginManager->FindModule<NFIGameServerNet_ServerModule>();
+	//m_pLogModule = pPluginManager->FindModule<NFILogModule>();
 	return true;
 }
 
@@ -67,29 +69,67 @@ void CFrameSyncGameModule::OnReqBattleMatchProcess(const NFSOCK nSockIndex, cons
 	{
 		return;
 	}
-
 	BattleMatchPlayerInfo pi;
-	pi.ClientID = nClientID;
+	pi.RoleID = NFINetModule::PBToNF(xMsg.role_id());
 	pi.ProxySocketIndex = nSockIndex;
 	mMatchingPlayers.push_back(pi);
+
+
 }
 
 void CFrameSyncGameModule::ProcessMatchSuccess(const BattleInfo & bi)
 {
 	NFMsg::AckBattleMatch ret;
+	ret.set_issuccessed(true);
 	NFMsg::PlayerInfo& pi_a = *ret.mutable_playera();
+	*pi_a.mutable_role_id() = NFINetModule::NFToPB(bi.playerA.RoleID);
+	*pi_a.mutable_player_name() = "playerA";
+	NFMsg::PlayerInfo& pi_b = *ret.mutable_playerb();
+	*pi_b.mutable_role_id() = NFINetModule::NFToPB(bi.playerB.RoleID);
+	*pi_b.mutable_player_name() = "playerB";
+	//set heros
+	(*pi_a.add_hero_list()).set_hero_id(1);
+	(*pi_a.add_hero_list()).set_hero_id(2);
+	(*pi_b.add_hero_list()).set_hero_id(1);
+	(*pi_b.add_hero_list()).set_hero_id(2);
 
+	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_ACK_BATTLE_MATCH, ret, bi.playerA.RoleID);
+	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_ACK_BATTLE_MATCH, ret, bi.playerB.RoleID);
+
+	mRuningBattle[bi.playerA.RoleID] = bi;
+	mRuningBattle[bi.playerB.RoleID] = bi;
 }
 
 void CFrameSyncGameModule::SendFrameFinishCmmand(const BattleInfo& bi)
 {
+	NFMsg::NtfGCBattleFrameFinish ret;
+	ret.set_timestamp(miNowTime);
+
+	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_ACK_BATTLE_MATCH, ret, bi.playerA.RoleID);
+	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_ACK_BATTLE_MATCH, ret, bi.playerB.RoleID);
 }
+
 //EGMI_NTF_CG_BATTLE_FRAMECOMMAND
 void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
 {
+	NFGUID nClientID;
+	NFMsg::NtfCGBattleFrameCommand xMsg;
+	if (!m_pNetModule->ReceivePB(nMsgID, msg, nLen, xMsg, nClientID))
+	{
+		return;
+	}
 
+	NFMsg::NtfGCBattleFrameCommand cmd;
+	*cmd.mutable_role_id() = xMsg.role_id();
+	cmd.set_skillid(xMsg.skillid());
 
-
+	auto it = mRuningBattle.find(NFINetModule::PBToNF(xMsg.role_id()));
+	if (it != mRuningBattle.end())
+	{
+		BattleInfo& bi = it->second;
+		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_ACK_BATTLE_MATCH, cmd, bi.playerA.RoleID);
+		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_ACK_BATTLE_MATCH, cmd, bi.playerB.RoleID);
+	}
 }
 
  void CFrameSyncGameModule::ProcessMatch() 
@@ -107,10 +147,12 @@ void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIn
 
  void CFrameSyncGameModule::ProcessFrameSync()
  {
-	 uint64_t timeNow = NFGetTime();
+	 miNowTime = NFGetTime();
 
-	 if (timeNow - miLastTime < FRAMESYNC_TIMESPAN)
+	 if (miNowTime - miLastTime < FRAMESYNC_TIMESPAN)
 		 return;
+
+	 miLastTime = miNowTime;
 
 	 //process frame command EGMI_NTF_GC_BATTLE_FRAMEFINISH
 	 RuningBattleIterator begin = mRuningBattle.cbegin();

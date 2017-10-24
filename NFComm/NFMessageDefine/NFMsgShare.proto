@@ -11,7 +11,7 @@ message HeroInfo
 
 message PlayerInfo
 {
-	required Ident player_id   = 1;
+	required Ident role_id   = 1;
     required bytes player_name = 2; //player nick_name
     repeated HeroInfo hero_list = 3; // player's heros
 }
@@ -763,7 +763,7 @@ message AckCreatePVPEctype
 //EGMI_REQ_BATTLE_MATCH						= 2000; //?????Game ??????
 message ReqBattleMatch
 {
-	required Ident	self_id 				= 1;//
+	required Ident	role_id 				= 1;//
 }
 
 //EGMI_ACK_BATTLE_MATCH						= 2001; //Game????? ?????????????????????????
@@ -776,7 +776,7 @@ message AckBattleMatch
 //EGMI_REQ_BATTLE_START						= 2002; //?????Game????
 message ReqBattleStart
 {
-	required Ident	player_id 				= 1;//
+	required Ident	role_id 				= 1;//
 }
 //EGMI_ACK_BATTLE_START						= 2003; //Game????? ?????????????
 message AckBattleStart
@@ -786,13 +786,13 @@ message AckBattleStart
 //EGMI_NTF_CG_BATTLE_FRAMECOMMAND				= 2000; //?????????????????
 message NtfCGBattleFrameCommand
 {
-	required Ident  player_id				=1;
+	required Ident  role_id				=1;
 	required int32	skillId					=2;
 }	
 //EGMI_NTF_GC_BATTLE_FRAMECOMMAND				= 2000; //?????????????
 message NtfGCBattleFrameCommand
 {
-	required Ident  player_id				=1;
+	required Ident  role_id				=1;
 	required int32	skillId					=2;
 }
 //EGMI_NTF_GC_BATTLE_FRAMEFINISH				= 2000; //??????????????????????????

@@ -348,7 +348,7 @@ void protobuf_AssignDesc_NFMsgShare_2eproto() {
       sizeof(HeroInfo));
   PlayerInfo_descriptor_ = file->message_type(1);
   static const int PlayerInfo_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfo, player_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfo, role_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfo, player_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfo, hero_list_),
   };
@@ -1842,7 +1842,7 @@ void protobuf_AssignDesc_NFMsgShare_2eproto() {
       sizeof(AckCreatePVPEctype));
   ReqBattleMatch_descriptor_ = file->message_type(88);
   static const int ReqBattleMatch_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqBattleMatch, self_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqBattleMatch, role_id_),
   };
   ReqBattleMatch_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1874,7 +1874,7 @@ void protobuf_AssignDesc_NFMsgShare_2eproto() {
       sizeof(AckBattleMatch));
   ReqBattleStart_descriptor_ = file->message_type(90);
   static const int ReqBattleStart_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqBattleStart, player_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqBattleStart, role_id_),
   };
   ReqBattleStart_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1904,7 +1904,7 @@ void protobuf_AssignDesc_NFMsgShare_2eproto() {
       sizeof(AckBattleStart));
   NtfCGBattleFrameCommand_descriptor_ = file->message_type(92);
   static const int NtfCGBattleFrameCommand_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfCGBattleFrameCommand, player_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfCGBattleFrameCommand, role_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfCGBattleFrameCommand, skillid_),
   };
   NtfCGBattleFrameCommand_reflection_ =
@@ -1920,7 +1920,7 @@ void protobuf_AssignDesc_NFMsgShare_2eproto() {
       sizeof(NtfCGBattleFrameCommand));
   NtfGCBattleFrameCommand_descriptor_ = file->message_type(93);
   static const int NtfGCBattleFrameCommand_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfGCBattleFrameCommand, player_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfGCBattleFrameCommand, role_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfGCBattleFrameCommand, skillid_),
   };
   NtfGCBattleFrameCommand_reflection_ =
@@ -2367,240 +2367,240 @@ void protobuf_AddDesc_NFMsgShare_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020NFMsgShare.proto\022\005NFMsg\032\016NFDefine.prot"
     "o\032\017NFMsgBase.proto\"\033\n\010HeroInfo\022\017\n\007hero_i"
-    "d\030\001 \002(\005\"f\n\nPlayerInfo\022\037\n\tplayer_id\030\001 \002(\013"
-    "2\014.NFMsg.Ident\022\023\n\013player_name\030\002 \002(\014\022\"\n\th"
-    "ero_list\030\003 \003(\0132\017.NFMsg.HeroInfo\"^\n\022ReqEn"
-    "terGameServer\022\030\n\002id\030\001 \002(\0132\014.NFMsg.Ident\022"
-    "\017\n\007account\030\002 \002(\014\022\017\n\007game_id\030\003 \002(\005\022\014\n\004nam"
-    "e\030\004 \002(\014\"\030\n\026ReqAckEnterGameSuccess\"\016\n\014Req"
-    "HeartBeat\"\024\n\022ReqLeaveGameServer\"\267\001\n\017Play"
-    "erEntryInfo\022!\n\013object_guid\030\001 \002(\0132\014.NFMsg"
-    ".Ident\022\t\n\001x\030\002 \002(\002\022\t\n\001y\030\003 \002(\002\022\t\n\001z\030\004 \002(\002\022"
-    "\023\n\013career_type\030\005 \002(\005\022\024\n\014player_state\030\006 \002"
-    "(\005\022\021\n\tconfig_id\030\007 \002(\014\022\020\n\010scene_id\030\010 \002(\005\022"
-    "\020\n\010class_id\030\t \002(\014\"A\n\022AckPlayerEntryList\022"
-    "+\n\013object_list\030\001 \003(\0132\026.NFMsg.PlayerEntry"
-    "Info\"7\n\022AckPlayerLeaveList\022!\n\013object_lis"
-    "t\030\001 \003(\0132\014.NFMsg.Ident\"\367\001\n\rReqAckSynData\022"
-    "\033\n\005syser\030\001 \002(\0132\014.NFMsg.Ident\022!\n\013object_l"
-    "ist\030\002 \003(\0132\014.NFMsg.Ident\022\014\n\004data\030\003 \002(\014\022.\n"
-    "\010syn_type\030\004 \002(\0162\034.NFMsg.ReqAckSynData.Sy"
-    "nType\022 \n\006msg_id\030\005 \002(\0162\020.NFMsg.ESynMsgID\""
-    "F\n\007SynType\022\r\n\tEST_GROUP\020\001\022\r\n\tEST_SCENE\020\002"
-    "\022\r\n\tEST_GUILD\020\003\022\016\n\nEST_FRIEND\020\004\"\316\001\n\020ReqA"
-    "ckPlayerMove\022\033\n\005mover\030\001 \002(\0132\014.NFMsg.Iden"
-    "t\022\020\n\010moveType\030\002 \002(\005\022\r\n\005speed\030\003 \002(\002\022\014\n\004ti"
-    "me\030\004 \002(\005\022\"\n\ntarget_pos\030\005 \003(\0132\016.NFMsg.Vec"
-    "tor3\022\"\n\nsource_pos\030\006 \003(\0132\016.NFMsg.Vector3"
-    "\022&\n\016move_direction\030\007 \003(\0132\016.NFMsg.Vector3"
-    "\"\236\003\n\020ReqAckPlayerChat\022\035\n\007chat_id\030\001 \002(\0132\014"
-    ".NFMsg.Ident\0228\n\tchat_type\030\002 \002(\0162%.NFMsg."
-    "ReqAckPlayerChat.EGameChatType\022\021\n\tchat_i"
-    "nfo\030\003 \002(\014\022\021\n\tchat_name\030\004 \002(\014\022\037\n\ttarget_i"
-    "d\030\005 \001(\0132\014.NFMsg.Ident\022=\n\016Container_data\030"
-    "\006 \003(\0132%.NFMsg.ReqAckPlayerChat.ChatConta"
-    "iner\032Y\n\rChatContainer\022\025\n\rConTainerType\030\002"
-    " \002(\005\022\021\n\tdata_info\030\003 \002(\014\"\036\n\rContainerType"
-    "\022\r\n\tEGCT_ITEM\020\001\"P\n\rEGameChatType\022\016\n\nEGCT"
-    "_GUILD\020\000\022\020\n\014EGCT_PRIVATE\020\001\022\r\n\tEGCT_TEAM\020"
-    "\002\022\016\n\nEGCT_WORLD\020\003\"\323\001\n\nEffectData\022\"\n\014effe"
-    "ct_ident\030\001 \002(\0132\014.NFMsg.Ident\022\024\n\014effect_v"
-    "alue\030\002 \002(\005\0221\n\neffect_rlt\030\003 \002(\0162\035.NFMsg.E"
-    "ffectData.EResultType\"X\n\013EResultType\022\014\n\010"
-    "EET_FAIL\020\000\022\017\n\013EET_SUCCESS\020\001\022\016\n\nEET_REFUS"
-    "E\020\002\022\014\n\010EET_MISS\020\003\022\014\n\010EET_CRIT\020\004\"y\n\016ReqAc"
-    "kUseSkill\022\032\n\004user\030\001 \002(\0132\014.NFMsg.Ident\022\020\n"
-    "\010skill_id\030\002 \002(\014\022\021\n\tuse_index\030\003 \002(\005\022&\n\013ef"
-    "fect_data\030\004 \003(\0132\021.NFMsg.EffectData\"\265\001\n\rR"
-    "eqAckUseItem\022\032\n\004user\030\001 \002(\0132\014.NFMsg.Ident"
-    "\022\037\n\titem_guid\030\002 \002(\0132\014.NFMsg.Ident\022&\n\013eff"
-    "ect_data\030\003 \003(\0132\021.NFMsg.EffectData\022\037\n\004ite"
-    "m\030\004 \002(\0132\021.NFMsg.ItemStruct\022\036\n\010targetid\030\005"
-    " \002(\0132\014.NFMsg.Ident\"\363\001\n\017ReqAckSwapScene\022;"
-    "\n\rtransfer_type\030\001 \002(\0162$.NFMsg.ReqAckSwap"
-    "Scene.EGameSwapType\022\020\n\010scene_id\030\002 \002(\005\022\017\n"
-    "\007line_id\030\003 \002(\005\022\t\n\001x\030\004 \001(\002\022\t\n\001y\030\005 \001(\002\022\t\n\001"
-    "z\030\006 \001(\002\022\014\n\004data\030\007 \001(\t\"Q\n\rEGameSwapType\022\017"
-    "\n\013EGST_NARMAL\020\000\022\016\n\nEGST_CLONE\020\001\022\016\n\nEGST_"
-    "ARENA\020\002\022\017\n\013EGST_MIRROR\020\003\"\037\n\017ReqAckHomeSc"
-    "ene\022\014\n\004data\030\001 \001(\t\"1\n\nItemStruct\022\017\n\007item_"
-    "id\030\001 \002(\t\022\022\n\nitem_count\030\002 \002(\005\"\?\n\016Currency"
-    "Struct\022\025\n\rcurrency_type\030\001 \002(\005\022\026\n\016currenc"
-    "y_count\030\002 \002(\005\"2\n\021ReqAckStartBattle\022\014\n\004go"
-    "ld\030\001 \002(\005\022\017\n\007diamond\030\002 \002(\005\"\016\n\014ReqEndBattl"
-    "e\"{\n\014AckEndBattle\022\013\n\003win\030\001 \002(\005\022\014\n\004star\030\002"
-    " \002(\005\022\014\n\004gold\030\003 \002(\005\022\013\n\003exp\030\004 \002(\005\022\017\n\007diamo"
-    "nd\030\005 \002(\005\022$\n\titem_list\030\006 \003(\0132\021.NFMsg.Item"
-    "Struct\"2\n\017ReqPickDropItem\022\037\n\titem_guid\030\002"
-    " \002(\0132\014.NFMsg.Ident\" \n\rReqAcceptTask\022\017\n\007t"
-    "ask_id\030\001 \002(\014\"#\n\020ReqCompeleteTask\022\017\n\007task"
-    "_id\030\001 \002(\014\"M\n\014ReqWearEquip\022\035\n\007equipid\030\001 \002"
-    "(\0132\014.NFMsg.Ident\022\036\n\010Targetid\030\002 \002(\0132\014.NFM"
-    "sg.Ident\"M\n\014TakeOffEquip\022\035\n\007equipid\030\001 \002("
-    "\0132\014.NFMsg.Ident\022\036\n\010Targetid\030\002 \002(\0132\014.NFMs"
-    "g.Ident\"\357\001\n\022ReqAckJoinActivity\022B\n\ractivi"
-    "ty_type\030\001 \002(\0162+.NFMsg.ReqAckJoinActivity"
-    ".EGameActivityType\022I\n\021sub_activity_type\030"
-    "\002 \002(\0162..NFMsg.ReqAckJoinActivity.EGameAc"
-    "tivitySubType\"!\n\021EGameActivityType\022\014\n\010EG"
-    "AT_PVP\020\000\"\'\n\024EGameActivitySubType\022\017\n\013EGAT"
-    "_NORMAL\020\000\"G\n\021ReqAckCreateGuild\022\036\n\010guild_"
-    "id\030\001 \002(\0132\014.NFMsg.Ident\022\022\n\nguild_name\030\002 \002"
-    "(\t\"$\n\016ReqSearchGuild\022\022\n\nguild_name\030\001 \002(\t"
-    "\"\220\002\n\016AckSearchGuild\022;\n\nguild_list\030\001 \003(\0132"
-    "\'.NFMsg.AckSearchGuild.SearchGuildObject"
-    "\032\300\001\n\021SearchGuildObject\022\036\n\010guild_ID\030\001 \002(\013"
-    "2\014.NFMsg.Ident\022\022\n\nguild_name\030\002 \002(\t\022\022\n\ngu"
-    "ild_icon\030\003 \002(\t\022\032\n\022guild_member_count\030\004 \002"
-    "(\005\022\036\n\026guild_member_max_count\030\005 \002(\005\022\023\n\013gu"
-    "ild_honor\030\006 \002(\005\022\022\n\nguild_rank\030\007 \002(\005\"E\n\017R"
-    "eqAckJoinGuild\022\036\n\010guild_id\030\001 \002(\0132\014.NFMsg"
-    ".Ident\022\022\n\nguild_name\030\002 \002(\t\"F\n\020ReqAckLeav"
-    "eGuild\022\036\n\010guild_id\030\001 \002(\0132\014.NFMsg.Ident\022\022"
-    "\n\nguild_name\030\002 \002(\t\"\332\001\n\024ReqAckOprGuildMem"
-    "ber\022\036\n\010guild_id\030\001 \002(\0132\014.NFMsg.Ident\022\037\n\tm"
-    "ember_id\030\002 \002(\0132\014.NFMsg.Ident\022>\n\004type\030\003 \002"
-    "(\01620.NFMsg.ReqAckOprGuildMember.EGGuildM"
-    "emberOprType\"A\n\024EGGuildMemberOprType\022\r\n\t"
-    "EGAT_DOWN\020\000\022\013\n\007EGAT_UP\020\001\022\r\n\tEGAT_KICK\020\002\""
-    "5\n\023ReqEnterGuildEctype\022\036\n\010guild_id\030\001 \002(\013"
-    "2\014.NFMsg.Ident\"9\n\030ReqIntensifylevelToEqu"
-    "ip\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg.Ident\"I\n\030Ack"
-    "IntensifylevelToEquip\022\035\n\007equipid\030\001 \002(\0132\014"
-    ".NFMsg.Ident\022\016\n\006result\030\002 \002(\005\"/\n\016ReqHoleT"
-    "oEquip\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg.Ident\"\?\n"
-    "\016AckHoleToEquip\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg"
-    ".Ident\022\016\n\006result\030\002 \002(\005\"Z\n\024ReqInlaystoneT"
-    "oEquip\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg.Ident\022\017\n"
-    "\007stoneid\030\002 \002(\014\022\022\n\nhole_index\030\003 \002(\005\"E\n\024Ac"
-    "kInlaystoneToEquip\022\035\n\007equipid\030\001 \002(\0132\014.NF"
-    "Msg.Ident\022\016\n\006result\030\002 \002(\005\"f\n\026ReqElementl"
-    "evelToEquip\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg.Ide"
-    "nt\022-\n\014eElementType\030\002 \002(\0162\027.NFMsg.EGameEl"
-    "ementType\"G\n\026AckElementlevelToEquip\022\035\n\007e"
-    "quipid\030\001 \002(\0132\014.NFMsg.Ident\022\016\n\006result\030\002 \002"
-    "(\005\"<\n\017ReqSetFightHero\022\034\n\006Heroid\030\001 \002(\0132\014."
-    "NFMsg.Ident\022\013\n\003Set\030\002 \002(\005\"2\n\022ReqSwitchFig"
-    "htHero\022\034\n\006Heroid\030\001 \002(\0132\014.NFMsg.Ident\"3\n\016"
-    "ReqMiningTitle\022\t\n\001x\030\001 \002(\005\022\t\n\001y\030\002 \002(\005\022\013\n\003"
-    "opr\030\003 \002(\005\".\n\tTileState\022\t\n\001x\030\001 \002(\005\022\t\n\001y\030\002"
-    " \002(\005\022\013\n\003opr\030\003 \002(\005\"R\n\014TileBuilding\022\t\n\001x\030\001"
-    " \002(\005\022\t\n\001y\030\002 \002(\005\022\020\n\010configID\030\003 \002(\t\022\032\n\004gui"
-    "d\030\004 \002(\0132\014.NFMsg.Ident\"M\n\007TileNPC\022\t\n\001x\030\001 "
-    "\002(\005\022\t\n\001y\030\002 \002(\005\022\020\n\010configID\030\003 \002(\t\022\032\n\004guid"
-    "\030\004 \002(\0132\014.NFMsg.Ident\"t\n\016AckMiningTitle\022\036"
-    "\n\004tile\030\001 \003(\0132\020.NFMsg.TileState\022%\n\010buildi"
-    "ng\030\002 \003(\0132\023.NFMsg.TileBuilding\022\033\n\003npc\030\003 \003"
-    "(\0132\016.NFMsg.TileNPC\"\022\n\020ReqSearchOppnent\"$"
-    "\n\020AckSearchOppnent\022\020\n\010scene_id\030\001 \002(\005\"\201\001\n"
-    "\013ReqSendMail\022\036\n\010reciever\030\001 \002(\0132\014.NFMsg.I"
-    "dent\022$\n\titem_list\030\002 \003(\0132\021.NFMsg.ItemStru"
-    "ct\022,\n\rcurrency_list\030\003 \003(\0132\025.NFMsg.Curren"
-    "cyStruct\"\271\001\n\017ReqSwitchServer\022\034\n\006selfid\030\001"
-    " \002(\0132\014.NFMsg.Ident\022\025\n\rself_serverid\030\002 \002("
-    "\003\022\027\n\017target_serverid\030\003 \002(\003\022\025\n\rgate_serve"
-    "rid\030\004 \002(\003\022\017\n\007SceneID\030\005 \002(\003\022\037\n\tclient_id\030"
-    "\006 \002(\0132\014.NFMsg.Ident\022\017\n\007groupID\030\007 \002(\003\"v\n\017"
-    "AckSwitchServer\022\034\n\006selfid\030\001 \002(\0132\014.NFMsg."
-    "Ident\022\025\n\rself_serverid\030\002 \002(\003\022\027\n\017target_s"
-    "erverid\030\003 \002(\003\022\025\n\rgate_serverid\030\004 \002(\003\"z\n\010"
-    "TeamInfo\022\035\n\007team_id\030\001 \002(\0132\014.NFMsg.Ident\022"
-    " \n\ncaptain_id\030\002 \002(\0132\014.NFMsg.Ident\022-\n\016tea"
-    "mmemberInfo\030\003 \003(\0132\025.NFMsg.TeammemberInfo"
-    "\"n\n\016TeammemberInfo\022\037\n\tplayer_id\030\001 \002(\0132\014."
-    "NFMsg.Ident\022\014\n\004name\030\002 \002(\t\022\016\n\006nLevel\030\003 \002("
-    "\005\022\013\n\003job\030\004 \002(\005\022\020\n\010HeadIcon\030\005 \002(\t\"U\n\020ReqA"
-    "ckCreateTeam\022\035\n\007team_id\030\001 \002(\0132\014.NFMsg.Id"
-    "ent\022\"\n\txTeamInfo\030\002 \001(\0132\017.NFMsg.TeamInfo\""
-    "S\n\016ReqAckJoinTeam\022\035\n\007team_id\030\001 \002(\0132\014.NFM"
-    "sg.Ident\022\"\n\txTeamInfo\030\002 \001(\0132\017.NFMsg.Team"
-    "Info\"T\n\017ReqAckLeaveTeam\022\035\n\007team_id\030\001 \002(\013"
-    "2\014.NFMsg.Ident\022\"\n\txTeamInfo\030\002 \001(\0132\017.NFMs"
-    "g.TeamInfo\"\350\002\n\023ReqAckOprTeamMember\022\035\n\007te"
-    "am_id\030\001 \002(\0132\014.NFMsg.Ident\022\037\n\tmember_id\030\002"
-    " \002(\0132\014.NFMsg.Ident\022<\n\004type\030\003 \002(\0162..NFMsg"
-    ".ReqAckOprTeamMember.EGTeamMemberOprType"
-    "\022\"\n\txTeamInfo\030\004 \001(\0132\017.NFMsg.TeamInfo\"\256\001\n"
-    "\023EGTeamMemberOprType\022\r\n\tEGAT_DOWN\020\000\022\013\n\007E"
-    "GAT_UP\020\001\022\r\n\tEGAT_KICK\020\002\022\020\n\014EGAT_APPOINT\020"
-    "\003\022\r\n\tEGAT_FIRE\020\004\022\017\n\013EGAT_DEMISE\020\005\022\024\n\020EGA"
-    "T_ACCEPTAPPLY\020\006\022\022\n\016EGAT_DENYAPPLY\020\007\022\020\n\014E"
-    "GAT_KICKOUT\020\010\"x\n\020ReqAckInviteTeam\022\035\n\007tea"
-    "m_id\030\001 \002(\0132\014.NFMsg.Ident\022\035\n\007self_id\030\002 \002("
-    "\0132\014.NFMsg.Ident\022&\n\020invite_target_id\030\003 \002("
-    "\0132\014.NFMsg.Ident\"\233\001\n\022ReqTeamEnterEctype\022\035"
-    "\n\007team_id\030\001 \002(\0132\014.NFMsg.Ident\022\035\n\007self_id"
-    "\030\002 \002(\0132\014.NFMsg.Ident\022\021\n\tnEctypeID\030\003 \001(\005\022"
-    "\020\n\010nGroupID\030\004 \001(\005\022\017\n\007nResult\030\005 \001(\005\022\021\n\tnS"
-    "erverID\030\006 \001(\005\"\210\001\n\022AckTeamEnterEctype\022\035\n\007"
+    "d\030\001 \002(\005\"d\n\nPlayerInfo\022\035\n\007role_id\030\001 \002(\0132\014"
+    ".NFMsg.Ident\022\023\n\013player_name\030\002 \002(\014\022\"\n\ther"
+    "o_list\030\003 \003(\0132\017.NFMsg.HeroInfo\"^\n\022ReqEnte"
+    "rGameServer\022\030\n\002id\030\001 \002(\0132\014.NFMsg.Ident\022\017\n"
+    "\007account\030\002 \002(\014\022\017\n\007game_id\030\003 \002(\005\022\014\n\004name\030"
+    "\004 \002(\014\"\030\n\026ReqAckEnterGameSuccess\"\016\n\014ReqHe"
+    "artBeat\"\024\n\022ReqLeaveGameServer\"\267\001\n\017Player"
+    "EntryInfo\022!\n\013object_guid\030\001 \002(\0132\014.NFMsg.I"
+    "dent\022\t\n\001x\030\002 \002(\002\022\t\n\001y\030\003 \002(\002\022\t\n\001z\030\004 \002(\002\022\023\n"
+    "\013career_type\030\005 \002(\005\022\024\n\014player_state\030\006 \002(\005"
+    "\022\021\n\tconfig_id\030\007 \002(\014\022\020\n\010scene_id\030\010 \002(\005\022\020\n"
+    "\010class_id\030\t \002(\014\"A\n\022AckPlayerEntryList\022+\n"
+    "\013object_list\030\001 \003(\0132\026.NFMsg.PlayerEntryIn"
+    "fo\"7\n\022AckPlayerLeaveList\022!\n\013object_list\030"
+    "\001 \003(\0132\014.NFMsg.Ident\"\367\001\n\rReqAckSynData\022\033\n"
+    "\005syser\030\001 \002(\0132\014.NFMsg.Ident\022!\n\013object_lis"
+    "t\030\002 \003(\0132\014.NFMsg.Ident\022\014\n\004data\030\003 \002(\014\022.\n\010s"
+    "yn_type\030\004 \002(\0162\034.NFMsg.ReqAckSynData.SynT"
+    "ype\022 \n\006msg_id\030\005 \002(\0162\020.NFMsg.ESynMsgID\"F\n"
+    "\007SynType\022\r\n\tEST_GROUP\020\001\022\r\n\tEST_SCENE\020\002\022\r"
+    "\n\tEST_GUILD\020\003\022\016\n\nEST_FRIEND\020\004\"\316\001\n\020ReqAck"
+    "PlayerMove\022\033\n\005mover\030\001 \002(\0132\014.NFMsg.Ident\022"
+    "\020\n\010moveType\030\002 \002(\005\022\r\n\005speed\030\003 \002(\002\022\014\n\004time"
+    "\030\004 \002(\005\022\"\n\ntarget_pos\030\005 \003(\0132\016.NFMsg.Vecto"
+    "r3\022\"\n\nsource_pos\030\006 \003(\0132\016.NFMsg.Vector3\022&"
+    "\n\016move_direction\030\007 \003(\0132\016.NFMsg.Vector3\"\236"
+    "\003\n\020ReqAckPlayerChat\022\035\n\007chat_id\030\001 \002(\0132\014.N"
+    "FMsg.Ident\0228\n\tchat_type\030\002 \002(\0162%.NFMsg.Re"
+    "qAckPlayerChat.EGameChatType\022\021\n\tchat_inf"
+    "o\030\003 \002(\014\022\021\n\tchat_name\030\004 \002(\014\022\037\n\ttarget_id\030"
+    "\005 \001(\0132\014.NFMsg.Ident\022=\n\016Container_data\030\006 "
+    "\003(\0132%.NFMsg.ReqAckPlayerChat.ChatContain"
+    "er\032Y\n\rChatContainer\022\025\n\rConTainerType\030\002 \002"
+    "(\005\022\021\n\tdata_info\030\003 \002(\014\"\036\n\rContainerType\022\r"
+    "\n\tEGCT_ITEM\020\001\"P\n\rEGameChatType\022\016\n\nEGCT_G"
+    "UILD\020\000\022\020\n\014EGCT_PRIVATE\020\001\022\r\n\tEGCT_TEAM\020\002\022"
+    "\016\n\nEGCT_WORLD\020\003\"\323\001\n\nEffectData\022\"\n\014effect"
+    "_ident\030\001 \002(\0132\014.NFMsg.Ident\022\024\n\014effect_val"
+    "ue\030\002 \002(\005\0221\n\neffect_rlt\030\003 \002(\0162\035.NFMsg.Eff"
+    "ectData.EResultType\"X\n\013EResultType\022\014\n\010EE"
+    "T_FAIL\020\000\022\017\n\013EET_SUCCESS\020\001\022\016\n\nEET_REFUSE\020"
+    "\002\022\014\n\010EET_MISS\020\003\022\014\n\010EET_CRIT\020\004\"y\n\016ReqAckU"
+    "seSkill\022\032\n\004user\030\001 \002(\0132\014.NFMsg.Ident\022\020\n\010s"
+    "kill_id\030\002 \002(\014\022\021\n\tuse_index\030\003 \002(\005\022&\n\013effe"
+    "ct_data\030\004 \003(\0132\021.NFMsg.EffectData\"\265\001\n\rReq"
+    "AckUseItem\022\032\n\004user\030\001 \002(\0132\014.NFMsg.Ident\022\037"
+    "\n\titem_guid\030\002 \002(\0132\014.NFMsg.Ident\022&\n\013effec"
+    "t_data\030\003 \003(\0132\021.NFMsg.EffectData\022\037\n\004item\030"
+    "\004 \002(\0132\021.NFMsg.ItemStruct\022\036\n\010targetid\030\005 \002"
+    "(\0132\014.NFMsg.Ident\"\363\001\n\017ReqAckSwapScene\022;\n\r"
+    "transfer_type\030\001 \002(\0162$.NFMsg.ReqAckSwapSc"
+    "ene.EGameSwapType\022\020\n\010scene_id\030\002 \002(\005\022\017\n\007l"
+    "ine_id\030\003 \002(\005\022\t\n\001x\030\004 \001(\002\022\t\n\001y\030\005 \001(\002\022\t\n\001z\030"
+    "\006 \001(\002\022\014\n\004data\030\007 \001(\t\"Q\n\rEGameSwapType\022\017\n\013"
+    "EGST_NARMAL\020\000\022\016\n\nEGST_CLONE\020\001\022\016\n\nEGST_AR"
+    "ENA\020\002\022\017\n\013EGST_MIRROR\020\003\"\037\n\017ReqAckHomeScen"
+    "e\022\014\n\004data\030\001 \001(\t\"1\n\nItemStruct\022\017\n\007item_id"
+    "\030\001 \002(\t\022\022\n\nitem_count\030\002 \002(\005\"\?\n\016CurrencySt"
+    "ruct\022\025\n\rcurrency_type\030\001 \002(\005\022\026\n\016currency_"
+    "count\030\002 \002(\005\"2\n\021ReqAckStartBattle\022\014\n\004gold"
+    "\030\001 \002(\005\022\017\n\007diamond\030\002 \002(\005\"\016\n\014ReqEndBattle\""
+    "{\n\014AckEndBattle\022\013\n\003win\030\001 \002(\005\022\014\n\004star\030\002 \002"
+    "(\005\022\014\n\004gold\030\003 \002(\005\022\013\n\003exp\030\004 \002(\005\022\017\n\007diamond"
+    "\030\005 \002(\005\022$\n\titem_list\030\006 \003(\0132\021.NFMsg.ItemSt"
+    "ruct\"2\n\017ReqPickDropItem\022\037\n\titem_guid\030\002 \002"
+    "(\0132\014.NFMsg.Ident\" \n\rReqAcceptTask\022\017\n\007tas"
+    "k_id\030\001 \002(\014\"#\n\020ReqCompeleteTask\022\017\n\007task_i"
+    "d\030\001 \002(\014\"M\n\014ReqWearEquip\022\035\n\007equipid\030\001 \002(\013"
+    "2\014.NFMsg.Ident\022\036\n\010Targetid\030\002 \002(\0132\014.NFMsg"
+    ".Ident\"M\n\014TakeOffEquip\022\035\n\007equipid\030\001 \002(\0132"
+    "\014.NFMsg.Ident\022\036\n\010Targetid\030\002 \002(\0132\014.NFMsg."
+    "Ident\"\357\001\n\022ReqAckJoinActivity\022B\n\ractivity"
+    "_type\030\001 \002(\0162+.NFMsg.ReqAckJoinActivity.E"
+    "GameActivityType\022I\n\021sub_activity_type\030\002 "
+    "\002(\0162..NFMsg.ReqAckJoinActivity.EGameActi"
+    "vitySubType\"!\n\021EGameActivityType\022\014\n\010EGAT"
+    "_PVP\020\000\"\'\n\024EGameActivitySubType\022\017\n\013EGAT_N"
+    "ORMAL\020\000\"G\n\021ReqAckCreateGuild\022\036\n\010guild_id"
+    "\030\001 \002(\0132\014.NFMsg.Ident\022\022\n\nguild_name\030\002 \002(\t"
+    "\"$\n\016ReqSearchGuild\022\022\n\nguild_name\030\001 \002(\t\"\220"
+    "\002\n\016AckSearchGuild\022;\n\nguild_list\030\001 \003(\0132\'."
+    "NFMsg.AckSearchGuild.SearchGuildObject\032\300"
+    "\001\n\021SearchGuildObject\022\036\n\010guild_ID\030\001 \002(\0132\014"
+    ".NFMsg.Ident\022\022\n\nguild_name\030\002 \002(\t\022\022\n\nguil"
+    "d_icon\030\003 \002(\t\022\032\n\022guild_member_count\030\004 \002(\005"
+    "\022\036\n\026guild_member_max_count\030\005 \002(\005\022\023\n\013guil"
+    "d_honor\030\006 \002(\005\022\022\n\nguild_rank\030\007 \002(\005\"E\n\017Req"
+    "AckJoinGuild\022\036\n\010guild_id\030\001 \002(\0132\014.NFMsg.I"
+    "dent\022\022\n\nguild_name\030\002 \002(\t\"F\n\020ReqAckLeaveG"
+    "uild\022\036\n\010guild_id\030\001 \002(\0132\014.NFMsg.Ident\022\022\n\n"
+    "guild_name\030\002 \002(\t\"\332\001\n\024ReqAckOprGuildMembe"
+    "r\022\036\n\010guild_id\030\001 \002(\0132\014.NFMsg.Ident\022\037\n\tmem"
+    "ber_id\030\002 \002(\0132\014.NFMsg.Ident\022>\n\004type\030\003 \002(\016"
+    "20.NFMsg.ReqAckOprGuildMember.EGGuildMem"
+    "berOprType\"A\n\024EGGuildMemberOprType\022\r\n\tEG"
+    "AT_DOWN\020\000\022\013\n\007EGAT_UP\020\001\022\r\n\tEGAT_KICK\020\002\"5\n"
+    "\023ReqEnterGuildEctype\022\036\n\010guild_id\030\001 \002(\0132\014"
+    ".NFMsg.Ident\"9\n\030ReqIntensifylevelToEquip"
+    "\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg.Ident\"I\n\030AckIn"
+    "tensifylevelToEquip\022\035\n\007equipid\030\001 \002(\0132\014.N"
+    "FMsg.Ident\022\016\n\006result\030\002 \002(\005\"/\n\016ReqHoleToE"
+    "quip\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg.Ident\"\?\n\016A"
+    "ckHoleToEquip\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg.I"
+    "dent\022\016\n\006result\030\002 \002(\005\"Z\n\024ReqInlaystoneToE"
+    "quip\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg.Ident\022\017\n\007s"
+    "toneid\030\002 \002(\014\022\022\n\nhole_index\030\003 \002(\005\"E\n\024AckI"
+    "nlaystoneToEquip\022\035\n\007equipid\030\001 \002(\0132\014.NFMs"
+    "g.Ident\022\016\n\006result\030\002 \002(\005\"f\n\026ReqElementlev"
+    "elToEquip\022\035\n\007equipid\030\001 \002(\0132\014.NFMsg.Ident"
+    "\022-\n\014eElementType\030\002 \002(\0162\027.NFMsg.EGameElem"
+    "entType\"G\n\026AckElementlevelToEquip\022\035\n\007equ"
+    "ipid\030\001 \002(\0132\014.NFMsg.Ident\022\016\n\006result\030\002 \002(\005"
+    "\"<\n\017ReqSetFightHero\022\034\n\006Heroid\030\001 \002(\0132\014.NF"
+    "Msg.Ident\022\013\n\003Set\030\002 \002(\005\"2\n\022ReqSwitchFight"
+    "Hero\022\034\n\006Heroid\030\001 \002(\0132\014.NFMsg.Ident\"3\n\016Re"
+    "qMiningTitle\022\t\n\001x\030\001 \002(\005\022\t\n\001y\030\002 \002(\005\022\013\n\003op"
+    "r\030\003 \002(\005\".\n\tTileState\022\t\n\001x\030\001 \002(\005\022\t\n\001y\030\002 \002"
+    "(\005\022\013\n\003opr\030\003 \002(\005\"R\n\014TileBuilding\022\t\n\001x\030\001 \002"
+    "(\005\022\t\n\001y\030\002 \002(\005\022\020\n\010configID\030\003 \002(\t\022\032\n\004guid\030"
+    "\004 \002(\0132\014.NFMsg.Ident\"M\n\007TileNPC\022\t\n\001x\030\001 \002("
+    "\005\022\t\n\001y\030\002 \002(\005\022\020\n\010configID\030\003 \002(\t\022\032\n\004guid\030\004"
+    " \002(\0132\014.NFMsg.Ident\"t\n\016AckMiningTitle\022\036\n\004"
+    "tile\030\001 \003(\0132\020.NFMsg.TileState\022%\n\010building"
+    "\030\002 \003(\0132\023.NFMsg.TileBuilding\022\033\n\003npc\030\003 \003(\013"
+    "2\016.NFMsg.TileNPC\"\022\n\020ReqSearchOppnent\"$\n\020"
+    "AckSearchOppnent\022\020\n\010scene_id\030\001 \002(\005\"\201\001\n\013R"
+    "eqSendMail\022\036\n\010reciever\030\001 \002(\0132\014.NFMsg.Ide"
+    "nt\022$\n\titem_list\030\002 \003(\0132\021.NFMsg.ItemStruct"
+    "\022,\n\rcurrency_list\030\003 \003(\0132\025.NFMsg.Currency"
+    "Struct\"\271\001\n\017ReqSwitchServer\022\034\n\006selfid\030\001 \002"
+    "(\0132\014.NFMsg.Ident\022\025\n\rself_serverid\030\002 \002(\003\022"
+    "\027\n\017target_serverid\030\003 \002(\003\022\025\n\rgate_serveri"
+    "d\030\004 \002(\003\022\017\n\007SceneID\030\005 \002(\003\022\037\n\tclient_id\030\006 "
+    "\002(\0132\014.NFMsg.Ident\022\017\n\007groupID\030\007 \002(\003\"v\n\017Ac"
+    "kSwitchServer\022\034\n\006selfid\030\001 \002(\0132\014.NFMsg.Id"
+    "ent\022\025\n\rself_serverid\030\002 \002(\003\022\027\n\017target_ser"
+    "verid\030\003 \002(\003\022\025\n\rgate_serverid\030\004 \002(\003\"z\n\010Te"
+    "amInfo\022\035\n\007team_id\030\001 \002(\0132\014.NFMsg.Ident\022 \n"
+    "\ncaptain_id\030\002 \002(\0132\014.NFMsg.Ident\022-\n\016teamm"
+    "emberInfo\030\003 \003(\0132\025.NFMsg.TeammemberInfo\"n"
+    "\n\016TeammemberInfo\022\037\n\tplayer_id\030\001 \002(\0132\014.NF"
+    "Msg.Ident\022\014\n\004name\030\002 \002(\t\022\016\n\006nLevel\030\003 \002(\005\022"
+    "\013\n\003job\030\004 \002(\005\022\020\n\010HeadIcon\030\005 \002(\t\"U\n\020ReqAck"
+    "CreateTeam\022\035\n\007team_id\030\001 \002(\0132\014.NFMsg.Iden"
+    "t\022\"\n\txTeamInfo\030\002 \001(\0132\017.NFMsg.TeamInfo\"S\n"
+    "\016ReqAckJoinTeam\022\035\n\007team_id\030\001 \002(\0132\014.NFMsg"
+    ".Ident\022\"\n\txTeamInfo\030\002 \001(\0132\017.NFMsg.TeamIn"
+    "fo\"T\n\017ReqAckLeaveTeam\022\035\n\007team_id\030\001 \002(\0132\014"
+    ".NFMsg.Ident\022\"\n\txTeamInfo\030\002 \001(\0132\017.NFMsg."
+    "TeamInfo\"\350\002\n\023ReqAckOprTeamMember\022\035\n\007team"
+    "_id\030\001 \002(\0132\014.NFMsg.Ident\022\037\n\tmember_id\030\002 \002"
+    "(\0132\014.NFMsg.Ident\022<\n\004type\030\003 \002(\0162..NFMsg.R"
+    "eqAckOprTeamMember.EGTeamMemberOprType\022\""
+    "\n\txTeamInfo\030\004 \001(\0132\017.NFMsg.TeamInfo\"\256\001\n\023E"
+    "GTeamMemberOprType\022\r\n\tEGAT_DOWN\020\000\022\013\n\007EGA"
+    "T_UP\020\001\022\r\n\tEGAT_KICK\020\002\022\020\n\014EGAT_APPOINT\020\003\022"
+    "\r\n\tEGAT_FIRE\020\004\022\017\n\013EGAT_DEMISE\020\005\022\024\n\020EGAT_"
+    "ACCEPTAPPLY\020\006\022\022\n\016EGAT_DENYAPPLY\020\007\022\020\n\014EGA"
+    "T_KICKOUT\020\010\"x\n\020ReqAckInviteTeam\022\035\n\007team_"
+    "id\030\001 \002(\0132\014.NFMsg.Ident\022\035\n\007self_id\030\002 \002(\0132"
+    "\014.NFMsg.Ident\022&\n\020invite_target_id\030\003 \002(\0132"
+    "\014.NFMsg.Ident\"\233\001\n\022ReqTeamEnterEctype\022\035\n\007"
     "team_id\030\001 \002(\0132\014.NFMsg.Ident\022\035\n\007self_id\030\002"
     " \002(\0132\014.NFMsg.Ident\022\021\n\tnEctypeID\030\003 \001(\005\022\020\n"
-    "\010nGroupID\030\004 \001(\005\022\017\n\007nResult\030\005 \001(\005\"k\n\021Grid"
-    "GuildBaseInfo\022\030\n\002id\030\001 \002(\0132\014.NFMsg.Ident\022"
-    "\r\n\005level\030\002 \002(\005\022\r\n\005count\030\003 \002(\005\022\020\n\010resourc"
-    "e\030\004 \002(\005\022\014\n\004icon\030\005 \002(\014\")\n\021ReqBigMapGridIn"
-    "fo\022\024\n\014map_title_id\030\001 \003(\014\"\272\001\n\022BigMapGridB"
-    "aseInfo\022\n\n\002id\030\001 \002(\014\022,\n\nguild_info\030\002 \002(\0132"
-    "\030.NFMsg.GridGuildBaseInfo\022\024\n\014kingwar_tim"
-    "e\030\n \002(\005\022 \n\nkingwarrer\030\013 \002(\0132\014.NFMsg.Iden"
-    "t\022\024\n\014hurting_time\030\024 \002(\005\022\034\n\006hurter\030\025 \002(\0132"
-    "\014.NFMsg.Ident\"z\n\016BigMapLeaveMsg\022\033\n\005owner"
-    "\030\001 \002(\0132\014.NFMsg.Ident\022\022\n\nowner_name\030\002 \002(\014"
-    "\022\020\n\010msg_data\030\003 \002(\014\022\020\n\010msg_time\030\004 \002(\005\022\023\n\013"
-    "owner_level\030\005 \002(\005\"\236\001\n\020BigMapWarHistory\022*"
-    "\n\010red_info\030\001 \002(\0132\030.NFMsg.GridGuildBaseIn"
-    "fo\022+\n\tblue_info\030\002 \002(\0132\030.NFMsg.GridGuildB"
-    "aseInfo\022\037\n\twinner_id\030\n \002(\0132\014.NFMsg.Ident"
-    "\022\020\n\010war_time\030\013 \002(\005\"\323\001\n\024BigMapGridDetailI"
-    "nfo\0221\n\016grid_base_info\030\001 \002(\0132\031.NFMsg.BigM"
-    "apGridBaseInfo\0220\n\016stay_guid_list\030\002 \003(\0132\030"
-    ".NFMsg.GridGuildBaseInfo\022(\n\tleave_msg\030\003 "
-    "\003(\0132\025.NFMsg.BigMapLeaveMsg\022,\n\013war_histor"
-    "y\030\004 \003(\0132\027.NFMsg.BigMapWarHistory\"B\n\021AckB"
-    "igMapGridInfo\022-\n\010map_data\030\001 \003(\0132\033.NFMsg."
-    "BigMapGridDetailInfo\"\017\n\rReqBigMapInfo\"B\n"
-    "\rAckBigMapInfo\0221\n\016grid_base_info\030\001 \003(\0132\031"
-    ".NFMsg.BigMapGridBaseInfo\"F\n\016ReqHoldMapG"
-    "rid\022\024\n\014map_title_id\030\001 \002(\014\022\036\n\010guild_id\030\002 "
-    "\002(\0132\014.NFMsg.Ident\"\020\n\016AckHoldMapGrid\"P\n\016R"
-    "eqLeaveMapMsg\022\024\n\014map_title_id\030\001 \002(\014\022(\n\tl"
-    "eave_msg\030\002 \002(\0132\025.NFMsg.BigMapLeaveMsg\"\020\n"
-    "\016AckLeaveMapMsg\"&\n\016ReqGetMapAward\022\024\n\014map"
-    "_title_id\030\001 \002(\014\"\020\n\016AckGetMapAward\"%\n\rReq"
-    "MapHunting\022\024\n\014map_title_id\030\001 \002(\014\"\017\n\rAckM"
-    "apHunting\"%\n\rReqMapKingWar\022\024\n\014map_title_"
-    "id\030\001 \002(\014\"\017\n\rAckMapKingWar\"\361\001\n\013PVPRoomInf"
-    "o\022\023\n\013nCellStatus\030\001 \002(\005\022\034\n\006RoomID\030\002 \002(\0132\014"
-    ".NFMsg.Ident\022\020\n\010nPVPMode\030\003 \002(\005\022\021\n\tnPVPGr"
-    "ade\030\004 \002(\005\022\021\n\tMaxPalyer\030\005 \002(\005\022 \n\nxRedPlay"
-    "er\030\006 \003(\0132\014.NFMsg.Ident\022!\n\013xBluePlayer\030\007 "
-    "\003(\0132\014.NFMsg.Ident\022\020\n\010serverid\030\010 \001(\003\022\017\n\007S"
-    "ceneID\030\t \001(\003\022\017\n\007groupID\030\n \001(\003\"\276\001\n\020ReqPVP"
-    "ApplyMatch\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Iden"
-    "t\022\020\n\010nPVPMode\030\002 \002(\005\022\r\n\005score\030\003 \001(\003\022\021\n\tAp"
-    "plyType\030\004 \002(\005\022\035\n\007team_id\030\005 \001(\0132\014.NFMsg.I"
-    "dent\"8\n\nEApplyType\022\025\n\021EApplyType_Single\020"
-    "\000\022\023\n\017EApplyType_Team\020\001\"|\n\020AckPVPApplyMat"
-    "ch\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Ident\022%\n\txRo"
-    "omInfo\030\002 \001(\0132\022.NFMsg.PVPRoomInfo\022\021\n\tAppl"
-    "yType\030\003 \002(\005\022\017\n\007nResult\030\004 \002(\005\"Z\n\022ReqCreat"
-    "ePVPEctype\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Iden"
-    "t\022%\n\txRoomInfo\030\002 \002(\0132\022.NFMsg.PVPRoomInfo"
-    "\"m\n\022AckCreatePVPEctype\022\035\n\007self_id\030\001 \002(\0132"
-    "\014.NFMsg.Ident\022%\n\txRoomInfo\030\002 \002(\0132\022.NFMsg"
-    ".PVPRoomInfo\022\021\n\tApplyType\030\003 \002(\005\"/\n\016ReqBa"
-    "ttleMatch\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Ident"
-    "\"m\n\016AckBattleMatch\022\023\n\013isSuccessed\030\001 \002(\010\022"
-    "\"\n\007playerA\030\002 \001(\0132\021.NFMsg.PlayerInfo\022\"\n\007p"
-    "layerB\030\003 \001(\0132\021.NFMsg.PlayerInfo\"1\n\016ReqBa"
-    "ttleStart\022\037\n\tplayer_id\030\001 \002(\0132\014.NFMsg.Ide"
-    "nt\";\n\016AckBattleStart\022)\n\nevent_code\030\001 \002(\016"
-    "2\025.NFMsg.EGameEventCode\"K\n\027NtfCGBattleFr"
-    "ameCommand\022\037\n\tplayer_id\030\001 \002(\0132\014.NFMsg.Id"
-    "ent\022\017\n\007skillId\030\002 \002(\005\"K\n\027NtfGCBattleFrame"
-    "Command\022\037\n\tplayer_id\030\001 \002(\0132\014.NFMsg.Ident"
-    "\022\017\n\007skillId\030\002 \002(\005\"+\n\026NtfGCBattleFrameFin"
-    "ish\022\021\n\ttimestamp\030\001 \001(\003", 9422);
+    "\010nGroupID\030\004 \001(\005\022\017\n\007nResult\030\005 \001(\005\022\021\n\tnSer"
+    "verID\030\006 \001(\005\"\210\001\n\022AckTeamEnterEctype\022\035\n\007te"
+    "am_id\030\001 \002(\0132\014.NFMsg.Ident\022\035\n\007self_id\030\002 \002"
+    "(\0132\014.NFMsg.Ident\022\021\n\tnEctypeID\030\003 \001(\005\022\020\n\010n"
+    "GroupID\030\004 \001(\005\022\017\n\007nResult\030\005 \001(\005\"k\n\021GridGu"
+    "ildBaseInfo\022\030\n\002id\030\001 \002(\0132\014.NFMsg.Ident\022\r\n"
+    "\005level\030\002 \002(\005\022\r\n\005count\030\003 \002(\005\022\020\n\010resource\030"
+    "\004 \002(\005\022\014\n\004icon\030\005 \002(\014\")\n\021ReqBigMapGridInfo"
+    "\022\024\n\014map_title_id\030\001 \003(\014\"\272\001\n\022BigMapGridBas"
+    "eInfo\022\n\n\002id\030\001 \002(\014\022,\n\nguild_info\030\002 \002(\0132\030."
+    "NFMsg.GridGuildBaseInfo\022\024\n\014kingwar_time\030"
+    "\n \002(\005\022 \n\nkingwarrer\030\013 \002(\0132\014.NFMsg.Ident\022"
+    "\024\n\014hurting_time\030\024 \002(\005\022\034\n\006hurter\030\025 \002(\0132\014."
+    "NFMsg.Ident\"z\n\016BigMapLeaveMsg\022\033\n\005owner\030\001"
+    " \002(\0132\014.NFMsg.Ident\022\022\n\nowner_name\030\002 \002(\014\022\020"
+    "\n\010msg_data\030\003 \002(\014\022\020\n\010msg_time\030\004 \002(\005\022\023\n\013ow"
+    "ner_level\030\005 \002(\005\"\236\001\n\020BigMapWarHistory\022*\n\010"
+    "red_info\030\001 \002(\0132\030.NFMsg.GridGuildBaseInfo"
+    "\022+\n\tblue_info\030\002 \002(\0132\030.NFMsg.GridGuildBas"
+    "eInfo\022\037\n\twinner_id\030\n \002(\0132\014.NFMsg.Ident\022\020"
+    "\n\010war_time\030\013 \002(\005\"\323\001\n\024BigMapGridDetailInf"
+    "o\0221\n\016grid_base_info\030\001 \002(\0132\031.NFMsg.BigMap"
+    "GridBaseInfo\0220\n\016stay_guid_list\030\002 \003(\0132\030.N"
+    "FMsg.GridGuildBaseInfo\022(\n\tleave_msg\030\003 \003("
+    "\0132\025.NFMsg.BigMapLeaveMsg\022,\n\013war_history\030"
+    "\004 \003(\0132\027.NFMsg.BigMapWarHistory\"B\n\021AckBig"
+    "MapGridInfo\022-\n\010map_data\030\001 \003(\0132\033.NFMsg.Bi"
+    "gMapGridDetailInfo\"\017\n\rReqBigMapInfo\"B\n\rA"
+    "ckBigMapInfo\0221\n\016grid_base_info\030\001 \003(\0132\031.N"
+    "FMsg.BigMapGridBaseInfo\"F\n\016ReqHoldMapGri"
+    "d\022\024\n\014map_title_id\030\001 \002(\014\022\036\n\010guild_id\030\002 \002("
+    "\0132\014.NFMsg.Ident\"\020\n\016AckHoldMapGrid\"P\n\016Req"
+    "LeaveMapMsg\022\024\n\014map_title_id\030\001 \002(\014\022(\n\tlea"
+    "ve_msg\030\002 \002(\0132\025.NFMsg.BigMapLeaveMsg\"\020\n\016A"
+    "ckLeaveMapMsg\"&\n\016ReqGetMapAward\022\024\n\014map_t"
+    "itle_id\030\001 \002(\014\"\020\n\016AckGetMapAward\"%\n\rReqMa"
+    "pHunting\022\024\n\014map_title_id\030\001 \002(\014\"\017\n\rAckMap"
+    "Hunting\"%\n\rReqMapKingWar\022\024\n\014map_title_id"
+    "\030\001 \002(\014\"\017\n\rAckMapKingWar\"\361\001\n\013PVPRoomInfo\022"
+    "\023\n\013nCellStatus\030\001 \002(\005\022\034\n\006RoomID\030\002 \002(\0132\014.N"
+    "FMsg.Ident\022\020\n\010nPVPMode\030\003 \002(\005\022\021\n\tnPVPGrad"
+    "e\030\004 \002(\005\022\021\n\tMaxPalyer\030\005 \002(\005\022 \n\nxRedPlayer"
+    "\030\006 \003(\0132\014.NFMsg.Ident\022!\n\013xBluePlayer\030\007 \003("
+    "\0132\014.NFMsg.Ident\022\020\n\010serverid\030\010 \001(\003\022\017\n\007Sce"
+    "neID\030\t \001(\003\022\017\n\007groupID\030\n \001(\003\"\276\001\n\020ReqPVPAp"
+    "plyMatch\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Ident\022"
+    "\020\n\010nPVPMode\030\002 \002(\005\022\r\n\005score\030\003 \001(\003\022\021\n\tAppl"
+    "yType\030\004 \002(\005\022\035\n\007team_id\030\005 \001(\0132\014.NFMsg.Ide"
+    "nt\"8\n\nEApplyType\022\025\n\021EApplyType_Single\020\000\022"
+    "\023\n\017EApplyType_Team\020\001\"|\n\020AckPVPApplyMatch"
+    "\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Ident\022%\n\txRoom"
+    "Info\030\002 \001(\0132\022.NFMsg.PVPRoomInfo\022\021\n\tApplyT"
+    "ype\030\003 \002(\005\022\017\n\007nResult\030\004 \002(\005\"Z\n\022ReqCreateP"
+    "VPEctype\022\035\n\007self_id\030\001 \002(\0132\014.NFMsg.Ident\022"
+    "%\n\txRoomInfo\030\002 \002(\0132\022.NFMsg.PVPRoomInfo\"m"
+    "\n\022AckCreatePVPEctype\022\035\n\007self_id\030\001 \002(\0132\014."
+    "NFMsg.Ident\022%\n\txRoomInfo\030\002 \002(\0132\022.NFMsg.P"
+    "VPRoomInfo\022\021\n\tApplyType\030\003 \002(\005\"/\n\016ReqBatt"
+    "leMatch\022\035\n\007role_id\030\001 \002(\0132\014.NFMsg.Ident\"m"
+    "\n\016AckBattleMatch\022\023\n\013isSuccessed\030\001 \002(\010\022\"\n"
+    "\007playerA\030\002 \001(\0132\021.NFMsg.PlayerInfo\022\"\n\007pla"
+    "yerB\030\003 \001(\0132\021.NFMsg.PlayerInfo\"/\n\016ReqBatt"
+    "leStart\022\035\n\007role_id\030\001 \002(\0132\014.NFMsg.Ident\";"
+    "\n\016AckBattleStart\022)\n\nevent_code\030\001 \002(\0162\025.N"
+    "FMsg.EGameEventCode\"I\n\027NtfCGBattleFrameC"
+    "ommand\022\035\n\007role_id\030\001 \002(\0132\014.NFMsg.Ident\022\017\n"
+    "\007skillId\030\002 \002(\005\"I\n\027NtfGCBattleFrameComman"
+    "d\022\035\n\007role_id\030\001 \002(\0132\014.NFMsg.Ident\022\017\n\007skil"
+    "lId\030\002 \002(\005\"+\n\026NtfGCBattleFrameFinish\022\021\n\tt"
+    "imestamp\030\001 \001(\003", 9414);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "NFMsgShare.proto", &protobuf_RegisterTypes);
   HeroInfo::default_instance_ = new HeroInfo();
@@ -3019,7 +3019,7 @@ void HeroInfo::Swap(HeroInfo* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int PlayerInfo::kPlayerIdFieldNumber;
+const int PlayerInfo::kRoleIdFieldNumber;
 const int PlayerInfo::kPlayerNameFieldNumber;
 const int PlayerInfo::kHeroListFieldNumber;
 #endif  // !_MSC_VER
@@ -3030,7 +3030,7 @@ PlayerInfo::PlayerInfo()
 }
 
 void PlayerInfo::InitAsDefaultInstance() {
-  player_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
+  role_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
 }
 
 PlayerInfo::PlayerInfo(const PlayerInfo& from)
@@ -3041,7 +3041,7 @@ PlayerInfo::PlayerInfo(const PlayerInfo& from)
 
 void PlayerInfo::SharedCtor() {
   _cached_size_ = 0;
-  player_id_ = NULL;
+  role_id_ = NULL;
   player_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -3055,7 +3055,7 @@ void PlayerInfo::SharedDtor() {
     delete player_name_;
   }
   if (this != default_instance_) {
-    delete player_id_;
+    delete role_id_;
   }
 }
 
@@ -3082,8 +3082,8 @@ PlayerInfo* PlayerInfo::New() const {
 
 void PlayerInfo::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_player_id()) {
-      if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
+    if (has_role_id()) {
+      if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
     }
     if (has_player_name()) {
       if (player_name_ != &::google::protobuf::internal::kEmptyString) {
@@ -3102,12 +3102,12 @@ bool PlayerInfo::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .NFMsg.Ident player_id = 1;
+      // required .NFMsg.Ident role_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_player_id()));
+               input, mutable_role_id()));
         } else {
           goto handle_uninterpreted;
         }
@@ -3162,10 +3162,10 @@ bool PlayerInfo::MergePartialFromCodedStream(
 
 void PlayerInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .NFMsg.Ident player_id = 1;
-  if (has_player_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->player_id(), output);
+      1, this->role_id(), output);
   }
 
   // required bytes player_name = 2;
@@ -3188,11 +3188,11 @@ void PlayerInfo::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* PlayerInfo::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .NFMsg.Ident player_id = 1;
-  if (has_player_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->player_id(), target);
+        1, this->role_id(), target);
   }
 
   // required bytes player_name = 2;
@@ -3220,11 +3220,11 @@ int PlayerInfo::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .NFMsg.Ident player_id = 1;
-    if (has_player_id()) {
+    // required .NFMsg.Ident role_id = 1;
+    if (has_role_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->player_id());
+          this->role_id());
     }
 
     // required bytes player_name = 2;
@@ -3270,8 +3270,8 @@ void PlayerInfo::MergeFrom(const PlayerInfo& from) {
   GOOGLE_CHECK_NE(&from, this);
   hero_list_.MergeFrom(from.hero_list_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_player_id()) {
-      mutable_player_id()->::NFMsg::Ident::MergeFrom(from.player_id());
+    if (from.has_role_id()) {
+      mutable_role_id()->::NFMsg::Ident::MergeFrom(from.role_id());
     }
     if (from.has_player_name()) {
       set_player_name(from.player_name());
@@ -3295,8 +3295,8 @@ void PlayerInfo::CopyFrom(const PlayerInfo& from) {
 bool PlayerInfo::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
-  if (has_player_id()) {
-    if (!this->player_id().IsInitialized()) return false;
+  if (has_role_id()) {
+    if (!this->role_id().IsInitialized()) return false;
   }
   for (int i = 0; i < hero_list_size(); i++) {
     if (!this->hero_list(i).IsInitialized()) return false;
@@ -3306,7 +3306,7 @@ bool PlayerInfo::IsInitialized() const {
 
 void PlayerInfo::Swap(PlayerInfo* other) {
   if (other != this) {
-    std::swap(player_id_, other->player_id_);
+    std::swap(role_id_, other->role_id_);
     std::swap(player_name_, other->player_name_);
     hero_list_.Swap(&other->hero_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -28800,7 +28800,7 @@ void AckCreatePVPEctype::Swap(AckCreatePVPEctype* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int ReqBattleMatch::kSelfIdFieldNumber;
+const int ReqBattleMatch::kRoleIdFieldNumber;
 #endif  // !_MSC_VER
 
 ReqBattleMatch::ReqBattleMatch()
@@ -28809,7 +28809,7 @@ ReqBattleMatch::ReqBattleMatch()
 }
 
 void ReqBattleMatch::InitAsDefaultInstance() {
-  self_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
+  role_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
 }
 
 ReqBattleMatch::ReqBattleMatch(const ReqBattleMatch& from)
@@ -28820,7 +28820,7 @@ ReqBattleMatch::ReqBattleMatch(const ReqBattleMatch& from)
 
 void ReqBattleMatch::SharedCtor() {
   _cached_size_ = 0;
-  self_id_ = NULL;
+  role_id_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -28830,7 +28830,7 @@ ReqBattleMatch::~ReqBattleMatch() {
 
 void ReqBattleMatch::SharedDtor() {
   if (this != default_instance_) {
-    delete self_id_;
+    delete role_id_;
   }
 }
 
@@ -28857,8 +28857,8 @@ ReqBattleMatch* ReqBattleMatch::New() const {
 
 void ReqBattleMatch::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_self_id()) {
-      if (self_id_ != NULL) self_id_->::NFMsg::Ident::Clear();
+    if (has_role_id()) {
+      if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -28871,12 +28871,12 @@ bool ReqBattleMatch::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .NFMsg.Ident self_id = 1;
+      // required .NFMsg.Ident role_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_self_id()));
+               input, mutable_role_id()));
         } else {
           goto handle_uninterpreted;
         }
@@ -28902,10 +28902,10 @@ bool ReqBattleMatch::MergePartialFromCodedStream(
 
 void ReqBattleMatch::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .NFMsg.Ident self_id = 1;
-  if (has_self_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->self_id(), output);
+      1, this->role_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -28916,11 +28916,11 @@ void ReqBattleMatch::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* ReqBattleMatch::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .NFMsg.Ident self_id = 1;
-  if (has_self_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->self_id(), target);
+        1, this->role_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -28934,11 +28934,11 @@ int ReqBattleMatch::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .NFMsg.Ident self_id = 1;
-    if (has_self_id()) {
+    // required .NFMsg.Ident role_id = 1;
+    if (has_role_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->self_id());
+          this->role_id());
     }
 
   }
@@ -28968,8 +28968,8 @@ void ReqBattleMatch::MergeFrom(const ::google::protobuf::Message& from) {
 void ReqBattleMatch::MergeFrom(const ReqBattleMatch& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_self_id()) {
-      mutable_self_id()->::NFMsg::Ident::MergeFrom(from.self_id());
+    if (from.has_role_id()) {
+      mutable_role_id()->::NFMsg::Ident::MergeFrom(from.role_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -28990,15 +28990,15 @@ void ReqBattleMatch::CopyFrom(const ReqBattleMatch& from) {
 bool ReqBattleMatch::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (has_self_id()) {
-    if (!this->self_id().IsInitialized()) return false;
+  if (has_role_id()) {
+    if (!this->role_id().IsInitialized()) return false;
   }
   return true;
 }
 
 void ReqBattleMatch::Swap(ReqBattleMatch* other) {
   if (other != this) {
-    std::swap(self_id_, other->self_id_);
+    std::swap(role_id_, other->role_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -29320,7 +29320,7 @@ void AckBattleMatch::Swap(AckBattleMatch* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int ReqBattleStart::kPlayerIdFieldNumber;
+const int ReqBattleStart::kRoleIdFieldNumber;
 #endif  // !_MSC_VER
 
 ReqBattleStart::ReqBattleStart()
@@ -29329,7 +29329,7 @@ ReqBattleStart::ReqBattleStart()
 }
 
 void ReqBattleStart::InitAsDefaultInstance() {
-  player_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
+  role_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
 }
 
 ReqBattleStart::ReqBattleStart(const ReqBattleStart& from)
@@ -29340,7 +29340,7 @@ ReqBattleStart::ReqBattleStart(const ReqBattleStart& from)
 
 void ReqBattleStart::SharedCtor() {
   _cached_size_ = 0;
-  player_id_ = NULL;
+  role_id_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -29350,7 +29350,7 @@ ReqBattleStart::~ReqBattleStart() {
 
 void ReqBattleStart::SharedDtor() {
   if (this != default_instance_) {
-    delete player_id_;
+    delete role_id_;
   }
 }
 
@@ -29377,8 +29377,8 @@ ReqBattleStart* ReqBattleStart::New() const {
 
 void ReqBattleStart::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_player_id()) {
-      if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
+    if (has_role_id()) {
+      if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -29391,12 +29391,12 @@ bool ReqBattleStart::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .NFMsg.Ident player_id = 1;
+      // required .NFMsg.Ident role_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_player_id()));
+               input, mutable_role_id()));
         } else {
           goto handle_uninterpreted;
         }
@@ -29422,10 +29422,10 @@ bool ReqBattleStart::MergePartialFromCodedStream(
 
 void ReqBattleStart::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .NFMsg.Ident player_id = 1;
-  if (has_player_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->player_id(), output);
+      1, this->role_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -29436,11 +29436,11 @@ void ReqBattleStart::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* ReqBattleStart::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .NFMsg.Ident player_id = 1;
-  if (has_player_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->player_id(), target);
+        1, this->role_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -29454,11 +29454,11 @@ int ReqBattleStart::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .NFMsg.Ident player_id = 1;
-    if (has_player_id()) {
+    // required .NFMsg.Ident role_id = 1;
+    if (has_role_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->player_id());
+          this->role_id());
     }
 
   }
@@ -29488,8 +29488,8 @@ void ReqBattleStart::MergeFrom(const ::google::protobuf::Message& from) {
 void ReqBattleStart::MergeFrom(const ReqBattleStart& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_player_id()) {
-      mutable_player_id()->::NFMsg::Ident::MergeFrom(from.player_id());
+    if (from.has_role_id()) {
+      mutable_role_id()->::NFMsg::Ident::MergeFrom(from.role_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -29510,15 +29510,15 @@ void ReqBattleStart::CopyFrom(const ReqBattleStart& from) {
 bool ReqBattleStart::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (has_player_id()) {
-    if (!this->player_id().IsInitialized()) return false;
+  if (has_role_id()) {
+    if (!this->role_id().IsInitialized()) return false;
   }
   return true;
 }
 
 void ReqBattleStart::Swap(ReqBattleStart* other) {
   if (other != this) {
-    std::swap(player_id_, other->player_id_);
+    std::swap(role_id_, other->role_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -29752,7 +29752,7 @@ void AckBattleStart::Swap(AckBattleStart* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int NtfCGBattleFrameCommand::kPlayerIdFieldNumber;
+const int NtfCGBattleFrameCommand::kRoleIdFieldNumber;
 const int NtfCGBattleFrameCommand::kSkillIdFieldNumber;
 #endif  // !_MSC_VER
 
@@ -29762,7 +29762,7 @@ NtfCGBattleFrameCommand::NtfCGBattleFrameCommand()
 }
 
 void NtfCGBattleFrameCommand::InitAsDefaultInstance() {
-  player_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
+  role_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
 }
 
 NtfCGBattleFrameCommand::NtfCGBattleFrameCommand(const NtfCGBattleFrameCommand& from)
@@ -29773,7 +29773,7 @@ NtfCGBattleFrameCommand::NtfCGBattleFrameCommand(const NtfCGBattleFrameCommand& 
 
 void NtfCGBattleFrameCommand::SharedCtor() {
   _cached_size_ = 0;
-  player_id_ = NULL;
+  role_id_ = NULL;
   skillid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -29784,7 +29784,7 @@ NtfCGBattleFrameCommand::~NtfCGBattleFrameCommand() {
 
 void NtfCGBattleFrameCommand::SharedDtor() {
   if (this != default_instance_) {
-    delete player_id_;
+    delete role_id_;
   }
 }
 
@@ -29811,8 +29811,8 @@ NtfCGBattleFrameCommand* NtfCGBattleFrameCommand::New() const {
 
 void NtfCGBattleFrameCommand::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_player_id()) {
-      if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
+    if (has_role_id()) {
+      if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
     }
     skillid_ = 0;
   }
@@ -29826,12 +29826,12 @@ bool NtfCGBattleFrameCommand::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .NFMsg.Ident player_id = 1;
+      // required .NFMsg.Ident role_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_player_id()));
+               input, mutable_role_id()));
         } else {
           goto handle_uninterpreted;
         }
@@ -29873,10 +29873,10 @@ bool NtfCGBattleFrameCommand::MergePartialFromCodedStream(
 
 void NtfCGBattleFrameCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .NFMsg.Ident player_id = 1;
-  if (has_player_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->player_id(), output);
+      1, this->role_id(), output);
   }
 
   // required int32 skillId = 2;
@@ -29892,11 +29892,11 @@ void NtfCGBattleFrameCommand::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* NtfCGBattleFrameCommand::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .NFMsg.Ident player_id = 1;
-  if (has_player_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->player_id(), target);
+        1, this->role_id(), target);
   }
 
   // required int32 skillId = 2;
@@ -29915,11 +29915,11 @@ int NtfCGBattleFrameCommand::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .NFMsg.Ident player_id = 1;
-    if (has_player_id()) {
+    // required .NFMsg.Ident role_id = 1;
+    if (has_role_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->player_id());
+          this->role_id());
     }
 
     // required int32 skillId = 2;
@@ -29956,8 +29956,8 @@ void NtfCGBattleFrameCommand::MergeFrom(const ::google::protobuf::Message& from)
 void NtfCGBattleFrameCommand::MergeFrom(const NtfCGBattleFrameCommand& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_player_id()) {
-      mutable_player_id()->::NFMsg::Ident::MergeFrom(from.player_id());
+    if (from.has_role_id()) {
+      mutable_role_id()->::NFMsg::Ident::MergeFrom(from.role_id());
     }
     if (from.has_skillid()) {
       set_skillid(from.skillid());
@@ -29981,15 +29981,15 @@ void NtfCGBattleFrameCommand::CopyFrom(const NtfCGBattleFrameCommand& from) {
 bool NtfCGBattleFrameCommand::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
-  if (has_player_id()) {
-    if (!this->player_id().IsInitialized()) return false;
+  if (has_role_id()) {
+    if (!this->role_id().IsInitialized()) return false;
   }
   return true;
 }
 
 void NtfCGBattleFrameCommand::Swap(NtfCGBattleFrameCommand* other) {
   if (other != this) {
-    std::swap(player_id_, other->player_id_);
+    std::swap(role_id_, other->role_id_);
     std::swap(skillid_, other->skillid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -30009,7 +30009,7 @@ void NtfCGBattleFrameCommand::Swap(NtfCGBattleFrameCommand* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int NtfGCBattleFrameCommand::kPlayerIdFieldNumber;
+const int NtfGCBattleFrameCommand::kRoleIdFieldNumber;
 const int NtfGCBattleFrameCommand::kSkillIdFieldNumber;
 #endif  // !_MSC_VER
 
@@ -30019,7 +30019,7 @@ NtfGCBattleFrameCommand::NtfGCBattleFrameCommand()
 }
 
 void NtfGCBattleFrameCommand::InitAsDefaultInstance() {
-  player_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
+  role_id_ = const_cast< ::NFMsg::Ident*>(&::NFMsg::Ident::default_instance());
 }
 
 NtfGCBattleFrameCommand::NtfGCBattleFrameCommand(const NtfGCBattleFrameCommand& from)
@@ -30030,7 +30030,7 @@ NtfGCBattleFrameCommand::NtfGCBattleFrameCommand(const NtfGCBattleFrameCommand& 
 
 void NtfGCBattleFrameCommand::SharedCtor() {
   _cached_size_ = 0;
-  player_id_ = NULL;
+  role_id_ = NULL;
   skillid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -30041,7 +30041,7 @@ NtfGCBattleFrameCommand::~NtfGCBattleFrameCommand() {
 
 void NtfGCBattleFrameCommand::SharedDtor() {
   if (this != default_instance_) {
-    delete player_id_;
+    delete role_id_;
   }
 }
 
@@ -30068,8 +30068,8 @@ NtfGCBattleFrameCommand* NtfGCBattleFrameCommand::New() const {
 
 void NtfGCBattleFrameCommand::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_player_id()) {
-      if (player_id_ != NULL) player_id_->::NFMsg::Ident::Clear();
+    if (has_role_id()) {
+      if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
     }
     skillid_ = 0;
   }
@@ -30083,12 +30083,12 @@ bool NtfGCBattleFrameCommand::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .NFMsg.Ident player_id = 1;
+      // required .NFMsg.Ident role_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_player_id()));
+               input, mutable_role_id()));
         } else {
           goto handle_uninterpreted;
         }
@@ -30130,10 +30130,10 @@ bool NtfGCBattleFrameCommand::MergePartialFromCodedStream(
 
 void NtfGCBattleFrameCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .NFMsg.Ident player_id = 1;
-  if (has_player_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->player_id(), output);
+      1, this->role_id(), output);
   }
 
   // required int32 skillId = 2;
@@ -30149,11 +30149,11 @@ void NtfGCBattleFrameCommand::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* NtfGCBattleFrameCommand::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .NFMsg.Ident player_id = 1;
-  if (has_player_id()) {
+  // required .NFMsg.Ident role_id = 1;
+  if (has_role_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->player_id(), target);
+        1, this->role_id(), target);
   }
 
   // required int32 skillId = 2;
@@ -30172,11 +30172,11 @@ int NtfGCBattleFrameCommand::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .NFMsg.Ident player_id = 1;
-    if (has_player_id()) {
+    // required .NFMsg.Ident role_id = 1;
+    if (has_role_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->player_id());
+          this->role_id());
     }
 
     // required int32 skillId = 2;
@@ -30213,8 +30213,8 @@ void NtfGCBattleFrameCommand::MergeFrom(const ::google::protobuf::Message& from)
 void NtfGCBattleFrameCommand::MergeFrom(const NtfGCBattleFrameCommand& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_player_id()) {
-      mutable_player_id()->::NFMsg::Ident::MergeFrom(from.player_id());
+    if (from.has_role_id()) {
+      mutable_role_id()->::NFMsg::Ident::MergeFrom(from.role_id());
     }
     if (from.has_skillid()) {
       set_skillid(from.skillid());
@@ -30238,15 +30238,15 @@ void NtfGCBattleFrameCommand::CopyFrom(const NtfGCBattleFrameCommand& from) {
 bool NtfGCBattleFrameCommand::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
-  if (has_player_id()) {
-    if (!this->player_id().IsInitialized()) return false;
+  if (has_role_id()) {
+    if (!this->role_id().IsInitialized()) return false;
   }
   return true;
 }
 
 void NtfGCBattleFrameCommand::Swap(NtfGCBattleFrameCommand* other) {
   if (other != this) {
-    std::swap(player_id_, other->player_id_);
+    std::swap(role_id_, other->role_id_);
     std::swap(skillid_, other->skillid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
