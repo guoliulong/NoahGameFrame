@@ -98,7 +98,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CFrameSyncGameModule.h" />
-    <ClInclude Include="IFrameSyncGameModule.h" />
     <ClInclude Include="NFCGameServerModule.h" />
     <ClInclude Include="NFCLevelModule.h" />
     <ClInclude Include="NFCNPCRefreshModule.h" />
@@ -118,7 +117,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="IFrameSyncGameModule.cpp" />
     <ClCompile Include="NFCGameServerModule.cpp" />
     <ClCompile Include="NFCLevelModule.cpp" />
     <ClCompile Include="NFCNPCRefreshModule.cpp" />

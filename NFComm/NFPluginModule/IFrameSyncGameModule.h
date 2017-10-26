@@ -6,6 +6,10 @@
 class IFrameSyncGameModule :
 	public NFIModule
 {
+
+public:
+	virtual void OnClienLeaveGame(NFGUID roleId) = 0;
+
 };
 
 #endif

@@ -22,7 +22,7 @@ bool NFCGameServerNet_ServerModule::Init()
 
 	m_pNetModule = pPluginManager->FindModule<NFINetModule>();
 	m_pNetClientModule = pPluginManager->FindModule<NFINetClientModule>();
-
+	m_pFrameSyncGameModule = pPluginManager->FindModule<IFrameSyncGameModule>();
 	return true;
 }
 
@@ -273,6 +273,8 @@ void NFCGameServerNet_ServerModule::OnClienLeaveGameProcess(const NFSOCK nSockIn
 	{
 		m_pKernelModule->DestroyObject(nPlayerID);
 	}
+
+	m_pFrameSyncGameModule->OnClienLeaveGame(nPlayerID);
 
 	RemovePlayerGateInfo(nPlayerID);
 }

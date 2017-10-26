@@ -41,9 +41,6 @@
     <ClInclude Include="CFrameSyncGameModule.h">
       <Filter>FrameSyncGameModule</Filter>
     </ClInclude>
-    <ClInclude Include="IFrameSyncGameModule.h">
-      <Filter>FrameSyncGameModule</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -68,9 +65,6 @@
       <Filter>NFNPCRefreshModule</Filter>
     </ClCompile>
     <ClCompile Include="CFrameSyncGameModule.cpp">
-      <Filter>FrameSyncGameModule</Filter>
-    </ClCompile>
-    <ClCompile Include="IFrameSyncGameModule.cpp">
       <Filter>FrameSyncGameModule</Filter>
     </ClCompile>
   </ItemGroup>

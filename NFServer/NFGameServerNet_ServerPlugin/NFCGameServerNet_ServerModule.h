@@ -22,6 +22,7 @@
 #include "NFComm/NFPluginModule/NFIGameServerToWorldModule.h"
 #include "NFComm/NFPluginModule/NFIGameServerNet_ServerModule.h"
 #include "NFComm/NFPluginModule/NFIPlayerRedisModule.h"
+#include "NFComm/NFPluginModule/IFrameSyncGameModule.h"
 ////////////////////////////////////////////////////////////////////////////
 
 
@@ -137,5 +138,7 @@ private:
 	NFISceneAOIModule* m_pSceneAOIModule;
     //////////////////////////////////////////////////////////////////////////
     NFINetClientModule* m_pNetClientModule;
+	//xgame///////////////////////////////////////////////////////////////////
+	IFrameSyncGameModule* m_pFrameSyncGameModule;
 };
 #endif

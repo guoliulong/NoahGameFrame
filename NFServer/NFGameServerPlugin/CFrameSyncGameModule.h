@@ -1,7 +1,7 @@
 #ifndef CFRAMESYNC_GAME_MODULE_H
 #define CFRAMESYNC_GAME_MODULE_H
 
-#include "IFrameSyncGameModule.h"
+#include "NFComm/NFPluginModule/IFrameSyncGameModule.h"
 #include "NFComm/NFPluginModule/NFINetModule.h"
 #include "NFComm/NFPluginModule/NFIGameServerNet_ServerModule.h"
 #include <set>
@@ -36,6 +36,10 @@ public:
 	virtual bool AfterInit();
 	virtual bool ReadyExecute();
 	virtual bool Execute();
+
+	//impl interface
+	virtual void OnClienLeaveGame(NFGUID roleId);
+
 private:
 	void ProcessMatch();
 	void ProcessReadyStart(NFGUID RoleID);

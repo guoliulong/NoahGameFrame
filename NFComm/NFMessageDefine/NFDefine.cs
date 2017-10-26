@@ -744,6 +744,9 @@ namespace NFMsg
       [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FRAMEFINISH", Value=2006)]
       EGMI_NTF_GC_BATTLE_FRAMEFINISH = 2006,
             
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FINISH", Value=2007)]
+      EGMI_NTF_GC_BATTLE_FINISH = 2007,
+            
       [global::ProtoBuf.ProtoEnum(Name=@"EGMI_REQ_CMD_PROPERTY_INT", Value=10000)]
       EGMI_REQ_CMD_PROPERTY_INT = 10000,
             

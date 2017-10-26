@@ -321,6 +321,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* NtfGCBattleFrameFinish_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   NtfGCBattleFrameFinish_reflection_ = NULL;
+const ::google::protobuf::Descriptor* NtfGCBattleFinish_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NtfGCBattleFinish_reflection_ = NULL;
 
 }  // namespace
 
@@ -1949,6 +1952,21 @@ void protobuf_AssignDesc_NFMsgShare_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NtfGCBattleFrameFinish));
+  NtfGCBattleFinish_descriptor_ = file->message_type(95);
+  static const int NtfGCBattleFinish_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfGCBattleFinish, timestamp_),
+  };
+  NtfGCBattleFinish_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      NtfGCBattleFinish_descriptor_,
+      NtfGCBattleFinish::default_instance_,
+      NtfGCBattleFinish_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfGCBattleFinish, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NtfGCBattleFinish, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(NtfGCBattleFinish));
 }
 
 namespace {
@@ -2155,6 +2173,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     NtfGCBattleFrameCommand_descriptor_, &NtfGCBattleFrameCommand::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     NtfGCBattleFrameFinish_descriptor_, &NtfGCBattleFrameFinish::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    NtfGCBattleFinish_descriptor_, &NtfGCBattleFinish::default_instance());
 }
 
 }  // namespace
@@ -2354,6 +2374,8 @@ void protobuf_ShutdownFile_NFMsgShare_2eproto() {
   delete NtfGCBattleFrameCommand_reflection_;
   delete NtfGCBattleFrameFinish::default_instance_;
   delete NtfGCBattleFrameFinish_reflection_;
+  delete NtfGCBattleFinish::default_instance_;
+  delete NtfGCBattleFinish_reflection_;
 }
 
 void protobuf_AddDesc_NFMsgShare_2eproto() {
@@ -2600,7 +2622,8 @@ void protobuf_AddDesc_NFMsgShare_2eproto() {
     "\007skillId\030\002 \002(\005\"I\n\027NtfGCBattleFrameComman"
     "d\022\035\n\007role_id\030\001 \002(\0132\014.NFMsg.Ident\022\017\n\007skil"
     "lId\030\002 \002(\005\"+\n\026NtfGCBattleFrameFinish\022\021\n\tt"
-    "imestamp\030\001 \001(\003", 9414);
+    "imestamp\030\001 \001(\003\"&\n\021NtfGCBattleFinish\022\021\n\tt"
+    "imestamp\030\001 \001(\003", 9454);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "NFMsgShare.proto", &protobuf_RegisterTypes);
   HeroInfo::default_instance_ = new HeroInfo();
@@ -2700,6 +2723,7 @@ void protobuf_AddDesc_NFMsgShare_2eproto() {
   NtfCGBattleFrameCommand::default_instance_ = new NtfCGBattleFrameCommand();
   NtfGCBattleFrameCommand::default_instance_ = new NtfGCBattleFrameCommand();
   NtfGCBattleFrameFinish::default_instance_ = new NtfGCBattleFrameFinish();
+  NtfGCBattleFinish::default_instance_ = new NtfGCBattleFinish();
   HeroInfo::default_instance_->InitAsDefaultInstance();
   PlayerInfo::default_instance_->InitAsDefaultInstance();
   ReqEnterGameServer::default_instance_->InitAsDefaultInstance();
@@ -2797,6 +2821,7 @@ void protobuf_AddDesc_NFMsgShare_2eproto() {
   NtfCGBattleFrameCommand::default_instance_->InitAsDefaultInstance();
   NtfGCBattleFrameCommand::default_instance_->InitAsDefaultInstance();
   NtfGCBattleFrameFinish::default_instance_->InitAsDefaultInstance();
+  NtfGCBattleFinish::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_NFMsgShare_2eproto);
 }
 
@@ -30467,6 +30492,214 @@ void NtfGCBattleFrameFinish::Swap(NtfGCBattleFrameFinish* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = NtfGCBattleFrameFinish_descriptor_;
   metadata.reflection = NtfGCBattleFrameFinish_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NtfGCBattleFinish::kTimestampFieldNumber;
+#endif  // !_MSC_VER
+
+NtfGCBattleFinish::NtfGCBattleFinish()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void NtfGCBattleFinish::InitAsDefaultInstance() {
+}
+
+NtfGCBattleFinish::NtfGCBattleFinish(const NtfGCBattleFinish& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void NtfGCBattleFinish::SharedCtor() {
+  _cached_size_ = 0;
+  timestamp_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NtfGCBattleFinish::~NtfGCBattleFinish() {
+  SharedDtor();
+}
+
+void NtfGCBattleFinish::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void NtfGCBattleFinish::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NtfGCBattleFinish::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NtfGCBattleFinish_descriptor_;
+}
+
+const NtfGCBattleFinish& NtfGCBattleFinish::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_NFMsgShare_2eproto();
+  return *default_instance_;
+}
+
+NtfGCBattleFinish* NtfGCBattleFinish::default_instance_ = NULL;
+
+NtfGCBattleFinish* NtfGCBattleFinish::New() const {
+  return new NtfGCBattleFinish;
+}
+
+void NtfGCBattleFinish::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    timestamp_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool NtfGCBattleFinish::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 timestamp = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &timestamp_)));
+          set_has_timestamp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void NtfGCBattleFinish::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 timestamp = 1;
+  if (has_timestamp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->timestamp(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* NtfGCBattleFinish::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 timestamp = 1;
+  if (has_timestamp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->timestamp(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int NtfGCBattleFinish::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 timestamp = 1;
+    if (has_timestamp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->timestamp());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NtfGCBattleFinish::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const NtfGCBattleFinish* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const NtfGCBattleFinish*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void NtfGCBattleFinish::MergeFrom(const NtfGCBattleFinish& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_timestamp()) {
+      set_timestamp(from.timestamp());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void NtfGCBattleFinish::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NtfGCBattleFinish::CopyFrom(const NtfGCBattleFinish& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NtfGCBattleFinish::IsInitialized() const {
+
+  return true;
+}
+
+void NtfGCBattleFinish::Swap(NtfGCBattleFinish* other) {
+  if (other != this) {
+    std::swap(timestamp_, other->timestamp_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata NtfGCBattleFinish::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NtfGCBattleFinish_descriptor_;
+  metadata.reflection = NtfGCBattleFinish_reflection_;
   return metadata;
 }
 

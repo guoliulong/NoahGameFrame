@@ -133,6 +133,7 @@ class AckBattleStart;
 class NtfCGBattleFrameCommand;
 class NtfGCBattleFrameCommand;
 class NtfGCBattleFrameFinish;
+class NtfGCBattleFinish;
 
 enum ReqAckSynData_SynType {
   ReqAckSynData_SynType_EST_GROUP = 1,
@@ -10509,6 +10510,88 @@ class LIBPROTOC_EXPORT NtfGCBattleFrameFinish : public ::google::protobuf::Messa
   void InitAsDefaultInstance();
   static NtfGCBattleFrameFinish* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT NtfGCBattleFinish : public ::google::protobuf::Message {
+ public:
+  NtfGCBattleFinish();
+  virtual ~NtfGCBattleFinish();
+
+  NtfGCBattleFinish(const NtfGCBattleFinish& from);
+
+  inline NtfGCBattleFinish& operator=(const NtfGCBattleFinish& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NtfGCBattleFinish& default_instance();
+
+  void Swap(NtfGCBattleFinish* other);
+
+  // implements Message ----------------------------------------------
+
+  NtfGCBattleFinish* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NtfGCBattleFinish& from);
+  void MergeFrom(const NtfGCBattleFinish& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 timestamp = 1;
+  inline bool has_timestamp() const;
+  inline void clear_timestamp();
+  static const int kTimestampFieldNumber = 1;
+  inline ::google::protobuf::int64 timestamp() const;
+  inline void set_timestamp(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.NtfGCBattleFinish)
+ private:
+  inline void set_has_timestamp();
+  inline void clear_has_timestamp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 timestamp_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static NtfGCBattleFinish* default_instance_;
+};
 // ===================================================================
 
 
@@ -19560,6 +19643,32 @@ inline ::google::protobuf::int64 NtfGCBattleFrameFinish::timestamp() const {
   return timestamp_;
 }
 inline void NtfGCBattleFrameFinish::set_timestamp(::google::protobuf::int64 value) {
+  set_has_timestamp();
+  timestamp_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NtfGCBattleFinish
+
+// optional int64 timestamp = 1;
+inline bool NtfGCBattleFinish::has_timestamp() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NtfGCBattleFinish::set_has_timestamp() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NtfGCBattleFinish::clear_has_timestamp() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfGCBattleFinish::clear_timestamp() {
+  timestamp_ = GOOGLE_LONGLONG(0);
+  clear_has_timestamp();
+}
+inline ::google::protobuf::int64 NtfGCBattleFinish::timestamp() const {
+  return timestamp_;
+}
+inline void NtfGCBattleFinish::set_timestamp(::google::protobuf::int64 value) {
   set_has_timestamp();
   timestamp_ = value;
 }

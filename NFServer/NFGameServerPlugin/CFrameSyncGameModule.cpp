@@ -61,6 +61,60 @@ bool CFrameSyncGameModule::Execute()
 	return true;
 }
 
+void CFrameSyncGameModule::OnClienLeaveGame(NFGUID roleId)
+{
+	//if matching
+	size_t count = mMatchingPlayers.size();
+	for (size_t i = 0; i < count; ++i)
+	{
+		if (mMatchingPlayers[i].RoleID == roleId)
+		{
+			mMatchingPlayers.erase(mMatchingPlayers.begin() + i);
+			return;
+		}
+	}
+
+	NFMsg::NtfGCBattleFinish ret;
+	//if loading
+	auto it = mLoadingBattles.find(roleId);
+	if (it != mLoadingBattles.end())
+	{
+		if (it->second->playerA.RoleID == roleId)
+		{
+			m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FINISH, ret, it->second->playerB.RoleID);
+		}
+		else
+		{
+			m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FINISH, ret, it->second->playerA.RoleID);
+		}
+
+		mLoadingBattles.erase(it->second->playerA.RoleID);
+		mLoadingBattles.erase(it->second->playerB.RoleID);
+
+		return;
+	}
+
+	//if battling
+	auto it2 = mRoleID2BattleInfo.find(roleId);
+	if (it2 != mRoleID2BattleInfo.end())
+	{
+		auto battleInfo = it2->second;
+
+		mRoleID2BattleInfo.erase(battleInfo->playerA.RoleID);
+		mRoleID2BattleInfo.erase(battleInfo->playerB.RoleID);
+		mRuningBattles.erase(battleInfo);
+		if (battleInfo->playerA.RoleID == roleId)
+		{
+			m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FINISH, ret, battleInfo->playerB.RoleID);
+		}
+		else
+		{
+			m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FINISH, ret, battleInfo->playerA.RoleID);
+		}
+		return;
+	}
+}
+
 void CFrameSyncGameModule::OnReqBattleMatchProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
 {
 	NFGUID nClientID;
