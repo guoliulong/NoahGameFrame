@@ -45,6 +45,8 @@ bool CFrameSyncGameModule::AfterInit()
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_BATTLE_MATCH, this, &CFrameSyncGameModule::OnReqBattleMatchProcess);
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_NTF_CG_BATTLE_FRAMECOMMAND, this, &CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess);
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_BATTLE_START, this, &CFrameSyncGameModule::OnReqBattleStartProcess);
+	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_NTF_CG_BATTLE_CHECKMD5, this, &CFrameSyncGameModule::OnNtfCGBattleCheckMd5Process);
+	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_BATTLE_PING, this, &CFrameSyncGameModule::OnReqBattlePingProcess);
 	
 	return true;
 }
@@ -55,8 +57,12 @@ bool CFrameSyncGameModule::ReadyExecute()
 }
 bool CFrameSyncGameModule::Execute()
 {
+	//int64_t t = NFGetTime();
+
 	ProcessMatch();
 	ProcessFrameSync();
+
+	//std::cout << (NFGetTime() - t) << std::endl;
 
 	return true;
 }
@@ -75,6 +81,7 @@ void CFrameSyncGameModule::OnClienLeaveGame(NFGUID roleId)
 	}
 
 	NFMsg::NtfGCBattleFinish ret;
+	ret.set_timestamp(miNowTime);
 	//if loading
 	auto it = mLoadingBattles.find(roleId);
 	if (it != mLoadingBattles.end())
@@ -88,8 +95,11 @@ void CFrameSyncGameModule::OnClienLeaveGame(NFGUID roleId)
 			m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FINISH, ret, it->second->playerA.RoleID);
 		}
 
-		mLoadingBattles.erase(it->second->playerA.RoleID);
-		mLoadingBattles.erase(it->second->playerB.RoleID);
+		NFGUID aRoleID = it->second->playerA.RoleID;
+		NFGUID bRoleID = it->second->playerB.RoleID;
+
+		mLoadingBattles.erase(aRoleID);
+		mLoadingBattles.erase(bRoleID);
 
 		return;
 	}
@@ -112,6 +122,102 @@ void CFrameSyncGameModule::OnClienLeaveGame(NFGUID roleId)
 			m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FINISH, ret, battleInfo->playerA.RoleID);
 		}
 		return;
+	}
+}
+
+void CFrameSyncGameModule::OnReqBattlePingProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
+{
+	NFGUID nClientID;
+	NFMsg::ReqBattlePing xMsg;
+	if (!m_pNetModule->ReceivePB(nMsgID, msg, nLen, xMsg, nClientID))
+	{
+		return;
+	}
+
+	NFMsg::AckBattlePing ret;
+	ret.set_frameindex(xMsg.frameindex());
+
+	 m_pNetModule->SendMsgPB(NFMsg::EGMI_ACK_BATTLE_PING, ret,nSockIndex,nClientID);
+}
+
+//EGMI_NTF_CG_BATTLE_CHECKMD5
+void CFrameSyncGameModule::OnNtfCGBattleCheckMd5Process(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
+{
+	NFGUID nClientID;
+	NFMsg::NtfCGBattleCheckMd5 xMsg;
+	if (!m_pNetModule->ReceivePB(nMsgID, msg, nLen, xMsg, nClientID))
+	{
+		return;
+	}
+
+	NFGUID roleId = NFINetModule::PBToNF(xMsg.role_id());
+	auto it = mRoleID2BattleInfo.find(roleId);
+
+	if (it != mRoleID2BattleInfo.end())
+	{
+		auto &pbi = it->second;
+		if (pbi->playerA.RoleID == roleId) //这个角色是A
+		{
+			auto it_data = pbi->playerB.Md5Map.find(xMsg.frameindex());
+			if (it_data != pbi->playerB.Md5Map.end())
+			{
+				NFMsg::NtfGCBattleCheckMd5 ret;
+				ret.set_frameindex(xMsg.frameindex());
+
+				if (it_data->second == xMsg.md5())
+				{
+					//todo success
+					ret.set_event_code(NFMsg::EGEC_SUCCESS);
+				}
+				else
+				{
+					ret.set_event_code(NFMsg::EGEC_UNKOWN_ERROR);
+				}
+
+				m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_CHECKMD5, ret, pbi->playerA.RoleID);
+				m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_CHECKMD5, ret, pbi->playerB.RoleID);
+
+				pbi->playerB.Md5Map.erase(it_data);
+			}
+			else
+			{
+				//没有找到说明第一个来的
+				pbi->playerA.Md5Map[xMsg.frameindex()] = xMsg.md5();
+			}
+		}
+
+		if (pbi->playerB.RoleID == roleId)//这个角色是B
+		{
+			auto it_data = pbi->playerA.Md5Map.find(xMsg.frameindex());
+			if (it_data != pbi->playerA.Md5Map.end())
+			{
+				NFMsg::NtfGCBattleCheckMd5 ret;
+				ret.set_frameindex(xMsg.frameindex());
+
+				if (it_data->second == xMsg.md5())
+				{
+					//todo success
+					ret.set_event_code(NFMsg::EGEC_SUCCESS);
+				}
+				else
+				{
+					ret.set_event_code(NFMsg::EGEC_UNKOWN_ERROR);
+				}
+				m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_CHECKMD5, ret, pbi->playerA.RoleID);
+				m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_CHECKMD5, ret, pbi->playerB.RoleID);
+				pbi->playerA.Md5Map.erase(it_data);
+			}
+			else
+			{
+				//没有找到说明第一个来的
+				pbi->playerB.Md5Map[xMsg.frameindex()] = xMsg.md5();
+				
+			}
+		}
+	}
+	else
+	{
+		//战斗都没有了,还发md5
 	}
 }
 
@@ -201,6 +307,12 @@ void CFrameSyncGameModule::ProcessReadyStart(NFGUID RoleID)
 		ret.set_event_code(NFMsg::EGEC_SUCCESS);
 		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_ACK_BATTLE_START, ret, pbi->playerA.RoleID);
 		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_ACK_BATTLE_START, ret, pbi->playerB.RoleID);
+
+		NFMsg::NtfGCBattleFrameStart ret_FrameStart;
+		ret_FrameStart.set_frameindex(pbi->frameIndex);
+		ret_FrameStart.set_timestamp(miNowTime);
+		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMESTART, ret_FrameStart, pbi->playerA.RoleID);
+		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMESTART, ret_FrameStart, pbi->playerB.RoleID);
 	}
 }
 
@@ -208,9 +320,16 @@ void CFrameSyncGameModule::SendFrameFinishCmmand(const NF_SHARE_PTR<BattleInfo> 
 {
 	NFMsg::NtfGCBattleFrameFinish ret;
 	ret.set_timestamp(miNowTime);
-
+	ret.set_frameindex(pbi->frameIndex);
+	ret.set_timestamp(miNowTime);
 	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMEFINISH, ret, pbi->playerA.RoleID);
 	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMEFINISH, ret, pbi->playerB.RoleID);
+
+	NFMsg::NtfGCBattleFrameStart ret_FrameStart;
+	ret_FrameStart.set_frameindex(pbi->frameIndex + 1);
+	ret_FrameStart.set_timestamp(miNowTime);
+	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMESTART, ret_FrameStart, pbi->playerA.RoleID);
+	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMESTART, ret_FrameStart, pbi->playerB.RoleID);
 }
 
 //EGMI_NTF_CG_BATTLE_FRAMECOMMAND
@@ -225,11 +344,12 @@ void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIn
 	NFMsg::NtfGCBattleFrameCommand cmd;
 	*cmd.mutable_role_id() = xMsg.role_id();
 	cmd.set_skillid(xMsg.skillid());
-
+	
 	auto it = mRoleID2BattleInfo.find(NFINetModule::PBToNF(xMsg.role_id()));
 	if (it != mRoleID2BattleInfo.end())
 	{
 		NF_SHARE_PTR<BattleInfo> pBi = it->second;
+		cmd.set_frameindex(pBi->frameIndex);
 		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMECOMMAND, cmd, pBi->playerA.RoleID);
 		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMECOMMAND, cmd, pBi->playerB.RoleID);
 	}
@@ -254,6 +374,7 @@ void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIn
  void CFrameSyncGameModule::ProcessFrameSync()
  {
 	 miNowTime = NFGetTime();
+
 	 if (miNowTime - miLastTime < FRAMESYNC_TIMESPAN)
 		 return;
 
@@ -264,5 +385,6 @@ void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIn
 	 {
 		 const  NF_SHARE_PTR<BattleInfo> pbi = *begin;
 		 SendFrameFinishCmmand(pbi);
+		 ++pbi->frameIndex;
 	 }
  }

@@ -741,11 +741,26 @@ namespace NFMsg
       [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FRAMECOMMAND", Value=2005)]
       EGMI_NTF_GC_BATTLE_FRAMECOMMAND = 2005,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FRAMEFINISH", Value=2006)]
-      EGMI_NTF_GC_BATTLE_FRAMEFINISH = 2006,
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FRAMESTART", Value=2006)]
+      EGMI_NTF_GC_BATTLE_FRAMESTART = 2006,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FINISH", Value=2007)]
-      EGMI_NTF_GC_BATTLE_FINISH = 2007,
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FRAMEFINISH", Value=2007)]
+      EGMI_NTF_GC_BATTLE_FRAMEFINISH = 2007,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_FINISH", Value=2008)]
+      EGMI_NTF_GC_BATTLE_FINISH = 2008,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_CG_BATTLE_CHECKMD5", Value=2009)]
+      EGMI_NTF_CG_BATTLE_CHECKMD5 = 2009,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_NTF_GC_BATTLE_CHECKMD5", Value=2010)]
+      EGMI_NTF_GC_BATTLE_CHECKMD5 = 2010,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_REQ_BATTLE_PING", Value=2050)]
+      EGMI_REQ_BATTLE_PING = 2050,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"EGMI_ACK_BATTLE_PING", Value=2051)]
+      EGMI_ACK_BATTLE_PING = 2051,
             
       [global::ProtoBuf.ProtoEnum(Name=@"EGMI_REQ_CMD_PROPERTY_INT", Value=10000)]
       EGMI_REQ_CMD_PROPERTY_INT = 10000,

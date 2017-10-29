@@ -133,7 +133,12 @@ class AckBattleStart;
 class NtfCGBattleFrameCommand;
 class NtfGCBattleFrameCommand;
 class NtfGCBattleFrameFinish;
+class NtfGCBattleFrameStart;
 class NtfGCBattleFinish;
+class NtfCGBattleCheckMd5;
+class NtfGCBattleCheckMd5;
+class ReqBattlePing;
+class AckBattlePing;
 
 enum ReqAckSynData_SynType {
   ReqAckSynData_SynType_EST_GROUP = 1,
@@ -10296,24 +10301,33 @@ class LIBPROTOC_EXPORT NtfCGBattleFrameCommand : public ::google::protobuf::Mess
 
   // accessors -------------------------------------------------------
 
-  // required .NFMsg.Ident role_id = 1;
+  // required int32 frameIndex = 1;
+  inline bool has_frameindex() const;
+  inline void clear_frameindex();
+  static const int kFrameIndexFieldNumber = 1;
+  inline ::google::protobuf::int32 frameindex() const;
+  inline void set_frameindex(::google::protobuf::int32 value);
+
+  // required .NFMsg.Ident role_id = 2;
   inline bool has_role_id() const;
   inline void clear_role_id();
-  static const int kRoleIdFieldNumber = 1;
+  static const int kRoleIdFieldNumber = 2;
   inline const ::NFMsg::Ident& role_id() const;
   inline ::NFMsg::Ident* mutable_role_id();
   inline ::NFMsg::Ident* release_role_id();
   inline void set_allocated_role_id(::NFMsg::Ident* role_id);
 
-  // required int32 skillId = 2;
+  // required int32 skillId = 3;
   inline bool has_skillid() const;
   inline void clear_skillid();
-  static const int kSkillIdFieldNumber = 2;
+  static const int kSkillIdFieldNumber = 3;
   inline ::google::protobuf::int32 skillid() const;
   inline void set_skillid(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:NFMsg.NtfCGBattleFrameCommand)
  private:
+  inline void set_has_frameindex();
+  inline void clear_has_frameindex();
   inline void set_has_role_id();
   inline void clear_has_role_id();
   inline void set_has_skillid();
@@ -10322,10 +10336,11 @@ class LIBPROTOC_EXPORT NtfCGBattleFrameCommand : public ::google::protobuf::Mess
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::NFMsg::Ident* role_id_;
+  ::google::protobuf::int32 frameindex_;
   ::google::protobuf::int32 skillid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
   friend void protobuf_AssignDesc_NFMsgShare_2eproto();
@@ -10390,24 +10405,33 @@ class LIBPROTOC_EXPORT NtfGCBattleFrameCommand : public ::google::protobuf::Mess
 
   // accessors -------------------------------------------------------
 
-  // required .NFMsg.Ident role_id = 1;
+  // required int32 frameIndex = 1;
+  inline bool has_frameindex() const;
+  inline void clear_frameindex();
+  static const int kFrameIndexFieldNumber = 1;
+  inline ::google::protobuf::int32 frameindex() const;
+  inline void set_frameindex(::google::protobuf::int32 value);
+
+  // required .NFMsg.Ident role_id = 2;
   inline bool has_role_id() const;
   inline void clear_role_id();
-  static const int kRoleIdFieldNumber = 1;
+  static const int kRoleIdFieldNumber = 2;
   inline const ::NFMsg::Ident& role_id() const;
   inline ::NFMsg::Ident* mutable_role_id();
   inline ::NFMsg::Ident* release_role_id();
   inline void set_allocated_role_id(::NFMsg::Ident* role_id);
 
-  // required int32 skillId = 2;
+  // required int32 skillId = 3;
   inline bool has_skillid() const;
   inline void clear_skillid();
-  static const int kSkillIdFieldNumber = 2;
+  static const int kSkillIdFieldNumber = 3;
   inline ::google::protobuf::int32 skillid() const;
   inline void set_skillid(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:NFMsg.NtfGCBattleFrameCommand)
  private:
+  inline void set_has_frameindex();
+  inline void clear_has_frameindex();
   inline void set_has_role_id();
   inline void clear_has_role_id();
   inline void set_has_skillid();
@@ -10416,10 +10440,11 @@ class LIBPROTOC_EXPORT NtfGCBattleFrameCommand : public ::google::protobuf::Mess
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::NFMsg::Ident* role_id_;
+  ::google::protobuf::int32 frameindex_;
   ::google::protobuf::int32 skillid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
   friend void protobuf_AssignDesc_NFMsgShare_2eproto();
@@ -10484,24 +10509,34 @@ class LIBPROTOC_EXPORT NtfGCBattleFrameFinish : public ::google::protobuf::Messa
 
   // accessors -------------------------------------------------------
 
-  // optional int64 timestamp = 1;
+  // required int32 frameIndex = 1;
+  inline bool has_frameindex() const;
+  inline void clear_frameindex();
+  static const int kFrameIndexFieldNumber = 1;
+  inline ::google::protobuf::int32 frameindex() const;
+  inline void set_frameindex(::google::protobuf::int32 value);
+
+  // required int64 timestamp = 2;
   inline bool has_timestamp() const;
   inline void clear_timestamp();
-  static const int kTimestampFieldNumber = 1;
+  static const int kTimestampFieldNumber = 2;
   inline ::google::protobuf::int64 timestamp() const;
   inline void set_timestamp(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:NFMsg.NtfGCBattleFrameFinish)
  private:
+  inline void set_has_frameindex();
+  inline void clear_has_frameindex();
   inline void set_has_timestamp();
   inline void clear_has_timestamp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 timestamp_;
+  ::google::protobuf::int32 frameindex_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
   friend void protobuf_AssignDesc_NFMsgShare_2eproto();
@@ -10509,6 +10544,98 @@ class LIBPROTOC_EXPORT NtfGCBattleFrameFinish : public ::google::protobuf::Messa
 
   void InitAsDefaultInstance();
   static NtfGCBattleFrameFinish* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT NtfGCBattleFrameStart : public ::google::protobuf::Message {
+ public:
+  NtfGCBattleFrameStart();
+  virtual ~NtfGCBattleFrameStart();
+
+  NtfGCBattleFrameStart(const NtfGCBattleFrameStart& from);
+
+  inline NtfGCBattleFrameStart& operator=(const NtfGCBattleFrameStart& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NtfGCBattleFrameStart& default_instance();
+
+  void Swap(NtfGCBattleFrameStart* other);
+
+  // implements Message ----------------------------------------------
+
+  NtfGCBattleFrameStart* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NtfGCBattleFrameStart& from);
+  void MergeFrom(const NtfGCBattleFrameStart& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 frameIndex = 1;
+  inline bool has_frameindex() const;
+  inline void clear_frameindex();
+  static const int kFrameIndexFieldNumber = 1;
+  inline ::google::protobuf::int32 frameindex() const;
+  inline void set_frameindex(::google::protobuf::int32 value);
+
+  // required int64 timestamp = 2;
+  inline bool has_timestamp() const;
+  inline void clear_timestamp();
+  static const int kTimestampFieldNumber = 2;
+  inline ::google::protobuf::int64 timestamp() const;
+  inline void set_timestamp(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.NtfGCBattleFrameStart)
+ private:
+  inline void set_has_frameindex();
+  inline void clear_has_frameindex();
+  inline void set_has_timestamp();
+  inline void clear_has_timestamp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 timestamp_;
+  ::google::protobuf::int32 frameindex_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static NtfGCBattleFrameStart* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -10566,7 +10693,7 @@ class LIBPROTOC_EXPORT NtfGCBattleFinish : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 timestamp = 1;
+  // required int64 timestamp = 1;
   inline bool has_timestamp() const;
   inline void clear_timestamp();
   static const int kTimestampFieldNumber = 1;
@@ -10591,6 +10718,371 @@ class LIBPROTOC_EXPORT NtfGCBattleFinish : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static NtfGCBattleFinish* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT NtfCGBattleCheckMd5 : public ::google::protobuf::Message {
+ public:
+  NtfCGBattleCheckMd5();
+  virtual ~NtfCGBattleCheckMd5();
+
+  NtfCGBattleCheckMd5(const NtfCGBattleCheckMd5& from);
+
+  inline NtfCGBattleCheckMd5& operator=(const NtfCGBattleCheckMd5& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NtfCGBattleCheckMd5& default_instance();
+
+  void Swap(NtfCGBattleCheckMd5* other);
+
+  // implements Message ----------------------------------------------
+
+  NtfCGBattleCheckMd5* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NtfCGBattleCheckMd5& from);
+  void MergeFrom(const NtfCGBattleCheckMd5& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 frameIndex = 1;
+  inline bool has_frameindex() const;
+  inline void clear_frameindex();
+  static const int kFrameIndexFieldNumber = 1;
+  inline ::google::protobuf::int32 frameindex() const;
+  inline void set_frameindex(::google::protobuf::int32 value);
+
+  // required bytes md5 = 2;
+  inline bool has_md5() const;
+  inline void clear_md5();
+  static const int kMd5FieldNumber = 2;
+  inline const ::std::string& md5() const;
+  inline void set_md5(const ::std::string& value);
+  inline void set_md5(const char* value);
+  inline void set_md5(const void* value, size_t size);
+  inline ::std::string* mutable_md5();
+  inline ::std::string* release_md5();
+  inline void set_allocated_md5(::std::string* md5);
+
+  // required .NFMsg.Ident role_id = 3;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 3;
+  inline const ::NFMsg::Ident& role_id() const;
+  inline ::NFMsg::Ident* mutable_role_id();
+  inline ::NFMsg::Ident* release_role_id();
+  inline void set_allocated_role_id(::NFMsg::Ident* role_id);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.NtfCGBattleCheckMd5)
+ private:
+  inline void set_has_frameindex();
+  inline void clear_has_frameindex();
+  inline void set_has_md5();
+  inline void clear_has_md5();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* md5_;
+  ::NFMsg::Ident* role_id_;
+  ::google::protobuf::int32 frameindex_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static NtfCGBattleCheckMd5* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT NtfGCBattleCheckMd5 : public ::google::protobuf::Message {
+ public:
+  NtfGCBattleCheckMd5();
+  virtual ~NtfGCBattleCheckMd5();
+
+  NtfGCBattleCheckMd5(const NtfGCBattleCheckMd5& from);
+
+  inline NtfGCBattleCheckMd5& operator=(const NtfGCBattleCheckMd5& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NtfGCBattleCheckMd5& default_instance();
+
+  void Swap(NtfGCBattleCheckMd5* other);
+
+  // implements Message ----------------------------------------------
+
+  NtfGCBattleCheckMd5* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NtfGCBattleCheckMd5& from);
+  void MergeFrom(const NtfGCBattleCheckMd5& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 frameIndex = 1;
+  inline bool has_frameindex() const;
+  inline void clear_frameindex();
+  static const int kFrameIndexFieldNumber = 1;
+  inline ::google::protobuf::int32 frameindex() const;
+  inline void set_frameindex(::google::protobuf::int32 value);
+
+  // required .NFMsg.EGameEventCode event_code = 2;
+  inline bool has_event_code() const;
+  inline void clear_event_code();
+  static const int kEventCodeFieldNumber = 2;
+  inline ::NFMsg::EGameEventCode event_code() const;
+  inline void set_event_code(::NFMsg::EGameEventCode value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.NtfGCBattleCheckMd5)
+ private:
+  inline void set_has_frameindex();
+  inline void clear_has_frameindex();
+  inline void set_has_event_code();
+  inline void clear_has_event_code();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 frameindex_;
+  int event_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static NtfGCBattleCheckMd5* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT ReqBattlePing : public ::google::protobuf::Message {
+ public:
+  ReqBattlePing();
+  virtual ~ReqBattlePing();
+
+  ReqBattlePing(const ReqBattlePing& from);
+
+  inline ReqBattlePing& operator=(const ReqBattlePing& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ReqBattlePing& default_instance();
+
+  void Swap(ReqBattlePing* other);
+
+  // implements Message ----------------------------------------------
+
+  ReqBattlePing* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ReqBattlePing& from);
+  void MergeFrom(const ReqBattlePing& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 frameIndex = 1;
+  inline bool has_frameindex() const;
+  inline void clear_frameindex();
+  static const int kFrameIndexFieldNumber = 1;
+  inline ::google::protobuf::int32 frameindex() const;
+  inline void set_frameindex(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.ReqBattlePing)
+ private:
+  inline void set_has_frameindex();
+  inline void clear_has_frameindex();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 frameindex_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static ReqBattlePing* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT AckBattlePing : public ::google::protobuf::Message {
+ public:
+  AckBattlePing();
+  virtual ~AckBattlePing();
+
+  AckBattlePing(const AckBattlePing& from);
+
+  inline AckBattlePing& operator=(const AckBattlePing& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AckBattlePing& default_instance();
+
+  void Swap(AckBattlePing* other);
+
+  // implements Message ----------------------------------------------
+
+  AckBattlePing* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AckBattlePing& from);
+  void MergeFrom(const AckBattlePing& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 frameIndex = 1;
+  inline bool has_frameindex() const;
+  inline void clear_frameindex();
+  static const int kFrameIndexFieldNumber = 1;
+  inline ::google::protobuf::int32 frameindex() const;
+  inline void set_frameindex(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.AckBattlePing)
+ private:
+  inline void set_has_frameindex();
+  inline void clear_has_frameindex();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 frameindex_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgShare_2eproto();
+  friend void protobuf_AssignDesc_NFMsgShare_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgShare_2eproto();
+
+  void InitAsDefaultInstance();
+  static AckBattlePing* default_instance_;
 };
 // ===================================================================
 
@@ -19497,15 +19989,37 @@ inline void AckBattleStart::set_event_code(::NFMsg::EGameEventCode value) {
 
 // NtfCGBattleFrameCommand
 
-// required .NFMsg.Ident role_id = 1;
-inline bool NtfCGBattleFrameCommand::has_role_id() const {
+// required int32 frameIndex = 1;
+inline bool NtfCGBattleFrameCommand::has_frameindex() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NtfCGBattleFrameCommand::set_has_role_id() {
+inline void NtfCGBattleFrameCommand::set_has_frameindex() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NtfCGBattleFrameCommand::clear_has_role_id() {
+inline void NtfCGBattleFrameCommand::clear_has_frameindex() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfCGBattleFrameCommand::clear_frameindex() {
+  frameindex_ = 0;
+  clear_has_frameindex();
+}
+inline ::google::protobuf::int32 NtfCGBattleFrameCommand::frameindex() const {
+  return frameindex_;
+}
+inline void NtfCGBattleFrameCommand::set_frameindex(::google::protobuf::int32 value) {
+  set_has_frameindex();
+  frameindex_ = value;
+}
+
+// required .NFMsg.Ident role_id = 2;
+inline bool NtfCGBattleFrameCommand::has_role_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NtfCGBattleFrameCommand::set_has_role_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NtfCGBattleFrameCommand::clear_has_role_id() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void NtfCGBattleFrameCommand::clear_role_id() {
   if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
@@ -19535,15 +20049,15 @@ inline void NtfCGBattleFrameCommand::set_allocated_role_id(::NFMsg::Ident* role_
   }
 }
 
-// required int32 skillId = 2;
+// required int32 skillId = 3;
 inline bool NtfCGBattleFrameCommand::has_skillid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void NtfCGBattleFrameCommand::set_has_skillid() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void NtfCGBattleFrameCommand::clear_has_skillid() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void NtfCGBattleFrameCommand::clear_skillid() {
   skillid_ = 0;
@@ -19561,15 +20075,37 @@ inline void NtfCGBattleFrameCommand::set_skillid(::google::protobuf::int32 value
 
 // NtfGCBattleFrameCommand
 
-// required .NFMsg.Ident role_id = 1;
-inline bool NtfGCBattleFrameCommand::has_role_id() const {
+// required int32 frameIndex = 1;
+inline bool NtfGCBattleFrameCommand::has_frameindex() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NtfGCBattleFrameCommand::set_has_role_id() {
+inline void NtfGCBattleFrameCommand::set_has_frameindex() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NtfGCBattleFrameCommand::clear_has_role_id() {
+inline void NtfGCBattleFrameCommand::clear_has_frameindex() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfGCBattleFrameCommand::clear_frameindex() {
+  frameindex_ = 0;
+  clear_has_frameindex();
+}
+inline ::google::protobuf::int32 NtfGCBattleFrameCommand::frameindex() const {
+  return frameindex_;
+}
+inline void NtfGCBattleFrameCommand::set_frameindex(::google::protobuf::int32 value) {
+  set_has_frameindex();
+  frameindex_ = value;
+}
+
+// required .NFMsg.Ident role_id = 2;
+inline bool NtfGCBattleFrameCommand::has_role_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NtfGCBattleFrameCommand::set_has_role_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NtfGCBattleFrameCommand::clear_has_role_id() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void NtfGCBattleFrameCommand::clear_role_id() {
   if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
@@ -19599,15 +20135,15 @@ inline void NtfGCBattleFrameCommand::set_allocated_role_id(::NFMsg::Ident* role_
   }
 }
 
-// required int32 skillId = 2;
+// required int32 skillId = 3;
 inline bool NtfGCBattleFrameCommand::has_skillid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void NtfGCBattleFrameCommand::set_has_skillid() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void NtfGCBattleFrameCommand::clear_has_skillid() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void NtfGCBattleFrameCommand::clear_skillid() {
   skillid_ = 0;
@@ -19625,15 +20161,37 @@ inline void NtfGCBattleFrameCommand::set_skillid(::google::protobuf::int32 value
 
 // NtfGCBattleFrameFinish
 
-// optional int64 timestamp = 1;
-inline bool NtfGCBattleFrameFinish::has_timestamp() const {
+// required int32 frameIndex = 1;
+inline bool NtfGCBattleFrameFinish::has_frameindex() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NtfGCBattleFrameFinish::set_has_timestamp() {
+inline void NtfGCBattleFrameFinish::set_has_frameindex() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NtfGCBattleFrameFinish::clear_has_timestamp() {
+inline void NtfGCBattleFrameFinish::clear_has_frameindex() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfGCBattleFrameFinish::clear_frameindex() {
+  frameindex_ = 0;
+  clear_has_frameindex();
+}
+inline ::google::protobuf::int32 NtfGCBattleFrameFinish::frameindex() const {
+  return frameindex_;
+}
+inline void NtfGCBattleFrameFinish::set_frameindex(::google::protobuf::int32 value) {
+  set_has_frameindex();
+  frameindex_ = value;
+}
+
+// required int64 timestamp = 2;
+inline bool NtfGCBattleFrameFinish::has_timestamp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NtfGCBattleFrameFinish::set_has_timestamp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NtfGCBattleFrameFinish::clear_has_timestamp() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void NtfGCBattleFrameFinish::clear_timestamp() {
   timestamp_ = GOOGLE_LONGLONG(0);
@@ -19649,9 +20207,57 @@ inline void NtfGCBattleFrameFinish::set_timestamp(::google::protobuf::int64 valu
 
 // -------------------------------------------------------------------
 
+// NtfGCBattleFrameStart
+
+// required int32 frameIndex = 1;
+inline bool NtfGCBattleFrameStart::has_frameindex() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NtfGCBattleFrameStart::set_has_frameindex() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NtfGCBattleFrameStart::clear_has_frameindex() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfGCBattleFrameStart::clear_frameindex() {
+  frameindex_ = 0;
+  clear_has_frameindex();
+}
+inline ::google::protobuf::int32 NtfGCBattleFrameStart::frameindex() const {
+  return frameindex_;
+}
+inline void NtfGCBattleFrameStart::set_frameindex(::google::protobuf::int32 value) {
+  set_has_frameindex();
+  frameindex_ = value;
+}
+
+// required int64 timestamp = 2;
+inline bool NtfGCBattleFrameStart::has_timestamp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NtfGCBattleFrameStart::set_has_timestamp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NtfGCBattleFrameStart::clear_has_timestamp() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NtfGCBattleFrameStart::clear_timestamp() {
+  timestamp_ = GOOGLE_LONGLONG(0);
+  clear_has_timestamp();
+}
+inline ::google::protobuf::int64 NtfGCBattleFrameStart::timestamp() const {
+  return timestamp_;
+}
+inline void NtfGCBattleFrameStart::set_timestamp(::google::protobuf::int64 value) {
+  set_has_timestamp();
+  timestamp_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // NtfGCBattleFinish
 
-// optional int64 timestamp = 1;
+// required int64 timestamp = 1;
 inline bool NtfGCBattleFinish::has_timestamp() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -19671,6 +20277,241 @@ inline ::google::protobuf::int64 NtfGCBattleFinish::timestamp() const {
 inline void NtfGCBattleFinish::set_timestamp(::google::protobuf::int64 value) {
   set_has_timestamp();
   timestamp_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NtfCGBattleCheckMd5
+
+// required int32 frameIndex = 1;
+inline bool NtfCGBattleCheckMd5::has_frameindex() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NtfCGBattleCheckMd5::set_has_frameindex() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NtfCGBattleCheckMd5::clear_has_frameindex() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfCGBattleCheckMd5::clear_frameindex() {
+  frameindex_ = 0;
+  clear_has_frameindex();
+}
+inline ::google::protobuf::int32 NtfCGBattleCheckMd5::frameindex() const {
+  return frameindex_;
+}
+inline void NtfCGBattleCheckMd5::set_frameindex(::google::protobuf::int32 value) {
+  set_has_frameindex();
+  frameindex_ = value;
+}
+
+// required bytes md5 = 2;
+inline bool NtfCGBattleCheckMd5::has_md5() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NtfCGBattleCheckMd5::set_has_md5() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NtfCGBattleCheckMd5::clear_has_md5() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NtfCGBattleCheckMd5::clear_md5() {
+  if (md5_ != &::google::protobuf::internal::kEmptyString) {
+    md5_->clear();
+  }
+  clear_has_md5();
+}
+inline const ::std::string& NtfCGBattleCheckMd5::md5() const {
+  return *md5_;
+}
+inline void NtfCGBattleCheckMd5::set_md5(const ::std::string& value) {
+  set_has_md5();
+  if (md5_ == &::google::protobuf::internal::kEmptyString) {
+    md5_ = new ::std::string;
+  }
+  md5_->assign(value);
+}
+inline void NtfCGBattleCheckMd5::set_md5(const char* value) {
+  set_has_md5();
+  if (md5_ == &::google::protobuf::internal::kEmptyString) {
+    md5_ = new ::std::string;
+  }
+  md5_->assign(value);
+}
+inline void NtfCGBattleCheckMd5::set_md5(const void* value, size_t size) {
+  set_has_md5();
+  if (md5_ == &::google::protobuf::internal::kEmptyString) {
+    md5_ = new ::std::string;
+  }
+  md5_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* NtfCGBattleCheckMd5::mutable_md5() {
+  set_has_md5();
+  if (md5_ == &::google::protobuf::internal::kEmptyString) {
+    md5_ = new ::std::string;
+  }
+  return md5_;
+}
+inline ::std::string* NtfCGBattleCheckMd5::release_md5() {
+  clear_has_md5();
+  if (md5_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = md5_;
+    md5_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void NtfCGBattleCheckMd5::set_allocated_md5(::std::string* md5) {
+  if (md5_ != &::google::protobuf::internal::kEmptyString) {
+    delete md5_;
+  }
+  if (md5) {
+    set_has_md5();
+    md5_ = md5;
+  } else {
+    clear_has_md5();
+    md5_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required .NFMsg.Ident role_id = 3;
+inline bool NtfCGBattleCheckMd5::has_role_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NtfCGBattleCheckMd5::set_has_role_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NtfCGBattleCheckMd5::clear_has_role_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NtfCGBattleCheckMd5::clear_role_id() {
+  if (role_id_ != NULL) role_id_->::NFMsg::Ident::Clear();
+  clear_has_role_id();
+}
+inline const ::NFMsg::Ident& NtfCGBattleCheckMd5::role_id() const {
+  return role_id_ != NULL ? *role_id_ : *default_instance_->role_id_;
+}
+inline ::NFMsg::Ident* NtfCGBattleCheckMd5::mutable_role_id() {
+  set_has_role_id();
+  if (role_id_ == NULL) role_id_ = new ::NFMsg::Ident;
+  return role_id_;
+}
+inline ::NFMsg::Ident* NtfCGBattleCheckMd5::release_role_id() {
+  clear_has_role_id();
+  ::NFMsg::Ident* temp = role_id_;
+  role_id_ = NULL;
+  return temp;
+}
+inline void NtfCGBattleCheckMd5::set_allocated_role_id(::NFMsg::Ident* role_id) {
+  delete role_id_;
+  role_id_ = role_id;
+  if (role_id) {
+    set_has_role_id();
+  } else {
+    clear_has_role_id();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// NtfGCBattleCheckMd5
+
+// required int32 frameIndex = 1;
+inline bool NtfGCBattleCheckMd5::has_frameindex() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NtfGCBattleCheckMd5::set_has_frameindex() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NtfGCBattleCheckMd5::clear_has_frameindex() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NtfGCBattleCheckMd5::clear_frameindex() {
+  frameindex_ = 0;
+  clear_has_frameindex();
+}
+inline ::google::protobuf::int32 NtfGCBattleCheckMd5::frameindex() const {
+  return frameindex_;
+}
+inline void NtfGCBattleCheckMd5::set_frameindex(::google::protobuf::int32 value) {
+  set_has_frameindex();
+  frameindex_ = value;
+}
+
+// required .NFMsg.EGameEventCode event_code = 2;
+inline bool NtfGCBattleCheckMd5::has_event_code() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NtfGCBattleCheckMd5::set_has_event_code() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NtfGCBattleCheckMd5::clear_has_event_code() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NtfGCBattleCheckMd5::clear_event_code() {
+  event_code_ = 0;
+  clear_has_event_code();
+}
+inline ::NFMsg::EGameEventCode NtfGCBattleCheckMd5::event_code() const {
+  return static_cast< ::NFMsg::EGameEventCode >(event_code_);
+}
+inline void NtfGCBattleCheckMd5::set_event_code(::NFMsg::EGameEventCode value) {
+  assert(::NFMsg::EGameEventCode_IsValid(value));
+  set_has_event_code();
+  event_code_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ReqBattlePing
+
+// required int32 frameIndex = 1;
+inline bool ReqBattlePing::has_frameindex() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ReqBattlePing::set_has_frameindex() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ReqBattlePing::clear_has_frameindex() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ReqBattlePing::clear_frameindex() {
+  frameindex_ = 0;
+  clear_has_frameindex();
+}
+inline ::google::protobuf::int32 ReqBattlePing::frameindex() const {
+  return frameindex_;
+}
+inline void ReqBattlePing::set_frameindex(::google::protobuf::int32 value) {
+  set_has_frameindex();
+  frameindex_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AckBattlePing
+
+// required int32 frameIndex = 1;
+inline bool AckBattlePing::has_frameindex() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AckBattlePing::set_has_frameindex() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AckBattlePing::clear_has_frameindex() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AckBattlePing::clear_frameindex() {
+  frameindex_ = 0;
+  clear_has_frameindex();
+}
+inline ::google::protobuf::int32 AckBattlePing::frameindex() const {
+  return frameindex_;
+}
+inline void AckBattlePing::set_frameindex(::google::protobuf::int32 value) {
+  set_has_frameindex();
+  frameindex_ = value;
 }
 
 

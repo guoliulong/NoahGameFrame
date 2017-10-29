@@ -6,6 +6,7 @@
 #include "NFComm/NFPluginModule/NFIGameServerNet_ServerModule.h"
 #include <set>
 
+
 class CFrameSyncGameModule :
 	public IFrameSyncGameModule
 {
@@ -19,10 +20,16 @@ public:
 		NFGUID RoleID;
 		NFSOCK ProxySocketIndex;
 		bool   IsReady;
+		std::map<int, std::string> Md5Map;
 	};
 
 	struct BattleInfo
 	{
+		inline BattleInfo()
+		{
+			frameIndex = 0;
+		}
+		int frameIndex;
 		BattleMatchPlayerInfo playerA;
 		BattleMatchPlayerInfo playerB;
 	};
@@ -48,8 +55,10 @@ private:
 private:
 	void OnReqBattleMatchProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
 	void OnReqBattleStartProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
+	void OnReqBattlePingProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
+	
 	void OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
-
+	void OnNtfCGBattleCheckMd5Process(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
 	void ProcessMatchSuccess(NF_SHARE_PTR<BattleInfo> pBI);
 
 	void SendFrameFinishCmmand(const NF_SHARE_PTR<BattleInfo> bi);

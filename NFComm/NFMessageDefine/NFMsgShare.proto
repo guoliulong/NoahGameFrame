@@ -786,27 +786,62 @@ message AckBattleStart
 //EGMI_NTF_CG_BATTLE_FRAMECOMMAND				= 2004; //?????????????????
 message NtfCGBattleFrameCommand
 {
-	required Ident  role_id				=1;
-	required int32	skillId					=2;
+	required int32  frameIndex   		=1; //Server not process this feild
+	required Ident  role_id				=2;
+	required int32	skillId					=3;
 }	
 //EGMI_NTF_GC_BATTLE_FRAMECOMMAND				= 2005; //?????????????
 message NtfGCBattleFrameCommand
 {
-	required Ident  role_id				=1;
-	required int32	skillId					=2;
+	required int32  frameIndex   		=1;
+	required Ident  role_id				=2;
+	required int32	skillId					=3;
 }
 //EGMI_NTF_GC_BATTLE_FRAMEFINISH				= 2006; //??????????????????????????
 message NtfGCBattleFrameFinish
 {
-	optional int64 timestamp			=1;
+	required int32  frameIndex   		=1;
+	required int64 timestamp			=2;
+}
+//EGMI_NTF_GC_BATTLE_FRAMESTART
+message NtfGCBattleFrameStart
+{
+	required int32  frameIndex   		=1;
+	required int64 timestamp			=2;
 }
 
 //EGMI_NTF_GC_BATTLE_FINISH					= 2007;
 message NtfGCBattleFinish
 {
-	optional int64 timestamp			=1;
+	required int64 timestamp			=1;
 }
 
+//EGMI_NTF_CG_BATTLE_CHECKMD5
+message NtfCGBattleCheckMd5
+{
+	required int32  frameIndex   		=1;
+	required bytes 	md5 				=2;
+	required Ident  role_id				=3;
+}
+
+//EGMI_NTF_GC_BATTLE_CHECKMD5
+message NtfGCBattleCheckMd5
+{
+	required int32  frameIndex   		=1;
+	required EGameEventCode  event_code =2;
+}
+
+//EGMI_REQ_BATTLE_PING
+message ReqBattlePing
+{
+	required int32  frameIndex			=1;//@ which frame ping
+}
+
+//EGMI_REQ_BATTLE_PING
+message AckBattlePing
+{
+	required int32  frameIndex			=1;//@ which frame ping
+}
 
 
 

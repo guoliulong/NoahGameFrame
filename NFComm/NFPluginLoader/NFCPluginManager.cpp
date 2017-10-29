@@ -303,6 +303,9 @@ bool NFCPluginManager::Execute()
 {
     mnNowTime = time(NULL);
 
+	//long long lastt = NFGetTime();
+
+
     bool bRet = true;
 
     PluginInstanceMap::iterator it = mPluginInstanceMap.begin();
@@ -311,6 +314,9 @@ bool NFCPluginManager::Execute()
         bool tembRet = it->second->Execute();
         bRet = bRet && tembRet;
     }
+
+	//std::cout << NFGetTime() - lastt << std::endl;
+
 
     return bRet;
 }

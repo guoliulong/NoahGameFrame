@@ -2849,15 +2849,22 @@ namespace NFMsg
   {
     public NtfCGBattleFrameCommand() {}
     
+    private int _frameIndex;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"frameIndex", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int frameIndex
+    {
+      get { return _frameIndex; }
+      set { _frameIndex = value; }
+    }
     private NFMsg.Ident _role_id;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"role_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"role_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public NFMsg.Ident role_id
     {
       get { return _role_id; }
       set { _role_id = value; }
     }
     private int _skillId;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"skillId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"skillId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public int skillId
     {
       get { return _skillId; }
@@ -2873,15 +2880,22 @@ namespace NFMsg
   {
     public NtfGCBattleFrameCommand() {}
     
+    private int _frameIndex;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"frameIndex", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int frameIndex
+    {
+      get { return _frameIndex; }
+      set { _frameIndex = value; }
+    }
     private NFMsg.Ident _role_id;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"role_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"role_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public NFMsg.Ident role_id
     {
       get { return _role_id; }
       set { _role_id = value; }
     }
     private int _skillId;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"skillId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"skillId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public int skillId
     {
       get { return _skillId; }
@@ -2897,9 +2911,39 @@ namespace NFMsg
   {
     public NtfGCBattleFrameFinish() {}
     
-    private long _timestamp = default(long);
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"timestamp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(long))]
+    private int _frameIndex;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"frameIndex", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int frameIndex
+    {
+      get { return _frameIndex; }
+      set { _frameIndex = value; }
+    }
+    private long _timestamp;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"timestamp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public long timestamp
+    {
+      get { return _timestamp; }
+      set { _timestamp = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"NtfGCBattleFrameStart")]
+  public partial class NtfGCBattleFrameStart : global::ProtoBuf.IExtensible
+  {
+    public NtfGCBattleFrameStart() {}
+    
+    private int _frameIndex;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"frameIndex", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int frameIndex
+    {
+      get { return _frameIndex; }
+      set { _frameIndex = value; }
+    }
+    private long _timestamp;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"timestamp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public long timestamp
     {
       get { return _timestamp; }
@@ -2915,13 +2959,101 @@ namespace NFMsg
   {
     public NtfGCBattleFinish() {}
     
-    private long _timestamp = default(long);
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"timestamp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(long))]
+    private long _timestamp;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"timestamp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public long timestamp
     {
       get { return _timestamp; }
       set { _timestamp = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"NtfCGBattleCheckMd5")]
+  public partial class NtfCGBattleCheckMd5 : global::ProtoBuf.IExtensible
+  {
+    public NtfCGBattleCheckMd5() {}
+    
+    private int _frameIndex;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"frameIndex", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int frameIndex
+    {
+      get { return _frameIndex; }
+      set { _frameIndex = value; }
+    }
+    private byte[] _md5;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"md5", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public byte[] md5
+    {
+      get { return _md5; }
+      set { _md5 = value; }
+    }
+    private NFMsg.Ident _role_id;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"role_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public NFMsg.Ident role_id
+    {
+      get { return _role_id; }
+      set { _role_id = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"NtfGCBattleCheckMd5")]
+  public partial class NtfGCBattleCheckMd5 : global::ProtoBuf.IExtensible
+  {
+    public NtfGCBattleCheckMd5() {}
+    
+    private int _frameIndex;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"frameIndex", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int frameIndex
+    {
+      get { return _frameIndex; }
+      set { _frameIndex = value; }
+    }
+    private NFMsg.EGameEventCode _event_code;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"event_code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public NFMsg.EGameEventCode event_code
+    {
+      get { return _event_code; }
+      set { _event_code = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"ReqBattlePing")]
+  public partial class ReqBattlePing : global::ProtoBuf.IExtensible
+  {
+    public ReqBattlePing() {}
+    
+    private int _frameIndex;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"frameIndex", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int frameIndex
+    {
+      get { return _frameIndex; }
+      set { _frameIndex = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"AckBattlePing")]
+  public partial class AckBattlePing : global::ProtoBuf.IExtensible
+  {
+    public AckBattlePing() {}
+    
+    private int _frameIndex;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"frameIndex", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int frameIndex
+    {
+      get { return _frameIndex; }
+      set { _frameIndex = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)

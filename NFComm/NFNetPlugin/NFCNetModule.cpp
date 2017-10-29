@@ -299,7 +299,7 @@ void NFCNetModule::KeepAlive()
 		return;
 	}
 
-	if (m_pNet->IsServer())
+	if (m_pNet->IsServer()) //如果是服务器那么就不发,说明是客户端发到服务器的协议,接下来的代码其实给C++的客户端玩得.比如xxxx_client
 	{
 		return;
 	}
