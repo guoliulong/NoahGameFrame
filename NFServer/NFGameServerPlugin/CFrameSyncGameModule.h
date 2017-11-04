@@ -72,9 +72,10 @@ private:
 	//NFILogModule* m_pLogModule;
 	NFIGameServerNet_ServerModule* m_pGameServerNet_ServerModule;
 	int64_t miLastTime;
+	int64_t miLastFrameTime;
 	int64_t miNowTime;
 
-	const int64_t FRAMESYNC_TIMESPAN = 1000 / 15;//66.666
+	const int64_t FRAMESYNC_TIMESPAN = 1000 / 25;
 };
 
 #endif 

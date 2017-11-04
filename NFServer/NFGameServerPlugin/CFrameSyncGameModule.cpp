@@ -374,11 +374,13 @@ void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIn
  void CFrameSyncGameModule::ProcessFrameSync()
  {
 	 miNowTime = NFGetTime();
+	 std::cout << miNowTime - miLastFrameTime << std::endl;
+	 miLastFrameTime = miNowTime;
 
-	 if (miNowTime - miLastTime < FRAMESYNC_TIMESPAN)
+	 if (miNowTime - miLastTime <= FRAMESYNC_TIMESPAN)
 		 return;
 
-	 miLastTime = miNowTime;
+	 miLastTime += FRAMESYNC_TIMESPAN;
 	 RuningBattleIterator begin = mRuningBattles.cbegin();
 	 RuningBattleIterator end = mRuningBattles.cend();
 	 for (; begin != end; ++begin)
