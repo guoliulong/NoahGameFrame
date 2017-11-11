@@ -343,7 +343,7 @@ void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIn
 	}
 	NFMsg::NtfGCBattleFrameCommand cmd;
 	*cmd.mutable_role_id() = xMsg.role_id();
-	cmd.set_skillid(xMsg.skillid());
+	cmd.set_skill_slot_index(xMsg.skill_slot_index());
 	
 	auto it = mRoleID2BattleInfo.find(NFINetModule::PBToNF(xMsg.role_id()));
 	if (it != mRoleID2BattleInfo.end())
@@ -374,8 +374,8 @@ void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIn
  void CFrameSyncGameModule::ProcessFrameSync()
  {
 	 miNowTime = NFGetTime();
-	 std::cout << miNowTime - miLastFrameTime << std::endl;
-	 miLastFrameTime = miNowTime;
+	 //std::cout << miNowTime - miLastFrameTime << std::endl;
+	 //miLastFrameTime = miNowTime;
 
 	 if (miNowTime - miLastTime <= FRAMESYNC_TIMESPAN)
 		 return;

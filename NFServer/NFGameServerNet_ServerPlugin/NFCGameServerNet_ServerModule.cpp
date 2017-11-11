@@ -5,6 +5,7 @@
 //    @Module           :    NFCGameServerNet_ServerModule
 //    @Desc             :
 // -------------------------------------------------------------------------
+#pragma execution_character_set("utf-8")
 
 #include "NFCGameServerNet_ServerModule.h"
 #include "NFComm/NFMessageDefine/NFProtocolDefine.hpp"
@@ -1052,6 +1053,11 @@ int NFCGameServerNet_ServerModule::OnObjectClassEvent(const NFGUID& self, const 
 
 			*xMsg.mutable_event_client() = NFINetModule::NFToPB(pDataBase->xClientID);
 			*xMsg.mutable_event_object() = NFINetModule::NFToPB(self);
+			//
+			ostringstream strsm;
+			strsm << "玩家数量:";
+			strsm << mRoleBaseData.Count();
+			*xMsg.mutable_extra_info() = strsm.str();
 
 			SendMsgPBToGate(NFMsg::EGMI_ACK_ENTER_GAME, xMsg, self);
 		}

@@ -788,14 +788,14 @@ message NtfCGBattleFrameCommand
 {
 	required int32  frameIndex   		=1; //Server not process this feild
 	required Ident  role_id				=2;
-	required int32	skillId					=3;
+	required int32	skill_slot_index	=3;
 }	
 //EGMI_NTF_GC_BATTLE_FRAMECOMMAND				= 2005; //?????????????
 message NtfGCBattleFrameCommand
 {
 	required int32  frameIndex   		=1;
 	required Ident  role_id				=2;
-	required int32	skillId					=3;
+	required int32	skill_slot_index	=3;
 }
 //EGMI_NTF_GC_BATTLE_FRAMEFINISH				= 2006; //??????????????????????????
 message NtfGCBattleFrameFinish
