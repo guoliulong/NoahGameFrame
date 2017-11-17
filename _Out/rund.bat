@@ -15,8 +15,8 @@ start "NFLoginServer" "NFPluginLoader_d.exe" "Server=LoginServer" "ID=4"
 
 choice /t 2 /d y /n >nul
 
-rem echo Starting NFGameServer...
-rem start "NFGameServer" "NFPluginLoader_d.exe" "Server=GameServer" "ID=6"
+ echo Starting NFGameServer...
+ start "NFGameServer" "NFPluginLoader_d.exe" "Server=GameServer" "ID=6"
 
 choice /t 2 /d y /n >nul
 
@@ -25,8 +25,8 @@ rem start "NFAIServer" "NFPluginLoader_d.exe" "Server=AIServer" "ID=8"
 
 choice /t 4 /d y /n >nul
 
-rem echo Starting NFProxyServer...
-rem start "NFProxyServer" "NFPluginLoader_d.exe" "Server=ProxyServer" "ID=5"
+ echo Starting NFProxyServer...
+ start "NFProxyServer" "NFPluginLoader_d.exe" "Server=ProxyServer" "ID=5"
 
 
 
