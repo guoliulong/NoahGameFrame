@@ -43,7 +43,11 @@ bool CFrameSyncGameModule::Init()
 bool CFrameSyncGameModule::AfterInit()
 {
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_BATTLE_MATCH, this, &CFrameSyncGameModule::OnReqBattleMatchProcess);
-	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_NTF_CG_BATTLE_FRAMECOMMAND, this, &CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess);
+	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_NTF_CG_BATTLE_FRAMECOMMAND_CAST_SKILL, this,
+		&CFrameSyncGameModule::OnNtfCGBattleFrameCommand_CastSkill_Process);
+	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_NTF_CG_BATTLE_FRAMECOMMAND_CHANGE_HERO, this,
+		&CFrameSyncGameModule::OnNtfCGBattleFrameCommand_ChangeHero_Process);
+	
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_BATTLE_START, this, &CFrameSyncGameModule::OnReqBattleStartProcess);
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_NTF_CG_BATTLE_CHECKMD5, this, &CFrameSyncGameModule::OnNtfCGBattleCheckMd5Process);
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_BATTLE_PING, this, &CFrameSyncGameModule::OnReqBattlePingProcess);
@@ -249,7 +253,9 @@ void CFrameSyncGameModule::ProcessMatchSuccess(NF_SHARE_PTR<BattleInfo> pBI)
 	*pi_b.mutable_player_name() = "playerB";
 	//set heros
 	(*pi_a.add_hero_list()).set_hero_id(1);
+	(*pi_a.add_hero_list()).set_hero_id(3);
 	(*pi_a.add_hero_list()).set_hero_id(2);
+	(*pi_b.add_hero_list()).set_hero_id(4);
 	(*pi_b.add_hero_list()).set_hero_id(1);
 	(*pi_b.add_hero_list()).set_hero_id(2);
 
@@ -332,16 +338,16 @@ void CFrameSyncGameModule::SendFrameFinishCmmand(const NF_SHARE_PTR<BattleInfo> 
 	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMESTART, ret_FrameStart, pbi->playerB.RoleID);
 }
 
-//EGMI_NTF_CG_BATTLE_FRAMECOMMAND
-void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
+//EGMI_NTF_CG_BATTLE_FRAMECOMMAND_CAST_SKILL
+void CFrameSyncGameModule::OnNtfCGBattleFrameCommand_CastSkill_Process(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
 {
 	NFGUID nClientID;
-	NFMsg::NtfCGBattleFrameCommand xMsg;
+	NFMsg::NtfCGBattleFrameCommand_CastSkill xMsg;
 	if (!m_pNetModule->ReceivePB(nMsgID, msg, nLen, xMsg, nClientID))
 	{
 		return;
 	}
-	NFMsg::NtfGCBattleFrameCommand cmd;
+	NFMsg::NtfGCBattleFrameCommand_CastSkill cmd;
 	*cmd.mutable_role_id() = xMsg.role_id();
 	cmd.set_skill_slot_index(xMsg.skill_slot_index());
 	
@@ -350,8 +356,31 @@ void CFrameSyncGameModule::OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIn
 	{
 		NF_SHARE_PTR<BattleInfo> pBi = it->second;
 		cmd.set_frameindex(pBi->frameIndex);
-		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMECOMMAND, cmd, pBi->playerA.RoleID);
-		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMECOMMAND, cmd, pBi->playerB.RoleID);
+		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMECOMMAND_CAST_SKILL, cmd, pBi->playerA.RoleID);
+		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMECOMMAND_CAST_SKILL, cmd, pBi->playerB.RoleID);
+	}
+}
+
+//EGMI_NTF_CG_BATTLE_FRAMECOMMAND_CAST_SKILL
+void CFrameSyncGameModule::OnNtfCGBattleFrameCommand_ChangeHero_Process(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
+{
+	NFGUID nClientID;
+	NFMsg::NtfCGBattleFrameCommand_ChangeHero xMsg;
+	if (!m_pNetModule->ReceivePB(nMsgID, msg, nLen, xMsg, nClientID))
+	{
+		return;
+	}
+	NFMsg::NtfGCBattleFrameCommand_ChangeHero cmd;
+	*cmd.mutable_role_id() = xMsg.role_id();
+	cmd.set_hero_id(xMsg.hero_id());
+
+	auto it = mRoleID2BattleInfo.find(NFINetModule::PBToNF(xMsg.role_id()));
+	if (it != mRoleID2BattleInfo.end())
+	{
+		NF_SHARE_PTR<BattleInfo> pBi = it->second;
+		cmd.set_frameindex(pBi->frameIndex);
+		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMECOMMAND_CHANGE_HERO, cmd, pBi->playerA.RoleID);
+		m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::EGMI_NTF_GC_BATTLE_FRAMECOMMAND_CHANGE_HERO, cmd, pBi->playerB.RoleID);
 	}
 }
 

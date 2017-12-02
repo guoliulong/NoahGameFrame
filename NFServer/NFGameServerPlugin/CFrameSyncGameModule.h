@@ -57,7 +57,9 @@ private:
 	void OnReqBattleStartProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
 	void OnReqBattlePingProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
 	
-	void OnNtfCGBattleFrameCommandProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
+	void OnNtfCGBattleFrameCommand_CastSkill_Process(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
+	void OnNtfCGBattleFrameCommand_ChangeHero_Process(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
+
 	void OnNtfCGBattleCheckMd5Process(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
 	void ProcessMatchSuccess(NF_SHARE_PTR<BattleInfo> pBI);
 
